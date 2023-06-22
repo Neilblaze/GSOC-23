@@ -73,24 +73,11 @@ In this proposal, I suggest developing an *interactive web app* using the **Medi
 
 - Designed new Figma prototypes to refactor the current  UI of the project for enhancement. 
 
-## 🖼️ **Prototypes**:
+## 🖼️ **Prototype Slides**:
 
-<pre>
-<img src="./assets/Prototypes/A.gif" width="250" /> 
-<img src="./assets/Prototypes/A1.png" width="250" /> 
-<img src="./assets/Prototypes/A2.png" width="250" /> 
-<img src="./assets/Prototypes/B1.png" width="250" /> 
-<img src="./assets/Prototypes/C.png" width="250" /> 
-<img src="./assets/Prototypes/C1.png" width="250" /> 
-<img src="./assets/Prototypes/D.png" width="250" /> 
-<img src="./assets/Prototypes/E.png" width="250" /> 
-<img src="./assets/Prototypes/E1.png" width="250" /> 
-<img src="./assets/Prototypes/E2.png" width="250" /> 
-<img src="./assets/Prototypes/F.png" width="250" /> 
-<img src="./assets/Prototypes/F1.png" width="250" /> 
-</pre>
+![aeronexus](https://github.com/google/mediapipe/assets/48355572/8172978d-3baa-4bed-8844-03d3aac0b05e)
 
-- I'm also planning to migrate the current project to Next.js in the coming weeks. If time permits, I'll consider adding Snapshot Testing to the project.
+- I'm also planning to migrate the current project to _Next.js_ in the coming weeks. If time permits, I'll consider adding Snapshot Testing to the project.
 
 - Started writing tutorial blogs for this project ⏳
 
