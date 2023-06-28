@@ -38,47 +38,50 @@ In this proposal, I suggest developing an *interactive web app* using the **Medi
 
 <br/>
 
-## 📝 **PROGRESS TRACKER**:
+## **<u style="background-image: linear-gradient(135deg, #30c712, #154cb3); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-family: Lato, Arial;">Progress Tracker</u>** 📝
 
-###  𒀖 [**Community Bonding Period**](https://blog.neilblaze.live/gsoc'23-community-bonding-period-@tensorflow) (5th May — 28th May):
+###  🟩 [**<u style="background-image: linear-gradient(135deg, #821aeb, #4509de); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Community Bonding Period</u>**](https://blog.neilblaze.live/gsoc'23-community-bonding-period-@tensorflow) (<u style="color: #016b4d; font-family: Lato, Arial;">5th May — 28th May</u>):
 
-- Interacted with [Paul](https://github.com/PaulTR) & discussed project details, and setting goals.
-- Set up my development environment.
-- Went through the [MediaPipe API docs](https://developers.google.com/mediapipe/api/solutions/js/tasks-vision) & explored new MediaPipe [Samples](https://developers.google.com/mediapipe/solutions/examples) (Vision).
-- Revised proposal and set up development milestones.
-- Started creating an MVP for the discussed solution.
-- Finished essential tasks for GSoC onboarding.
-- Introduced myself to the community & met other GSoC participants.
-- Continued Learning.
-
-<br/>
-
-###  𒀖 **Week 1-3** (29th May — 21st June):
-
-- Studied the [MediaPipe HandLandmarker task](https://github.com/googlesamples/mediapipe/tree/main/examples/hand_landmarker/js) API for Web. Follow [CodePen](https://codepen.io/mediapipe-preview/pen/gOKBGPN) example for reference.
-- Tested the it locally by wrapping it inside a React App.
-- Studied the [API docs](https://developers.google.com/mediapipe/solutions/vision/hand_landmarker/web_js) of MediaPipe & [Gesture Recognizer](https://developers.google.com/mediapipe/solutions/vision/gesture_recognizer/web_js) API for Web.
-- Started writing code for the web interface and integrate MediaPipe's [hand landmark](https://developers.google.com/mediapipe/solutions/vision/hand_landmarker) model API.
-- Cleared up the code and made notes to track progress.
+- Interacted with [Paul](https://github.com/PaulTR) & discussed project details, and set goals 💬
+- Set up my development environment 🖥️
+- Explored [<u style="background-image: linear-gradient(135deg, #0097A7, #26b5a7); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-family: Lato, Arial;">MediaPipe</u> API docs](https://developers.google.com/mediapipe/api/solutions/js/tasks-vision) & <u style="background-image: linear-gradient(135deg, #0097A7, #26b5a7); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-family: Lato, Arial;">MediaPipe</u> (Vision) [Samples](https://developers.google.com/mediapipe/solutions/examples).
+- Revised proposal and set up development milestones ✍
+- Started creating an <em style="color: #096bba; font-family: Lato, Arial;">MVP</em> for the discussed solution 👨‍💻
+- Finished essential tasks for GSoC onboarding ☑️
+- Introduced myself to the community & met other GSoC participants 👥
+- Continued Learning 📚
 
 <br/>
 
-### 𒃼 **Week 4** [WIP] (22nd June — 29th June):
+###  🟩 <u style="background-image: linear-gradient(135deg, #821aeb, #4509de); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Week</u> <u style="background-image: linear-gradient(135deg, #821aeb, #4509de); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-family: Lato, Arial;">1 - 3</u> (<u style="color: #016b4d; font-family: Lato, Arial;">29th May — 21st June</u>):
 
-- I am diligently keeping track of my work and progress.
+- Studied the [MediaPipe HandLandmarker task](https://github.com/googlesamples/mediapipe/tree/main/examples/hand_landmarker/js) API for Web. Follow [CodePen](https://codepen.io/mediapipe-preview/pen/gOKBGPN) example for reference 📚
+- Tested the it locally by wrapping it inside a [<u style="background-image: linear-gradient(135deg, #25aee8, #11aced); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-family: Lato, Arial;">React</u> App](https://react.dev) ⚛️
+- Studied the [API docs](https://developers.google.com/mediapipe/solutions/vision/hand_landmarker/web_js) of <u style="background-image: linear-gradient(135deg, #0097A7, #26b5a7); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-family: Lato, Arial;">MediaPipe</u> & [Gesture Recognizer](https://developers.google.com/mediapipe/solutions/vision/gesture_recognizer/web_js) API for Web 📚
+- Started writing code for the web interface and integrate MediaPipe's [hand landmark](https://developers.google.com/mediapipe/solutions/vision/hand_landmarker) model API 👨‍💻
+- Cleared up the code and made notes to track progress ✍🏻
 
-- I'm pushing continuous changes to my local git tree, which allows easy tracking of changes. I'll ensure that new commits are pushed at regular intervals to a public GitHub repository & is deployed to reflect continuous improvements.
+<br/>
 
-- I'm running ahead of schedule, as I successfully crafted an MVP of the project using React.js & MediaPipe's HandLandmarker API. The working demo can be explored [here](https://drive.google.com/file/d/153wPRz1Hn8N1B96VbeF7EK5ia3Vk-yw9/view).
+### 🟩 <u style="background-image: linear-gradient(135deg, #821aeb, #4509de); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Week</u> <u style="background-image: linear-gradient(135deg, #821aeb, #4509de); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-family: Lato, Arial;">4</u> [WIP] (<u style="color: #016b4d; font-family: Lato, Arial;">22nd June — 29th June</u>):
 
-- Designed new Figma prototypes to refactor the current  UI of the project for enhancement. 
+- I am diligently keeping track of my work and progress ✅
 
-## 🖼️ **Prototype Slides**:
+- I'm pushing continuous changes to my local git tree, which allows easy tracking of changes. I'm also ensuring that new commits are pushed at regular intervals to a public [<u style="background-image: linear-gradient(135deg, #670896, #4b3c52); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-family: Lato, Arial;">**GitHub**</u>](https://github.com/Neilblaze/GSOC-23) repository & is deployed to reflect continuous improvements ☑️
+
+- I'm running ahead of schedule, as I successfully crafted an MVP of the project using React.js & MediaPipe's HandLandmarker API. The working demo can be viewed → [<u><mark style="color: #f20c70; font-family: 'Trebuchet MS', sans-serif;">🔗 **here**</mark></u>](https://drive.google.com/file/d/153wPRz1Hn8N1B96VbeF7EK5ia3Vk-yw9/view) 😎
+
+- Designed new Figma prototypes to refactor the current UI of the project for enhancement 🎨
+
+
+### <u style="background-image: linear-gradient(135deg, #0097A7, #11aced); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-family: Lato, Arial;">Prototype Slides</u>  🖼️
 
 ![aeronexus](https://github.com/google/mediapipe/assets/48355572/8172978d-3baa-4bed-8844-03d3aac0b05e)
 
-- I'm also planning to migrate the current project to _Next.js_ in the coming weeks. If time permits, I'll consider adding Snapshot Testing to the project.
+- I'm also planning to migrate the current project to [<u style="background-image: linear-gradient(135deg, #670896, #4b3c52); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-family: Lato, Arial;">**NEXT.js**</u>](https://nextjs.org) in the coming weeks. If time permits, I'll consider adding snapshot-testing to the project.
 
-- Started writing tutorial blogs for this project ⏳
+- Wrote this blog on how to use MediaPipe Model Maker to train custom models for hand tracking. 📝
+
+- Cleared up the code and made notes to track progress ✍🏻
 
 ---
