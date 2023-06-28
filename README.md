@@ -6,7 +6,7 @@
 
 * **Year**: 2023
 
-* **Organisation**: [TensorFlow](https://www.tensorflow.org) <img src="https://github.com/google/mediapipe/assets/48355572/5205ea50-174c-4bb3-b2e9-b4564ad1a9c7" width="14.5px" height="15.5px">
+* **Organisation**: [<u style="background-image: linear-gradient(135deg, #FFA800, #FF6F00); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-family: Lato, Arial;">**TensorFlow**</u>](https://www.tensorflow.org) <img src="https://github.com/google/mediapipe/assets/48355572/5205ea50-174c-4bb3-b2e9-b4564ad1a9c7" width="14.5px" height="15.5px">
 
 * **Project Title**: [Interactive Web Demos using the MediaPipe Machine Learning Library](https://summerofcode.withgoogle.com/programs/2023/projects/pd9KgnNP)
 
@@ -20,7 +20,7 @@ In this proposal, I suggest developing an *interactive web app* using the **Medi
 
  The app will showcase an augmented *transaction panel* previewed on the screen, enabling users to perform essential CRUD operations of items through custom simple-to-use gestures, *without physical touch*. Both custom defined & pre-trained gestures from Mediapipe’s tasks-vision API will be utilized to classify gestures and trigger events on the interface. The project targets most platforms, primarily *big screens*, and may run on selective mobile devices with a camera module for input feed. *All data taken via input video feed is deleted after returning inference and is computed directly on the client side, making it GDPR compliant.* Once completed, the Web App will be uploaded to Codepen and/or deployed on Vercel.
 
-* **Keywords / Topics**: Web, Computer Vision, Accessibility, MediaPipe, Gesture Detection, Interactability
+* **Keywords / Topics**: <u style="background-image: linear-gradient(135deg, #4285F4, #4285F4); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-family: Lato, Arial;">G</u><u style="background-image: linear-gradient(135deg, #EA4335, #EA4335); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-family: Lato, Arial;">o</u><u style="background-image: linear-gradient(135deg, #FBBC05, #FBBC05); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-family: Lato, Arial;">o</u><u style="background-image: linear-gradient(135deg, #4285F4, #4285F4); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-family: Lato, Arial;">g</u><u style="background-image: linear-gradient(135deg, #34A853, #34A853); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-family: Lato, Arial;">l</u><u style="background-image: linear-gradient(135deg, #EA4335, #EA4335); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-family: Lato, Arial;">e</u>, Web, Computer Vision, Accessibility, MediaPipe, Gesture Detection, Interactability
 
 * **Mentor**: [**Jen Person**](https://www.linkedin.com/in/jennifer-person) ([@jenperson](https://github.com/jenperson))
 
@@ -32,7 +32,7 @@ In this proposal, I suggest developing an *interactive web app* using the **Medi
 
 <br/>
 
-## 🦄 **Project Name** → **_Aeronexus_**
+## 🦄 **Project Name** → **<u style="background-image: linear-gradient(135deg, #28d3fa, #2f10c7); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-family: Lato, Arial;">_Aeronexus_</u>**
 
 > Aero" is related to air (devoid of touch), and "nexus" refers to a connection or a central point. The name is inspired by the project's goal of providing a touchless interface for users to interact with the web.
 
@@ -80,7 +80,7 @@ In this proposal, I suggest developing an *interactive web app* using the **Medi
 
 - I'm also planning to migrate the current project to [<u style="background-image: linear-gradient(135deg, #670896, #4b3c52); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-family: Lato, Arial;">**NEXT.js**</u>](https://nextjs.org) in the coming weeks. If time permits, I'll consider adding snapshot-testing to the project.
 
-- Wrote this blog on how to use MediaPipe Model Maker to train custom models for hand tracking. 📝
+- Wrote [this](https://blog.neilblaze.live/tracking-progress-for-interactive-web-demo-with-mediapipe-ml-library-under-gsoc'23-@tensorflow) *blog* on how to use <u style="background-image: linear-gradient(135deg, #0097A7, #26b5a7); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-family: Lato, Arial;">MediaPipe</u> Model Maker to train custom models for hand tracking. 📝
 
 - Cleared up the code and made notes to track progress ✍🏻
 
