@@ -36,6 +36,8 @@ In this proposal, I suggest developing an *interactive web app* using the **Medi
 
 > Aero" is related to air (devoid of touch), and "nexus" refers to a connection or a central point. The name is inspired by the project's goal of providing a touchless interface for users to interact with the web.
 
+### 🏃 Try the live demo (wip) [here](https://aeronexus.neilblaze.live/). 
+
 <br/>
 
 ## **<u style="background-image: linear-gradient(135deg, #30c712, #154cb3); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-family: Lato, Arial;">Progress Tracker</u>** 📝
@@ -53,7 +55,7 @@ In this proposal, I suggest developing an *interactive web app* using the **Medi
 
 <br/>
 
-###  🟩 <u style="background-image: linear-gradient(135deg, #821aeb, #4509de); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Week</u> <u style="background-image: linear-gradient(135deg, #821aeb, #4509de); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-family: Lato, Arial;">1 - 3</u> (<u style="color: #016b4d; font-family: Lato, Arial;">29th May — 21st June</u>):
+###  🟩 [**<u style="background-image: linear-gradient(135deg, #821aeb, #4509de); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Week</u> <u style="background-image: linear-gradient(135deg, #821aeb, #4509de); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-family: Lato, Arial;">1 - 3</u>**]((https://blog.neilblaze.live/a-holistic-preview-of-mediapipe-for-gsoc'23-@tensorflow)) (<u style="color: #016b4d; font-family: Lato, Arial;">29th May — 21st June</u>):
 
 - Studied the [MediaPipe HandLandmarker task](https://github.com/googlesamples/mediapipe/tree/main/examples/hand_landmarker/js) API for Web. Follow [CodePen](https://codepen.io/mediapipe-preview/pen/gOKBGPN) example for reference 📚
 - Tested the it locally by wrapping it inside a [<u style="background-image: linear-gradient(135deg, #25aee8, #11aced); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-family: Lato, Arial;">React</u> App](https://react.dev) ⚛️
@@ -63,13 +65,13 @@ In this proposal, I suggest developing an *interactive web app* using the **Medi
 
 <br/>
 
-### 🟩 <u style="background-image: linear-gradient(135deg, #821aeb, #4509de); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Week</u> <u style="background-image: linear-gradient(135deg, #821aeb, #4509de); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-family: Lato, Arial;">4</u> [WIP] (<u style="color: #016b4d; font-family: Lato, Arial;">22nd June — 29th June</u>):
+### 🟩 [**<u style="background-image: linear-gradient(135deg, #821aeb, #4509de); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Week</u> <u style="background-image: linear-gradient(135deg, #821aeb, #4509de); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-family: Lato, Arial;">4 - 5</u>**](https://blog.neilblaze.live/tracking-progress-for-interactive-web-demo-with-mediapipe-ml-library-under-gsoc'23-@tensorflow) (<u style="color: #016b4d; font-family: Lato, Arial;">22nd June — 6th July</u>):
 
 - I am diligently keeping track of my work and progress ✅
 
 - I'm pushing continuous changes to my local git tree, which allows easy tracking of changes. I'm also ensuring that new commits are pushed at regular intervals to a public [<u style="background-image: linear-gradient(135deg, #670896, #4b3c52); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-family: Lato, Arial;">**GitHub**</u>](https://github.com/Neilblaze/GSOC-23) repository & is deployed to reflect continuous improvements ☑️
 
-- I'm running ahead of schedule, as I successfully crafted an MVP of the project using React.js & MediaPipe's HandLandmarker API. The working demo can be viewed → [<u><mark style="color: #f20c70; font-family: 'Trebuchet MS', sans-serif;">🔗 **here**</mark></u>](https://drive.google.com/file/d/153wPRz1Hn8N1B96VbeF7EK5ia3Vk-yw9/view) 😎
+- I'm running ahead of schedule, as I successfully crafted an *MVP* of the project using React.js & MediaPipe's HandLandmarker API. The working demo can be viewed → [<u><mark style="color: #f20c70; font-family: 'Trebuchet MS', sans-serif;">🔗 **here**</mark></u>](https://drive.google.com/file/d/153wPRz1Hn8N1B96VbeF7EK5ia3Vk-yw9/view) 😎
 
 - Designed new Figma prototypes to refactor the current UI of the project for enhancement 🎨
 
@@ -80,7 +82,7 @@ In this proposal, I suggest developing an *interactive web app* using the **Medi
 
 - I'm also planning to migrate the current project to [<u style="background-image: linear-gradient(135deg, #670896, #4b3c52); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-family: Lato, Arial;">**NEXT.js**</u>](https://nextjs.org) in the coming weeks. If time permits, I'll consider adding snapshot-testing to the project.
 
-- Wrote [this](https://blog.neilblaze.live/tracking-progress-for-interactive-web-demo-with-mediapipe-ml-library-under-gsoc'23-@tensorflow) *blog* on how to use <u style="background-image: linear-gradient(135deg, #0097A7, #26b5a7); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-family: Lato, Arial;">MediaPipe</u> Model Maker to train custom models for hand tracking. 📝
+- [Latest] Wrote [this](https://blog.neilblaze.live/tracking-progress-for-interactive-web-demo-with-mediapipe-ml-library-under-gsoc'23-@tensorflow) blog on how to use MediaPipe Model Maker to train custom models for hand tracking. 📝
 
 - Cleared up the code and made notes to track progress ✍🏻
 
