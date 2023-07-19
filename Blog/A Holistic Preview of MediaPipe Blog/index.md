@@ -13,7 +13,7 @@ This blog is dedicated to sharing the key insights and lessons I have acquired f
 
 ![midregion](https://github.com/google/mediapipe/assets/48355572/a8765289-5f12-4faf-982a-7edd5156fa8a "midregion")
 
-It specifically highlights the advancements brought by the new <u style="background-image: linear-gradient(135deg, #0097A7, #0097A7); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-family: Lato, Arial;">Solutions</u> suite & <u style="background-image: linear-gradient(135deg, #0ba13f, #0ba13f); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-family: Lato, Arial;">Tasks API</u> ([*Vision*](https://github.com/google/mediapipe/tree/master/mediapipe/tasks/web/vision)). To gain a comprehensive understanding of the subject, I strongly recommend referring to MediaPipe's official documentation, available [<u><mark style="color: #f20c70; font-family: 'Trebuchet MS', sans-serif;">🔗 **here**</mark></u>](https://google.github.io/mediapipe/). 
+It specifically highlights the advancements brought by the new Solutions suite & <u style="background-image: linear-gradient(135deg, #0ba13f, #0ba13f); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-family: Lato, Arial;">Tasks API</u> ([*Vision*](https://github.com/google/mediapipe/tree/master/mediapipe/tasks/web/vision)). To gain a comprehensive understanding of the subject, I strongly recommend referring to MediaPipe's official documentation, available [<u><mark style="color: #f20c70; font-family: 'Trebuchet MS', sans-serif;">🔗 **here**</mark></u>](https://google.github.io/mediapipe/). 
 
 Join me on my *Google Summer of Code* 2023 journey as I utilize MediaPipe to create interactive web demos. Stay tuned for exciting blog posts with experiments and valuable insights.
 
@@ -29,27 +29,27 @@ Join me on my *Google Summer of Code* 2023 journey as I utilize MediaPipe to cre
 
 
 
-Many Machine Learning applications in various domains heavily depend on fundamental baseline tasks. For instance, applications involving <u style="background-image: linear-gradient(135deg, #0f81fa, #0f81fa); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-family: Lato, Arial;">*gestural navigation*</u> or <u style="background-image: linear-gradient(135deg, #0f81fa, #0f81fa); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-family: Lato, Arial;">*sign language detection*</u> require accurate <u style="background-image: linear-gradient(135deg, #0fbf15, #0ac2b9); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-family: Lato, Arial;">hand tracking</u> capabilities. However, developing a reliable hand tracking model can be a time-consuming and resource-intensive process, leading to a bottleneck in the creation of such applications. In order to overcome this challenge, <u style="background-image: linear-gradient(135deg, #4285F4, #4285F4); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-family: Lato, Arial;">G</u><u style="background-image: linear-gradient(135deg, #EA4335, #EA4335); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-family: Lato, Arial;">o</u><u style="background-image: linear-gradient(135deg, #FBBC05, #FBBC05); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-family: Lato, Arial;">o</u><u style="background-image: linear-gradient(135deg, #4285F4, #4285F4); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-family: Lato, Arial;">g</u><u style="background-image: linear-gradient(135deg, #34A853, #34A853); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-family: Lato, Arial;">l</u><u style="background-image: linear-gradient(135deg, #EA4335, #EA4335); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-family: Lato, Arial;">e</u> has developed a solution called <u style="background-image: linear-gradient(135deg, #0097A7, #26b5a7); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-family: Lato, Arial;">**MediaPipe**</u>, which aims to streamline the development of applications that rely on hand tracking.
+Many Machine Learning applications in various domains heavily depend on fundamental baseline tasks. For instance, applications involving *gestural navigation* or *sign language detection* require accurate hand tracking capabilities. However, developing a reliable hand tracking model can be a time-consuming and resource-intensive process, leading to a bottleneck in the creation of such applications. In order to overcome this challenge, **<u style="background-image: linear-gradient(135deg, #4285F4, #4285F4); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-family: Lato, Arial;">G</u><u style="background-image: linear-gradient(135deg, #EA4335, #EA4335); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-family: Lato, Arial;">o</u><u style="background-image: linear-gradient(135deg, #FBBC05, #FBBC05); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-family: Lato, Arial;">o</u><u style="background-image: linear-gradient(135deg, #4285F4, #4285F4); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-family: Lato, Arial;">g</u><u style="background-image: linear-gradient(135deg, #34A853, #34A853); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-family: Lato, Arial;">l</u><u style="background-image: linear-gradient(135deg, #EA4335, #EA4335); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-family: Lato, Arial;">e</u>** has developed a solution called <u style="background-image: linear-gradient(135deg, #0097A7, #26b5a7); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-family: Lato, Arial;">**MediaPipe**</u>, which aims to streamline the development of applications that rely on hand tracking.
 
 <br/>
 
-## Introduction to <u style="background-image: linear-gradient(135deg, #0097A7, #26b5a7); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">MediaPipe</u> 🦄
+## Introduction to <u style="background-image: linear-gradient(135deg, #0097A7, #26b5a7); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-family: Lato, Arial;">**MediaPipe**</u> 🦄
 
-**MediaPipe** is a cross-platform pipeline framework to build <u>custom machine learning solutions for live and streaming media</u> & was <u style="background-image: linear-gradient(135deg, #0fbf15, #0ac2b9); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-family: Lato, Arial;">open-sourced</u> by <u style="background-image: linear-gradient(135deg, #4285F4, #4285F4); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-family: Lato, Arial;">G</u><u style="background-image: linear-gradient(135deg, #EA4335, #EA4335); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-family: Lato, Arial;">o</u><u style="background-image: linear-gradient(135deg, #FBBC05, #FBBC05); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-family: Lato, Arial;">o</u><u style="background-image: linear-gradient(135deg, #4285F4, #4285F4); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-family: Lato, Arial;">g</u><u style="background-image: linear-gradient(135deg, #34A853, #34A853); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-family: Lato, Arial;">l</u><u style="background-image: linear-gradient(135deg, #EA4335, #EA4335); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-family: Lato, Arial;">e</u> . 
+**MediaPipe** is a cross-platform pipeline framework to build custom machine learning solutions for live and streaming media & was open-sourced by Google. 
 
 ![mediapipe-logo](https://github.com/google/mediapipe/assets/48355572/6a4927c4-d2c5-46c6-ad5a-e3f33267a9c8)
 
 
-💡 <u style="background-image: linear-gradient(135deg, #0097A7, #26b5a7); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-family: Lato, Arial;">**MediaPipe**</u> offers essential Machine Learning models for prevalent tasks such as hand tracking. By providing these models, MediaPipe *effectively eliminates the development bottleneck* faced by numerous Machine Learning applications. The inclusion of user-friendly APIs further simplifies the development process and reduces the overall project timeline for applications relying on <em style="color: #2a6ef5; font-family: 'Trebuchet MS', sans-serif;">Computer Vision</em>. The official documentation states that <u>inferencing is *real-time*</u>, and it takes just a few lines of code to create a perception pipeline. 
+💡 MediaPipe offers essential Machine Learning models for prevalent tasks such as hand tracking. By providing these models, MediaPipe *effectively eliminates the development bottleneck* faced by numerous Machine Learning applications. The inclusion of user-friendly APIs further simplifies the development process and reduces the overall project timeline for applications relying on Computer Vision. The official documentation states that inferencing is *real-time*, and it takes just a few lines of code to create a perception pipeline. 
 
 ![mediapipe-logo](https://github.com/google/mediapipe/assets/48355572/e9cf1e5c-3db7-4ea6-9582-9de943c6b55f)
 
 
 
 
-## What is <u style="background-image: linear-gradient(135deg, #0097A7, #26b5a7); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-family: Lato, Arial;">**MediaPipe**</u> used for? 🤔
+## What is MediaPipe used for? 🤔
 
-MediaPipe is a primarily used for *<u style="color: #0f81fa">building real-time multimedia processing pipelines</u>*. It provides tools, libraries, and pre-built components for tasks like *video analysis*, *object detection*, *facial recognition*, and *gesture recognition*, etc. MediaPipe *<u>enables efficient processing and analysis of media streams</u>, making it ideal for applications in <em style="color: #a14ee6; font-family: 'Trebuchet MS', sans-serif;">augmented reality</em>, <em style="color: #a14ee6; font-family: 'Trebuchet MS', sans-serif;">virtual reality</em>, <em style="color: #a14ee6; font-family: 'Trebuchet MS', sans-serif;">robotics</em>, and <em style="color: #a14ee6; font-family: 'Trebuchet MS', sans-serif;">machine learning</em>*. It also supports rapid prototyping of perception pipelines with AI models and facilitates deployment on various hardware platforms.
+MediaPipe is a primarily used for *building real-time multimedia processing pipelines*. It provides tools, libraries, and pre-built components for tasks like *video analysis*, *object detection*, *facial recognition*, and *gesture recognition*, etc. MediaPipe enables efficient processing and analysis of media streams, making it ideal for applications in augmented reality, virtual reality, robotics, and machine learning. It also supports rapid prototyping of perception pipelines with AI models and facilitates deployment on various hardware platforms.
 
 ![football_tracking](https://github.com/google/mediapipe/assets/48355572/04821de1-493c-4942-a403-ad4d93ace1af)
 
@@ -62,30 +62,30 @@ The configuration language and evaluation tools enable teams to incrementally im
 
 
 
-### Who can use <u style="background-image: linear-gradient(135deg, #0097A7, #26b5a7); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-family: Lato, Arial;">**MediaPipe**</u>?
+### Who can use MediaPipe ?
 
 MediaPipe can be used by a *wide range of users*, including developers, researchers, and engineers. It is designed to be accessible to individuals and teams working on various projects involving *multimedia processing*, *computer vision*, *machine learning*, and *AI*. Whether you are creating applications, conducting experiments, or building innovative solutions, MediaPipe provides a flexible platform for implementing and deploying your ideas.
 
 
-### What are the advantages of <u style="background-image: linear-gradient(135deg, #0097A7, #26b5a7); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-family: Lato, Arial;">**MediaPipe**</u>?
+### What are the advantages of MediaPipe ?
 
-- **<u style="background-image: linear-gradient(135deg, #28d3fa, #2f10c7); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-family: Lato, Arial;">Easy to use:</u>** Self-serve ML solutions with simple-to-use abstractions. Use low-code APIs or no-code studio to customize, evaluate, prototype, and deploy.
-- **<u style="background-image: linear-gradient(135deg, #28d3fa, #2f10c7); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-family: Lato, Arial;">Innovative:</u>** Advanced ML solutions for popular tasks, crafted with <u style="background-image: linear-gradient(135deg, #4285F4, #4285F4); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-family: Lato, Arial;">G</u><u style="background-image: linear-gradient(135deg, #EA4335, #EA4335); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-family: Lato, Arial;">o</u><u style="background-image: linear-gradient(135deg, #FBBC05, #FBBC05); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-family: Lato, Arial;">o</u><u style="background-image: linear-gradient(135deg, #4285F4, #4285F4); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-family: Lato, Arial;">g</u><u style="background-image: linear-gradient(135deg, #34A853, #34A853); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-family: Lato, Arial;">l</u><u style="background-image: linear-gradient(135deg, #EA4335, #EA4335); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-family: Lato, Arial;">e</u> ML expertise.
-- **<u style="background-image: linear-gradient(135deg, #28d3fa, #2f10c7); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-family: Lato, Arial;">End-to-end acceleration:</u>** Use common hardware to build-in fast ML inference and video processing, including both CPU & GPU.
-- **<u style="background-image: linear-gradient(135deg, #28d3fa, #2f10c7); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-family: Lato, Arial;">Lightweight:</u>** The framework is designed to run on mobile and edge devices with limited compute resources.
-- **<u style="background-image: linear-gradient(135deg, #28d3fa, #2f10c7); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-family: Lato, Arial;">Cross-Platform:</u>** Build once, deploy anywhere! The unified framework is suitable for Web, Android, iOS, desktop, edge, cloud, and IoT platforms. 
-- **<u style="background-image: linear-gradient(135deg, #28d3fa, #2f10c7); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-family: Lato, Arial;">Ready-to-use:</u>** Prebuilt ML solutions demonstrate the full power of the MediaPipe framework. 
-- **<u style="background-image: linear-gradient(135deg, #28d3fa, #2f10c7); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-family: Lato, Arial;">Open source and free:</u>** The framework is licensed under [Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0), fully extensible, and customizable.
-
-
+- **<u style="background-image: linear-gradient(135deg, #0cade8, #28d3fa); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-family: Lato, Arial;">Easy to use:</u>** Self-serve ML solutions with simple-to-use abstractions. Use low-code APIs or no-code studio to customize, evaluate, prototype, and deploy.
+- **<u style="background-image: linear-gradient(135deg, #0cade8, #28d3fa); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-family: Lato, Arial;">Innovative:</u>** Advanced ML solutions for popular tasks, crafted with Google ML expertise.
+- **<u style="background-image: linear-gradient(135deg, #0cade8, #28d3fa); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-family: Lato, Arial;">End-to-end acceleration:</u>** Use common hardware to build-in fast ML inference and video processing, including both CPU & GPU.
+- **<u style="background-image: linear-gradient(135deg, #0cade8, #28d3fa); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-family: Lato, Arial;">Lightweight:</u>** The framework is designed to run on mobile and edge devices with limited compute resources.
+- **<u style="background-image: linear-gradient(135deg, #0cade8, #28d3fa); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-family: Lato, Arial;">Cross-Platform:</u>** Build once, deploy anywhere! The unified framework is suitable for Web, Android, iOS, desktop, edge, cloud, and IoT platforms. 
+- **<u style="background-image: linear-gradient(135deg, #0cade8, #28d3fa); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-family: Lato, Arial;">Ready-to-use:</u>** Prebuilt ML solutions demonstrate the full power of the MediaPipe framework. 
+- **<u style="background-image: linear-gradient(135deg, #0cade8, #28d3fa); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-family: Lato, Arial;">Open source and free:</u>** The framework is licensed under [Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0), fully extensible, and customizable.
 
 
 
 
 
-## A brief history of <u style="background-image: linear-gradient(135deg, #0097A7, #26b5a7); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-family: Lato, Arial;">**MediaPipe**</u> 📜
 
-**MediaPipe** powers the ML in many <u style="background-image: linear-gradient(135deg, #4285F4, #4285F4); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-family: Lato, Arial;">G</u><u style="background-image: linear-gradient(135deg, #EA4335, #EA4335); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-family: Lato, Arial;">o</u><u style="background-image: linear-gradient(135deg, #FBBC05, #FBBC05); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-family: Lato, Arial;">o</u><u style="background-image: linear-gradient(135deg, #4285F4, #4285F4); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-family: Lato, Arial;">g</u><u style="background-image: linear-gradient(135deg, #34A853, #34A853); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-family: Lato, Arial;">l</u><u style="background-image: linear-gradient(135deg, #EA4335, #EA4335); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-family: Lato, Arial;">e</u> products, and it's <u style="background-image: linear-gradient(135deg, #38a854, #07b031); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-family: Lato, Arial;">open source</u> to help you to bring cutting-edge, performant, and scalable features to your customers. Since 2012, Google has used it internally in several products and services. It was initially developed for <em style="color: #2a6ef5; font-family: Lato, Arial;">real-time analysis of video and audio</em> on **<u style="background-image: linear-gradient(135deg, #FF0000, #FF0000); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-family: Lato, Arial;">You</u><u style="background-image: linear-gradient(135deg, #ff004c, #ff004c); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-family: Lato, Arial;">Tube</u>**. Gradually it got integrated into many more products, the following are some:
+
+## A brief history of MediaPipe 📜
+
+**MediaPipe** powers the ML in many Google products, and it's open source to help you to bring cutting-edge, performant, and scalable features to your customers. Since 2012, Google has used it internally in several products and services. It was initially developed for real-time analysis of video and audio on YouTube. Gradually it got integrated into many more products, the following are some:
 
 ![products_with_MP](https://github.com/google/mediapipe/assets/48355572/035b9703-52a0-4694-8266-f71e5ea0b2a4)
 
@@ -95,24 +95,24 @@ MediaPipe can be used by a *wide range of users*, including developers, research
 4. [**Google Home**](https://home.google.com/welcome) 🏠
 5. Perception system in [**NestCam**](https://store.google.com/category/nest_cams) 📹
 
-🟢 <u style="background-image: linear-gradient(135deg, #0097A7, #26b5a7); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-family: Lato, Arial;">**MediaPipe**</u> is the driving force behind groundbreaking products and services that we rely on in our daily lives. In contrast to resource-intensive machine learning frameworks, MediaPipe operates with *minimal resource requirements*. Its <u style="background-image: linear-gradient(135deg, #38a854, #07b031); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-family: Lato, Arial;">*compact*</u> and <u style="background-image: linear-gradient(135deg, #38a854, #07b031); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-family: Lato, Arial;">*efficient design*</u> allows it to be deployed even on low-powered embedded IoT devices.
+🟢 MediaPipe is the driving force behind groundbreaking products and services that we rely on in our daily lives. In contrast to resource-intensive machine learning frameworks, MediaPipe operates with *minimal resource requirements*. Its *compact* and *efficient design* allows it to be deployed even on low-powered embedded IoT devices.
 
 
 
-## <u style="background-image: linear-gradient(135deg, #0097A7, #26b5a7); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-family: Lato, Arial;">**MediaPipe**</u> Toolkit 🧰
+## MediaPipe Toolkit 🧰
 
-The Toolkit comprises the **Framework** and the **Solutions**. The following diagram shows the components of the <u style="background-image: linear-gradient(135deg, #0097A7, #26b5a7); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-family: Lato, Arial;">MediaPipe</u> Toolkit.
+The Toolkit comprises the **Framework** and the **Solutions**. The following diagram shows the components of the MediaPipe Toolkit.
 
 ![MP-Toolkit](https://github.com/google/mediapipe/assets/48355572/58120806-a336-4d84-909a-4a6bfbcf91db)
 
 
-## <u style="background-image: linear-gradient(135deg, #0097A7, #26b5a7); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-family: Lato, Arial;">**MediaPipe**</u> Framework
+## MediaPipe Framework
 
 🟣 MediaPipe Framework consists of *three* main elements: 
 
-1. A **<u style="background-image: linear-gradient(135deg, #35f2d0, #FF6F00); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-family: Lato, Arial;">framework</u>** for inference from sensory data (audio or video) 
-2. A **<u style="background-image: linear-gradient(135deg, #35f2d0, #FF6F00); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-family: Lato, Arial;">set of tools</u>** for performance evaluation and visualization
-3. **<u style="background-image: linear-gradient(135deg, #35f2d0, #FF6F00); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-family: Lato, Arial;">Re-usable components</u>** for inference and processing (calculators) 
+1. A **<u style="background-image: linear-gradient(135deg, #FF6F00, #FF6F00); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-family: Lato, Arial;">framework</u>** for inference from sensory data (audio or video) 
+2. A **<u style="background-image: linear-gradient(135deg, #FF6F00, #FF6F00); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-family: Lato, Arial;">set of tools</u>** for performance evaluation and visualization
+3. **<u style="background-image: linear-gradient(135deg, #FF6F00, #FF6F00); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-family: Lato, Arial;">Re-usable components</u>** for inference and processing (calculators) 
 
 <br/>
 
@@ -126,13 +126,13 @@ The Toolkit comprises the **Framework** and the **Solutions**. The following dia
 
 - [**<u style="background-image: linear-gradient(135deg, #eb5002, #eb1d02); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-family: Lato, Arial;">Streams</u>**](https://developers.google.com/mediapipe/framework/framework_concepts/realtime_streams): A stream is a connection between two nodes in real-time that carries a sequence of packets with increasing timestamps. 
 
-There are more advanced components, such as *Side packets*, *Packet ports*, *Input policies*, etc., about which you can read more [<u><mark style="color: #f20c70; font-family: 'Trebuchet MS', sans-serif;">🔗 **here**</mark></u>](https://developers.google.com/mediapipe/framework/framework_concepts/overview). To *visualize a graph*, copy and paste the graph into the [**<u style="background-image: linear-gradient(135deg, #0097A7, #26b5a7); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-family: Lato, Arial;">MediaPipe</u> <u style="background-image: linear-gradient(135deg, #FFA800, #FF6F00); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-family: Lato, Arial;">Visualizer</u>**](https://viz.mediapipe.dev/).
+There are more advanced components, such as *Side packets*, *Packet ports*, *Input policies*, etc., about which you can read more [<u><mark style="color: #f20c70; font-family: 'Trebuchet MS', sans-serif;">🔗 **here**</mark></u>](https://developers.google.com/mediapipe/framework/framework_concepts/overview). To *visualize a graph*, copy and paste the graph into the [**MediaPipe Visualizer**](https://viz.mediapipe.dev/).
 
 
 
-### **<u style="background-image: linear-gradient(135deg, #b31af0, #611af0); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-family: Lato, Arial;">Graphs</u>**
+### Graphs
 
-The <u style="background-image: linear-gradient(135deg, #0097A7, #26b5a7); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-family: Lato, Arial;">MediaPipe</u> perception pipeline is called a [<u style="background-image: linear-gradient(135deg, #3966fa, #120ff2); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-family: Lato, Arial;">Graph</u>](https://developers.google.com/mediapipe/framework/framework_concepts/graphs). Let us take the example of the first solution, Hands. We feed a stream of images as input which comes out with hand landmarks rendered on the images.
+The MediaPipe perception pipeline is called a [**Graph**](https://developers.google.com/mediapipe/framework/framework_concepts/graphs). Let us take the example of the first solution, Hands. We feed a stream of images as input which comes out with hand landmarks rendered on the images.
 
 ![graphs_MP_HANDS](https://github.com/google/mediapipe/assets/48355572/65878215-b2fd-4e8a-b0ec-39ca2f4a0253)
 
@@ -144,40 +144,40 @@ The flow chart below represents the MediaPipe [hand solution](https://mediapipe.
 <center style="color: #8fa387;"> ⬆️ Fig: MediaPipe Hands Solution graph </center><br/><br/>
 
 
-🛈 In computer science jargon, a graph consists of Nodes connected by Edges. Inside the **MediaPipe Graph**, the nodes are called [**<u style="background-image: linear-gradient(135deg, #07e619, #07d985); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-family: Lato, Arial;">Calculators</u>**](https://developers.google.com/mediapipe/framework/framework_concepts/calculators), and the edges are called **Streams**. Every stream carries a sequence of [*<u style="background-image: linear-gradient(135deg, #8a36eb, #a210eb); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-family: Lato, Arial;">Packets</u>*](https://developers.google.com/mediapipe/framework/framework_concepts/packets) that have ascending time stamps. In the image above, we have represented Calculators with rectangular blocks and Streams using arrows (→). 
+🛈 In computer science jargon, a graph consists of Nodes connected by Edges. Inside the **MediaPipe Graph**, the nodes are called [*Calculators*](https://developers.google.com/mediapipe/framework/framework_concepts/calculators), and the edges are called *Streams*. Every stream carries a sequence of [*Packets*](https://developers.google.com/mediapipe/framework/framework_concepts/packets) that have ascending time stamps. In the image above, we have represented Calculators with rectangular blocks and Streams using arrows (→). 
 
 
-### **<u style="background-image: linear-gradient(135deg, #b31af0, #611af0); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-family: Lato, Arial;">Calculators</u>**
+### Calculators
 
-These are specific *computation units with assigned tasks* to process. The packets of data (Video frame or Audio segment) enter and leave through the <em style="color: #2a6ef5; font-family: 'Trebuchet MS', sans-serif;">**ports**</em> in a [calculator](https://developers.google.com/mediapipe/framework/framework_concepts/calculators). When initializing a calculator, it declares the packet payload type that will traverse the port. Every time a graph runs, the Framework implements <em style="color: #93d60d; font-family: 'Trebuchet MS', sans-serif;">**Open**</em>, <em style="color: #93d60d; font-family: 'Trebuchet MS', sans-serif;">**Process**</em>, and <em style="color: #93d60d; font-family: 'Trebuchet MS', sans-serif;">**Close**</em> methods in the calculators. **Open** initiates the calculator; the **process** repeatedly runs when a packet enters. The process is **closed** after an entire graph run.
+These are specific *computation units with assigned tasks* to process. The packets of data (Video frame or Audio segment) enter and leave through the <em style="font-family: 'Trebuchet MS', sans-serif;">*ports*</em> in a [calculator](https://developers.google.com/mediapipe/framework/framework_concepts/calculators). When initializing a calculator, it declares the packet payload type that will traverse the port. Every time a graph runs, the Framework implements <em style="font-family: 'Trebuchet MS', sans-serif;">*Open*</em>, <em style="font-family: 'Trebuchet MS', sans-serif;">*Process*</em>, and <em style="font-family: 'Trebuchet MS', sans-serif;">*Close*</em> methods in the calculators. *Open* initiates the calculator; the *process* repeatedly runs when a packet enters. The process is *closed* after an entire graph run.
 
-❇️ As an example, consider the first calculator shown in the above [graph](https://blog.neilblaze.live/unveiling-mediapipe-solutions-for-interactive-web-demo-under-gsoc'23-@tensorflow#:~:text=Fig%3A%20MediaPipe%20Hands%20Solution%20graph). The calculator, <em style="color: #35db0b; font-family: 'Trebuchet MS', sans-serif;">**ImageTransform**</em>, takes an image at the input port and returns a transformed image in the output port. On the other hand, the second calculator, <em style="color: #35db0b; font-family: 'Trebuchet MS', sans-serif;">**ImageToTensor**</em>, takes an image as input and outputs a tensor. 
+❇️ As an example, consider the first calculator shown in the above [graph](https://blog.neilblaze.live/unveiling-mediapipe-solutions-for-interactive-web-demo-under-gsoc'23-@tensorflow#:~:text=Fig%3A%20MediaPipe%20Hands%20Solution%20graph). The calculator, <em style="font-family: 'Trebuchet MS', sans-serif;">*ImageTransform*</em>, takes an image at the input port and returns a transformed image in the output port. On the other hand, the second calculator, <em style="font-family: 'Trebuchet MS', sans-serif;">*ImageToTensor*</em>, takes an image as input and outputs a tensor. 
 
-### <u style="background-image: linear-gradient(135deg, #b31af0, #611af0); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-family: Lato, Arial;">Calculator Types in</u> <u style="background-image: linear-gradient(135deg, #0097A7, #26b5a7); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-family: Lato, Arial;">**MediaPipe**</u>
+### Calculator Types in MediaPipe
 
 All the calculators shown above are built-in into MediaPipe. We can group them into four categories.
 
-1. **<u style="background-image: linear-gradient(135deg, #35f2d0, #FF6F00); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-family: Lato, Arial;">Pre-processing calculators</u>** are a family of image and media-processing calculators. The <em style="color: #2a6ef5; font-family: 'Trebuchet MS', sans-serif;">**ImageTransform**</em> and <em style="color: #2a6ef5; font-family: 'Trebuchet MS', sans-serif;">**ImageToTensors**</em> in the graph above fall in this category.
+1. **<u style="background-image: linear-gradient(135deg, #FF6F00, #FF6F00); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-family: Lato, Arial;">Pre-processing calculators</u>** are a family of image and media-processing calculators. The *ImageTransform* and *ImageToTensors* in the graph above fall in this category.
 
-2. **<u style="background-image: linear-gradient(135deg, #35f2d0, #FF6F00); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-family: Lato, Arial;">Inference calculators</u>** allow native integration with Tensorflow and Tensorflow Lite for ML inference.
+2. **<u style="background-image: linear-gradient(135deg, #FF6F00, #FF6F00); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-family: Lato, Arial;">Inference calculators</u>** allow native integration with Tensorflow and Tensorflow Lite for ML inference.
 
-3. **<u style="background-image: linear-gradient(135deg, #35f2d0, #FF6F00); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-family: Lato, Arial;">Post-processing calculators</u>** perform ML post-processing tasks such as detection, segmentation, and classification. <em style="color: #2a6ef5; font-family: 'Trebuchet MS', sans-serif;">**TensorToLandmark**</em> is a post-processing calculator.
+3. **<u style="background-image: linear-gradient(135deg, #FF6F00, #FF6F00); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-family: Lato, Arial;">Post-processing calculators</u>** perform ML post-processing tasks such as detection, segmentation, and classification. *TensorToLandmark* is a post-processing calculator.
 
-4. **<u style="background-image: linear-gradient(135deg, #35f2d0, #FF6F00); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-family: Lato, Arial;">Utility calculators</u>** are a family of calculators performing final tasks such as image annotation.
+4. **<u style="background-image: linear-gradient(135deg, #FF6F00, #FF6F00); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-family: Lato, Arial;">Utility calculators</u>** are a family of calculators performing final tasks such as image annotation.
 
 The calculator APIs allow you to write your custom calculator. 
 
 
 
-## <u style="background-image: linear-gradient(135deg, #0097A7, #26b5a7); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-family: Lato, Arial;">MediaPipe Solutions</u> 🧩
+## MediaPipe Solutions 🧩
 
-**MediaPipe Solutions** is a versatile framework based on <u style="background-image: linear-gradient(135deg, #0097A7, #26b5a7); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-family: Lato, Arial;">*MediaPipe*</u> for creating machine learning pipelines across platforms. It <mark style="color: #065957; font-family: 'Trebuchet MS', sans-serif;">offers *customizable building blocks* for applying AI and ML techniques</mark> to your specific requirements. With MediaPipe Solutions, you can quickly integrate and customize these solutions in your applications, supporting multiple development platforms. It is available for Web (JavaScript), Python, and Android (Java), and is part of the open-source MediaPipe project, <em style="color: #0ca638">*allowing further customization*</em> as needed.
+**MediaPipe Solutions** is a versatile framework based on MediaPipe for creating machine learning pipelines across platforms. It offers *customizable building blocks* for applying AI and ML techniques to your specific requirements. With MediaPipe Solutions, you can quickly integrate and customize these solutions in your applications, supporting multiple development platforms. It is available for Web (JavaScript), Python, and Android (Java), and is part of the open-source MediaPipe project, *allowing further customization* as needed.
 
 ![MediaPipe_Solutions](https://github.com/google/mediapipe/assets/48355572/faf174c4-9130-4968-9f6a-21a56d515a89 "MediaPipe Solutions")
 
 
 
-#### 🔆 **<u style="background-image: linear-gradient(135deg, #2a67b8, #2a67b8); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-family: Lato, Arial;">These libraries and resources provide the core functionality for each</u>** <u style="background-image: linear-gradient(135deg, #0097A7, #26b5a7); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-family: Lato, Arial;">**MediaPipe**</u> **<u style="background-image: linear-gradient(135deg, #2a67b8, #2a67b8); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-family: Lato, Arial;">Solution</u>**:
+### These libraries and resources provide the core functionality for each MediaPipe Solution:
 
 - **<u>MediaPipe Tasks</u>:** Cross-platform APIs and libraries for deploying solutions. [Learn more](https://developers.google.com/mediapipe/solutions/tasks).
 - **<u>MediaPipe Models</u>:** Pre-trained, ready-to-run models for use with each solution.
@@ -186,14 +186,14 @@ The calculator APIs allow you to write your custom calculator.
 ![avlble_sols](https://github.com/google/mediapipe/assets/48355572/87cd4d5c-e881-4c37-a8b8-ddd6523b47fe)
 
 
-#### 🔆 **<u style="background-image: linear-gradient(135deg, #2a67b8, #2a67b8); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-family: Lato, Arial;">These tools let you customize and evaluate solutions</u>**:
+#### These tools let you customize and evaluate solutions:
 
 - **<u>MediaPipe Model Maker</u>:** Customize models for solutions with your data. [Learn more](https://developers.google.com/mediapipe/solutions/model_maker).
 - **<u>MediaPipe Studio</u>:** Visualize, evaluate, and benchmark solutions in your browser. [Learn more](https://developers.google.com/mediapipe/solutions/studio).
 
 
 
-For our project, we will utilize <em style="color: #2a6ef5">Hand Landmark Detection</em> and <em style="color: #2a6ef5">Gesture Recognition</em>. Furthermore, we will customize the Gesture Recognition Model using <u style="background-image: linear-gradient(135deg, #0097A7, #26b5a7); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-family: Lato, Arial;">MediaPipe</u> [Model Maker](https://developers.google.com/mediapipe/solutions/model_maker) and incorporate the [task-vision package](https://developers.google.com/mediapipe/api/solutions/js/tasks-vision) from MediaPipe which I'll be covering in another blog which can be accessed [<u><mark style="color: #f20c70; font-family: 'Trebuchet MS', sans-serif;">🔗 **here**</mark></u>](https://blog.neilblaze.live/tracking-progress-for-interactive-web-demo-with-mediapipe-ml-library-under-gsoc'23-@tensorflow).
+For our project, we will utilize Hand Landmark Detection and Gesture Recognition. Furthermore, we will customize the Gesture Recognition Model using MediaPipe [Model Maker](https://developers.google.com/mediapipe/solutions/model_maker) and incorporate the [task-vision package](https://developers.google.com/mediapipe/api/solutions/js/tasks-vision) from MediaPipe which I'll be covering in another blog which can be accessed [<u><mark style="color: #f20c70; font-family: 'Trebuchet MS', sans-serif;">🔗 **here**</mark></u>](https://blog.neilblaze.live/tracking-progress-for-interactive-web-demo-with-mediapipe-ml-library-under-gsoc'23-@tensorflow).
 
 <br/>
 
@@ -238,29 +238,29 @@ For our project, we will utilize <em style="color: #2a6ef5">Hand Landmark Detect
 
 
 
-The introduction of <u style="background-image: linear-gradient(135deg, #0097A7, #26b5a7); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-family: Lato, Arial;">MediaPipe</u> <u style="background-image: linear-gradient(135deg, #0097A7, #0097A7); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-family: Lato, Arial;">Solutions</u> brought forth a fresh set of <u>*on-device* machine learning tools</u> aimed at <u>*simplifying* the developer workflow</u>. MediaPipe Solutions provides a suite of libraries and tools for you to quickly apply artificial intelligence (AI) and machine learning (ML) techniques in your applications. You can <u style="background-image: linear-gradient(135deg, #0f81fa, #0f81fa); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-family: Lato, Arial;">**plug**</u> 🔌 these solutions into your applications immediately, <u style="background-image: linear-gradient(135deg, #0f81fa, #0f81fa); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-family: Lato, Arial;">**customize**</u> 🛠️ them to your needs, and <u style="background-image: linear-gradient(135deg, #0f81fa, #0f81fa); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-family: Lato, Arial;">**use**</u> 👨‍💻 them across multiple development platforms. These offer convenient solutions, ranging from no-code to low-code options, for common on-device machine learning tasks for platforms like <u style="background-image: linear-gradient(135deg, #eb5002, #eb1d02); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-family: Lato, Arial;">Web</u>, <u style="background-image: linear-gradient(135deg, #eb5002, #eb1d02); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-family: Lato, Arial;">Mobile</u>, <u style="background-image: linear-gradient(135deg, #eb5002, #eb1d02); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-family: Lato, Arial;">Desktop</u>, and <u style="background-image: linear-gradient(135deg, #eb5002, #eb1d02); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-family: Lato, Arial;">IoT</u>.
+The introduction of <u style="background-image: linear-gradient(135deg, #0097A7, #26b5a7); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-family: Lato, Arial;">MediaPipe</u> <u style="background-image: linear-gradient(135deg, #0097A7, #0097A7); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-family: Lato, Arial;">Solutions</u> brought forth a fresh set of *on-device* machine learning tools aimed at *simplifying* the developer workflow. MediaPipe Solutions provides a suite of libraries and tools for you to quickly apply artificial intelligence (AI) and machine learning (ML) techniques in your applications. You can <u style="background-image: linear-gradient(135deg, #0f81fa, #0f81fa); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-family: Lato, Arial;">**plug**</u> 🔌 these solutions into your applications immediately, <u style="background-image: linear-gradient(135deg, #0f81fa, #0f81fa); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-family: Lato, Arial;">**customize**</u> 🛠️ them to your needs, and <u style="background-image: linear-gradient(135deg, #0f81fa, #0f81fa); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-family: Lato, Arial;">**use**</u> 👨‍💻 them across multiple development platforms. These offer convenient solutions, ranging from no-code to low-code options, for common on-device machine learning tasks for platforms like Web, Mobile, Desktop, and IoT.
 
 ![NEW_MP_SOLUTIONS](https://github.com/google/mediapipe/assets/48355572/5a0890fa-58ba-486e-bc3c-0f73061bee07)
 
 
 
-## <u style="background-image: linear-gradient(135deg, #0097A7, #26b5a7); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-family: Lato, Arial;">**MediaPipe**</u> <u style="background-image: linear-gradient(135deg, #0ba13f, #0ba13f); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-family: Lato, Arial;">Tasks API</u> 📝
+## MediaPipe Tasks API 📝
 
-[MediaPipe Tasks](https://developers.google.com/mediapipe/solutions/tasks) simplifies *on-device* machine learning deployment for Web, Mobile, IoT, and Desktop developers through *low-code* libraries. By utilizing these libraries, developers can easily incorporate on-device machine learning solutions, as demonstrated in the aforementioned examples, into their applications with just a few lines of code. <u style="color: #0f81fa">This approach eliminates the need to acquire extensive knowledge of the implementation details behind these solutions.</u> Currently, MediaPipe Tasks offers tools across three categories: <em style="color: #35db0b; font-family: 'Trebuchet MS', sans-serif;">vision</em>, <em style="color: #35db0b; font-family: 'Trebuchet MS', sans-serif;">audio</em>, and <em style="color: #35db0b; font-family: 'Trebuchet MS', sans-serif;">text</em>, catering to a wide range of application requirements.
+[MediaPipe Tasks](https://developers.google.com/mediapipe/solutions/tasks) simplifies *on-device* machine learning deployment for Web, Mobile, IoT, and Desktop developers through *low-code* libraries. By utilizing these libraries, developers can easily incorporate on-device machine learning solutions, as demonstrated in the aforementioned examples, into their applications with just a few lines of code. This approach eliminates the need to acquire extensive knowledge of the implementation details behind these solutions. Currently, MediaPipe Tasks offers tools across three categories: vision, audio, and text, catering to a wide range of application requirements.
 
 
 The impact of the **Mediapipe Tasks API** in *real-world* projects has been remarkable. Here are the key takeaways:
 
-1. **<u style="background-image: linear-gradient(135deg, #2ec77d, #2b96e3); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-family: Lato, Arial;">Versatile and User-Friendly</u>:** The Tasks API provides developers with a versatile and easy-to-use tool for integrating Machine Learning (ML) models into their projects. With its <u style="background-image: linear-gradient(135deg, #f0a000, #ded30d); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-family: Lato, Arial;">pre-trained models</u>, <u style="background-image: linear-gradient(135deg, #f0a000, #ded30d); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-family: Lato, Arial;">comprehensive APIs</u>, and <u style="background-image: linear-gradient(135deg, #f0a000, #ded30d); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-family: Lato, Arial;">data processing tools</u>, developers can efficiently leverage ML without extensive expertise in model architecture.
+1. **<u style="background-image: linear-gradient(135deg, #0cade8, #28d3fa); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-family: Lato, Arial;">Versatile and User-Friendly</u>:** The Tasks API provides developers with a versatile and easy-to-use tool for integrating Machine Learning (ML) models into their projects. With its pre-trained models, comprehensive APIs, and data processing tools, developers can efficiently leverage ML without extensive expertise in model architecture.
 
-2. **<u style="background-image: linear-gradient(135deg, #2ec77d, #2b96e3); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-family: Lato, Arial;">Solving Real-World Problems</u>:** Through the development of these projects using the Tasks API, the power of ML across various domains becomes evident. From object detection in images to audio classification and sentiment analysis, it has proven its value in automating various tasks.
+2. **<u style="background-image: linear-gradient(135deg, #0cade8, #28d3fa); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-family: Lato, Arial;">Solving Real-World Problems</u>:** Through the development of these projects using the Tasks API, the power of ML across various domains becomes evident. From object detection in images to audio classification and sentiment analysis, it has proven its value in automating various tasks.
 
-3. **<u style="background-image: linear-gradient(135deg, #2ec77d, #2b96e3); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-family: Lato, Arial;">Harnessing Pre-trained Models</u>:** Pre-trained models play a vital role in ML-powered projects, serving as a valuable starting point for training and saving time and resources compared to training models from scratch. The Tasks API offers a repository of pre-trained models that can be readily employed for different tasks.
+3. **<u style="background-image: linear-gradient(135deg, #0cade8, #28d3fa); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-family: Lato, Arial;">Harnessing Pre-trained Models</u>:** Pre-trained models play a vital role in ML-powered projects, serving as a valuable starting point for training and saving time and resources compared to training models from scratch. The Tasks API offers a repository of pre-trained models that can be readily employed for different tasks.
 
-4. **<u style="background-image: linear-gradient(135deg, #2ec77d, #2b96e3); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-family: Lato, Arial;">Seamless Integration</u>:** Integrating Mediapipe with other tools and APIs is a seamless process, allowing developers to combine its capabilities with other frameworks and solutions effortlessly.
+4. **<u style="background-image: linear-gradient(135deg, #0cade8, #28d3fa); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-family: Lato, Arial;">Seamless Integration</u>:** Integrating Mediapipe with other tools and APIs is a seamless process, allowing developers to combine its capabilities with other frameworks and solutions effortlessly.
 
 
-The <u style="background-image: linear-gradient(135deg, #0097A7, #26b5a7); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-family: Lato, Arial;">MediaPipe</u> <u style="background-image: linear-gradient(135deg, #0ba13f, #0ba13f); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-family: Lato, Arial;">Tasks API</u> offers developers an array of opportunities to harness the capabilities of *Machine Learning* in their projects. It simplifies the integration of Machine Learning with its user-friendly interface, adaptability, and availability of pre-trained models. Moreover, MediaPipe Tasks <u>ensures consistency across various platforms, regardless of the specific task</u> at hand. This advantage <mark style="color: #0b5e35; font-family: 'Trebuchet MS', sans-serif;">allows faster development by enabling the reuse of the same logic</mark> across different applications.
+The MediaPipeTasks API offers developers an array of opportunities to harness the capabilities of *Machine Learning* in their projects. It simplifies the integration of Machine Learning with its user-friendly interface, adaptability, and availability of pre-trained models. Moreover, MediaPipe Tasks ensures consistency across various platforms, regardless of the specific task at hand. This advantage allows faster development by enabling the reuse of the same logic across different applications.
 
 
 📅 In December 2022, <u style="background-image: linear-gradient(135deg, #4285F4, #4285F4); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-family: Lato, Arial;">G</u><u style="background-image: linear-gradient(135deg, #EA4335, #EA4335); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-family: Lato, Arial;">o</u><u style="background-image: linear-gradient(135deg, #FBBC05, #FBBC05); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-family: Lato, Arial;">o</u><u style="background-image: linear-gradient(135deg, #4285F4, #4285F4); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-family: Lato, Arial;">g</u><u style="background-image: linear-gradient(135deg, #34A853, #34A853); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-family: Lato, Arial;">l</u><u style="background-image: linear-gradient(135deg, #EA4335, #EA4335); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-family: Lato, Arial;">e</u> introduced the <u style="background-image: linear-gradient(135deg, #0097A7, #26b5a7); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-family: Lato, Arial;">MediaPipe</u> preview (currently in early release), featuring *five* tasks: 
@@ -319,11 +319,11 @@ The <u style="background-image: linear-gradient(135deg, #0097A7, #26b5a7); -webk
 
 <br/>
 
-📅 On 29th June 2023, <u style="background-image: linear-gradient(135deg, #0097A7, #26b5a7); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-family: Lato, Arial;">MediaPipe</u> launched [<u style="background-image: linear-gradient(135deg, #4790de, #4947de); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-family: Lato, Arial;">**Image Generator**</u>](https://ai.googleblog.com/2023/06/on-device-diffusion-plugins-for.html), which enables developers to <u><em style="font-family: 'Trebuchet MS', sans-serif;">apply a diffusion model within their apps</em></u> to create visual content.
+📅 On 29th June 2023, MediaPipe launched [<u style="background-image: linear-gradient(135deg, #4790de, #4947de); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-family: Lato, Arial;">**Image Generator**</u>](https://ai.googleblog.com/2023/06/on-device-diffusion-plugins-for.html), which enables developers to <u><em style="font-family: 'Trebuchet MS', sans-serif;">apply a diffusion model within their apps</em></u> to create visual content.
 
 ![image_generator](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgV7MOp8-3-FSJQpmuovwRm6gcc64-i3T4CW370aiey5MWHThNtr_IPedqYh0aJl9rbolgzGdV-eRf2EDlhpWZN759usJt0wbzD5Gvdhx_6yZU5x6TnunYdXBBgzovXaT0oWgWma81L49g9G8nW8sgHD95I-0_J23jkYQ4LBPYEfI2N1d8PIYsWJgFaLpY/s16000/image6.gif)
 
-🛈 Feel free to explore the blog on [<mark style="color: #208509; font-family: 'Trebuchet MS', sans-serif;"><u>On-device diffusion plugins for conditioned text-to-image generation</u></mark>](https://ai.googleblog.com/2023/06/on-device-diffusion-plugins-for.html) by [**<u style="background-image: linear-gradient(135deg, #4285F4, #4285F4); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-family: Lato, Arial;">G</u><u style="background-image: linear-gradient(135deg, #EA4335, #EA4335); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-family: Lato, Arial;">o</u><u style="background-image: linear-gradient(135deg, #FBBC05, #FBBC05); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-family: Lato, Arial;">o</u><u style="background-image: linear-gradient(135deg, #4285F4, #4285F4); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-family: Lato, Arial;">g</u><u style="background-image: linear-gradient(135deg, #34A853, #34A853); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-family: Lato, Arial;">l</u><u style="background-image: linear-gradient(135deg, #EA4335, #EA4335); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-family: Lato, Arial;">e</u> AI**](https://ai.googleblog.com/) which sheds more light on the [diffusion models](https://arxiv.org/pdf/2208.11970.pdf) and how they work.
+🛈 Feel free to explore the blog on [<u>On-device diffusion plugins for conditioned text-to-image generation</u>](https://ai.googleblog.com/2023/06/on-device-diffusion-plugins-for.html) by [**<u style="background-image: linear-gradient(135deg, #4285F4, #4285F4); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-family: Lato, Arial;">G</u><u style="background-image: linear-gradient(135deg, #EA4335, #EA4335); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-family: Lato, Arial;">o</u><u style="background-image: linear-gradient(135deg, #FBBC05, #FBBC05); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-family: Lato, Arial;">o</u><u style="background-image: linear-gradient(135deg, #4285F4, #4285F4); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-family: Lato, Arial;">g</u><u style="background-image: linear-gradient(135deg, #34A853, #34A853); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-family: Lato, Arial;">l</u><u style="background-image: linear-gradient(135deg, #EA4335, #EA4335); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-family: Lato, Arial;">e</u> AI**](https://ai.googleblog.com/) which sheds more light on the [diffusion models](https://arxiv.org/pdf/2208.11970.pdf) and how they work.
 
 
 Soon, they're also planning to bring <u style="background-image: linear-gradient(135deg, #4790de, #4947de); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-family: Lato, Arial;">**Face Stylizer**</u>, which <u>lets you take an existing style reference and apply it to a user’s face</u> using "style transfer" method.
@@ -331,7 +331,7 @@ Soon, they're also planning to bring <u style="background-image: linear-gradient
 ![face_stylizer](https://github.com/google/mediapipe/assets/48355572/b5cb277a-98de-46a1-8df9-a97694404d0a)
 
 
-The <u style="background-image: linear-gradient(135deg, #0097A7, #26b5a7); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-family: Lato, Arial;">MediaPipe</u> <u style="background-image: linear-gradient(135deg, #0ba13f, #0ba13f); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-family: Lato, Arial;">Tasks</u> **Web JavaScript API** is divided into packages that perform ML tasks in major domains, including [<em style="color: #2a6ef5; font-family: 'Trebuchet MS', sans-serif;">vision</em>](https://developers.google.com/mediapipe/api/solutions/js/tasks-vision), [<em style="color: #2a6ef5; font-family: 'Trebuchet MS', sans-serif;">natural language</em>](https://developers.google.com/mediapipe/api/solutions/js/tasks-text), and [<em style="color: #2a6ef5; font-family: 'Trebuchet MS', sans-serif;">audio</em>](https://developers.google.com/mediapipe/api/solutions/js/tasks-audio). The following is a [list](https://developers.google.com/mediapipe/solutions/tasks#web_and_javascript) of script imports you can add to your Web and JavaScript development project to enable these APIs:
+The MediaPipe Tasks *Web JavaScript API* is divided into packages that perform ML tasks in major domains, including [vision](https://developers.google.com/mediapipe/api/solutions/js/tasks-vision), [natural language](https://developers.google.com/mediapipe/api/solutions/js/tasks-text), and [audio](https://developers.google.com/mediapipe/api/solutions/js/tasks-audio). The following is a [list](https://developers.google.com/mediapipe/solutions/tasks#web_and_javascript) of script imports you can add to your Web and JavaScript development project to enable these APIs:
 
 ```html
 <head>
@@ -356,26 +356,26 @@ The <u style="background-image: linear-gradient(135deg, #0097A7, #26b5a7); -webk
 ⚠️ For specific implementation details, see the *platform-specific* development [guides](https://developers.google.com/mediapipe/solutions/vision/hand_landmarker/web_js) for each solution in MediaPipe Tasks.
 
 
-### <u style="background-image: linear-gradient(135deg, #0097A7, #26b5a7); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-family: Lato, Arial;">**MediaPipe**</u> Studio ✨
+## MediaPipe Studio ✨
 
-Introducing *MediaPipe Studio*, the groundbreaking tool that enables you to conveniently <em style="color: #2fd909; font-family: 'Trebuchet MS', sans-serif;">*view*</em> and <em style="color: #2fd909; font-family: 'Trebuchet MS', sans-serif;">*test*</em> MediaPipe-compatible models <u>*directly on the Web*</u> 🌐. With MediaPipe Studio, there's no need to develop custom testing applications.
+Introducing *MediaPipe Studio*, the groundbreaking tool that enables you to conveniently <em style="font-family: 'Trebuchet MS', sans-serif;">*view*</em> and <em style="font-family: 'Trebuchet MS', sans-serif;">*test*</em> MediaPipe-compatible models *directly on the Web* 🌐. With MediaPipe Studio, there's no need to develop custom testing applications.
 
 ![MP_Studio_DEMO1](./images/solutions_demo_cat.gif)
 
-You can explore and experiment with the new tasks mentioned here and other additional features by visiting the [<u style="background-image: linear-gradient(135deg, #0097A7, #26b5a7); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-family: Lato, Arial;">MediaPipe</u> <u style="background-image: linear-gradient(135deg, #0ba13f, #0ba13f); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-family: Lato, Arial;">Studio</u>](https://mediapipe-studio.webapps.google.com/home) page.
+You can explore and experiment with the new tasks mentioned here and other additional features by visiting the [MediaPipe Studio](https://mediapipe-studio.webapps.google.com/home) page.
 
 ![MP_STUDIO_DEMO_FINAL](https://github.com/google/mediapipe/assets/48355572/00776009-1432-40af-95dd-be5a91d8f374)
 
-🔜 In the future, [<u style="background-image: linear-gradient(135deg, #0097A7, #26b5a7); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-family: Lato, Arial;">MediaPipe</u> <u style="background-image: linear-gradient(135deg, #0ba13f, #0ba13f); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-family: Lato, Arial;">Studio</u>](https://mediapipe-studio.webapps.google.com/home) will also offer a *no-code* model training solution, allowing you to effortlessly create new models without unnecessary complexities or overhead. Below you can find me using the MediaPipe Studio to to detect hand gestures from my **custom trained** model.
+🔜 In the future, [MediaPipe Studio](https://mediapipe-studio.webapps.google.com/home) will also offer a *no-code* model training solution, allowing you to effortlessly create new models without unnecessary complexities or overhead. Below you can find me using the MediaPipe Studio to to detect hand gestures from my **custom trained** model.
 
 ![MP_customModel_Studio_DEMO](./images/MP_studio_demo.gif)
 
 
 ### Visualizer Tool 📊
 
-The [<u style="background-image: linear-gradient(135deg, #0097A7, #26b5a7); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-family: Lato, Arial;">MediaPipe</u> <u style="background-image: linear-gradient(135deg, #fa9b02, #ed6409); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-family: Lato, Arial;">**Visualizer**</u>](https://viz.mediapipe.dev/) is a tool for understanding the topology and overall behavior of the pipelines. It provides a <em style="color: #2a6ef5; font-family: 'Trebuchet MS', sans-serif;">timeline view</em> and a <em style="color: #2a6ef5; font-family: 'Trebuchet MS', sans-serif;">graph view</em>. In the timeline view, the user can load a pre-recorded trace file and see the precise timings of data as it moves through threads and calculators (nodes). 
+The [<u style="background-image: linear-gradient(135deg, #0097A7, #26b5a7); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-family: Lato, Arial;">MediaPipe</u> <u style="background-image: linear-gradient(135deg, #fa9b02, #ed6409); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-family: Lato, Arial;">**Visualizer**</u>](https://viz.mediapipe.dev/) is a tool for understanding the topology and overall behavior of the pipelines. It provides a timeline view and a graph view. In the timeline view, the user can load a pre-recorded trace file and see the precise timings of data as it moves through threads and calculators (nodes). 
 
-In the graph view, the user can [*visualize the topology*](https://developers.google.com/mediapipe/framework/tools/visualizer) of a graph at any point in time, including the state of each calculator and the packets being processed or being held in its input queues. <em style="color: #0ca638">The visualizer can be used to understand the behavior of a pipeline, identify bottlenecks, and debug issues</em>.
+In the graph view, the user can [*visualize the topology*](https://developers.google.com/mediapipe/framework/tools/visualizer) of a graph at any point in time, including the state of each calculator and the packets being processed or being held in its input queues. The visualizer can be used to understand the behavior of a pipeline, identify bottlenecks, and debug issues.
 
 
 🛈 It also provides an easy way to try all the solutions. 
@@ -391,25 +391,25 @@ The *visualizer works within the browser*! Let’s give it a try. The following 
 
 ![breaker](https://user-images.githubusercontent.com/48355572/214252830-b5c764db-25c2-451a-b74c-876423f81917.png)
 
-## <u style="background-image: linear-gradient(135deg, #f50a39, #fa4a0a); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-family: Lato, Arial;">**Extras**</u>:
+## Extras:
 
 
 ### GPU Support 🏃
 
-**MediaPipe** supports <em style="color: #2a6ef5; font-family: 'Trebuchet MS', sans-serif;">GPU computing and rendering nodes and</em> <em style="color: #02c242; font-family: 'Trebuchet MS', sans-serif;"><u>allows to combine multiple GPU nodes and mix them with CPU-based nodes</u></em>. There are several GPU APIs on mobile platforms ([OpenGL](https://www.opengl.org) ES, Metal, [Vulkan](https://www.vulkan.org/), etc.)
+MediaPipe supports GPU computing and rendering nodes and allows to combine multiple GPU nodes and mix them with CPU-based nodes. There are several GPU APIs on mobile platforms ([OpenGL](https://www.opengl.org) ES, Metal, [Vulkan](https://www.vulkan.org/), etc.)
 
-![gpu-meme](https://github.com/google/mediapipe/assets/48355572/b593413f-5871-40f1-9a8c-ab401736b0d3)
+<!-- ![gpu-meme](https://github.com/google/mediapipe/assets/48355572/b593413f-5871-40f1-9a8c-ab401736b0d3) -->
 
 There is *no* single cross-API GPU abstraction. Individual nodes can be written using different APIs, allowing them to take advantage of platform-specific features when needed. This enables GPU and CPU nodes to provide advantages of encapsulation and composability while maintaining efficiency.
 
 
 ### Tracer Module 👣
 
-The <u style="background-image: linear-gradient(135deg, #0097A7, #26b5a7); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-family: Lato, Arial;">MediaPipe</u> tracer module is responsible for capturing timing events throughout the graph, recording various data fields such as <em style="color: #2a6ef5; font-family: Lato, Arial;">time</em>, <em style="color: #2a6ef5; font-family: Lato, Arial;">packet timestamp</em>, <em style="color: #2a6ef5; font-family: Lato, Arial;">data ID</em>, <em style="color: #2a6ef5; font-family: Lato, Arial;">node ID</em>, and <em style="color: #2a6ef5; font-family: Lato, Arial;">stream ID</em>. It also generates <em style="color: #2fd909; font-family: Lato, Arial;">histograms</em> to track different resource metrics, including elapsed CPU time for each calculator and stream.
+The MediaPipe tracer module is responsible for capturing timing events throughout the graph, recording various data fields such as time, packet timestamp, data ID, node ID, and stream ID. It also generates histograms to track different resource metrics, including elapsed CPU time for each calculator and stream.
 
-The tracer module can be activated on demand by configuring it through the <em style="color: #2a6ef5; font-family: 'Trebuchet MS', sans-serif;">**`GraphConfig`**</em> settings. Alternatively, the user can exclude the tracer module code entirely using a compiler flag.
+The tracer module can be activated on demand by configuring it through the <em style="font-family: 'Trebuchet MS', sans-serif;">**`GraphConfig`**</em> settings. Alternatively, the user can exclude the tracer module code entirely using a compiler flag.
 
-💡 By recording timing data, the tracer enables the analysis and visualization of individual packet flows and calculator executions. *This data is useful for* <u><em>diagnosing issues such as unexpected real-time delays*, *memory accumulation caused by packet buffering*, and *synchronization of packets with varying frame rates</em></u>.
+💡 By recording timing data, the tracer enables the analysis and visualization of individual packet flows and calculator executions. *This data is useful for* diagnosing issues such as unexpected real-time delays*, *memory accumulation caused by packet buffering*, and *synchronization of packets with varying frame rates.
 
 The aggregated timing data is valuable for reporting average and extreme latencies, facilitating performance tuning. Additionally, the timing data aids in identifying critical path nodes that significantly impact end-to-end latency.
 
@@ -421,42 +421,42 @@ The aggregated timing data is valuable for reporting average and extreme latenci
 
 
 ### Synchronization and Performance Optimization ⚙️
-**MediaPipe** offers support for <u style="background-image: linear-gradient(135deg, #04db94, #3a81f2); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">multimodal graphs</u>, where *different calculators can run concurrently in separate threads to enhance processing speed*. To optimize performance, many pre-built calculators provide options for GPU acceleration. 
+**MediaPipe** offers support for multimodal graphs, where *different calculators can run concurrently in separate threads to enhance processing speed*. To optimize performance, many pre-built calculators provide options for GPU acceleration. 
 
-![flash-dc-2](https://github.com/google/mediapipe/assets/48355572/547bd7e0-d622-4aae-b54d-a4018c1a54d3)
+<!-- ![flash-dc-2](https://github.com/google/mediapipe/assets/48355572/547bd7e0-d622-4aae-b54d-a4018c1a54d3) -->
 
 It is crucial to synchronize time series data properly to prevent system disruptions. The graph within MediaPipe ensures that data flow is managed **accurately based on packet timestamps**. Additionally, the framework takes care of synchronization, context sharing, and inter-operations with CPU calculators.
 
 
 ### Dependencies 🏴󠁶󠁥󠁷󠁿
-**MediaPipe** depends on [OpenCV](https://opencv.org/) for video and [FFMPEG](https://ffmpeg.org/) for audio data handling. It also has other dependencies like OpenGL/Metal, <u style="background-image: linear-gradient(135deg, #FFA800, #FF6F00); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-family: Lato, Arial;">TensorFlow</u>, Eigen, etc.
+**MediaPipe** depends on [OpenCV](https://opencv.org/) for video and [FFMPEG](https://ffmpeg.org/) for audio data handling. It also has other dependencies like OpenGL/Metal, TensorFlow, Eigen, etc.
 
 
 ### AI models vs. Applications 🎮
-Traditionally, image or video input data is obtained as separate streams and analyzed using neural networks like [TensorFlow](https://www.tensorflow.org/), [PyTorch](https://pytorch.org/), [CNTK](https://learn.microsoft.com/en-us/cognitive-toolkit), or [MXNet](https://mxnet.apache.org). These models follow a simple and deterministic approach, where each input generates a single output, enabling efficient processing. For a detailed comparison between <u style="background-image: linear-gradient(135deg, #FFA800, #FF6F00); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-family: Lato, Arial;">TensorFlow</u> and <u style="background-image: linear-gradient(135deg, #e74a2b, #e83a17); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-family: Lato, Arial;">PyTorch</u>, you can check out this [<u><mark style="color: #f20c70; font-family: 'Trebuchet MS', sans-serif;">🔗 **blog**</mark></u>](https://viso.ai/deep-learning/pytorch-vs-tensorflow).
+Traditionally, image or video input data is obtained as separate streams and analyzed using neural networks like [TensorFlow](https://www.tensorflow.org/), [PyTorch](https://pytorch.org/), [CNTK](https://learn.microsoft.com/en-us/cognitive-toolkit), or [MXNet](https://mxnet.apache.org). These models follow a simple and deterministic approach, where each input generates a single output, enabling efficient processing. For a detailed comparison between TensorFlow and PyTorch, you can check out this [<u><mark style="color: #f20c70; font-family: 'Trebuchet MS', sans-serif;">🔗 **blog**</mark></u>](https://viso.ai/deep-learning/pytorch-vs-tensorflow).
 
 ![rec_veh_od](https://github.com/google/mediapipe/assets/48355572/cf344311-9f8d-4cfa-965c-51065f3cda34)
 
 <center style="color: #8fa387;"> ⬆️ Credits: Google Images </center><br/>
 
-In contrast, [<u style="background-image: linear-gradient(135deg, #0097A7, #26b5a7); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-family: Lato, Arial;">MediaPipe</u>](https://developers.google.com/mediapipe) operates at a higher-level semantic, enabling more intricate and dynamic behaviors. For instance, a single input can generate zero, one, or multiple outputs, which cannot be achieved with traditional neural networks. Video processing and AI perception necessitate streaming processing as opposed to batch methods.
+In contrast, [MediaPipe](https://developers.google.com/mediapipe) operates at a higher-level semantic, enabling more intricate and dynamic behaviors. For instance, a single input can generate zero, one, or multiple outputs, which cannot be achieved with traditional neural networks. Video processing and AI perception necessitate streaming processing as opposed to batch methods.
 
-[OpenCV 4.0](https://opencv.org/blog/2018/11/20/opencv-4-0/) introduced the **Graph API**, which allows the creation of sequences of image processing operations in the form of a graph. On the other hand, <u style="background-image: linear-gradient(135deg, #0097A7, #26b5a7); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-family: Lato, Arial;">MediaPipe</u> supports operations on diverse data types and offers native support for streaming time-series data, making it more suitable for analyzing audio and sensor data.
+[OpenCV 4.0](https://opencv.org/blog/2018/11/20/opencv-4-0/) introduced the *Graph API*, which allows the creation of sequences of image processing operations in the form of a graph. On the other hand, MediaPipe supports operations on diverse data types and offers native support for streaming time-series data, making it more suitable for analyzing audio and sensor data.
 
 
 ### Is it genuinely Real-Time? 🤯
 
 It's almost near to real-time. The *inference latency* & *performance* might vary as per different device specs.
 
-![realtime_meme](https://github.com/google/mediapipe/assets/48355572/4711850c-2edc-4b5c-a166-4d6b9513f152)
+<!-- ![realtime_meme](https://github.com/google/mediapipe/assets/48355572/4711850c-2edc-4b5c-a166-4d6b9513f152) -->
 
-But yes, <u style="background-image: linear-gradient(135deg, #0097A7, #26b5a7); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-family: Lato, Arial;">MediaPipe</u> <u style="background-image: linear-gradient(135deg, #0fbf15, #0ac2b9); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-family: Lato, Arial;">is designed to provide **real-time** performance</u>. It offers efficient and optimized processing pipelines that enable real-time analysis and inference on various multimedia inputs, including video, audio, and sensor data. MediaPipe incorporates techniques such as <em style="color: #2a6ef5; font-family: 'Trebuchet MS', sans-serif;">parallel processing</em>, <em style="color: #2a6ef5; font-family: 'Trebuchet MS', sans-serif;">hardware acceleration</em>, and <em style="color: #2a6ef5; font-family: 'Trebuchet MS', sans-serif;">optimized algorithms</em> to ensure fast and responsive performance, making it suitable for applications that require real-time processing capabilities.
+But yes, MediaPipe is designed to provide <u style="background-image: linear-gradient(135deg, #0fbf15, #0ac2b9); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-family: Lato, Arial;"> **real-time**</u> performance. It offers efficient and optimized processing pipelines that enable real-time analysis and inference on various multimedia inputs, including video, audio, and sensor data. MediaPipe incorporates techniques such as parallel processing, hardware acceleration, and optimized algorithms to ensure fast and responsive performance, making it suitable for applications that require real-time processing capabilities.
 
 ---
 
 ### References 📌
 
-Here are the links to some of the best resources to learn more about [<u style="background-image: linear-gradient(135deg, #0097A7, #26b5a7); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-family: Lato, Arial;">MediaPipe</u>](https://developers.google.com/mediapipe):
+Here are the links to some of the best resources to learn more about [MediaPipe](https://developers.google.com/mediapipe):
 
 - **<u style="background-image: linear-gradient(135deg, #0097A7, #26b5a7); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-family: Lato, Arial;">MediaPipe</u>** **GitHub** repository → [<u><mark style="color: #f20c70; font-family: 'Trebuchet MS', sans-serif;">🔗 **link**</mark></u>](https://github.com/google/mediapipe)
 
@@ -477,52 +477,38 @@ Here are the links to some of the best resources to learn more about [<u style="
 
 ✨ Watch Learn and build with [<u style="background-image: linear-gradient(135deg, #0097A7, #26b5a7); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-family: Lato, Arial;">**MediaPipe**</u>](https://developers.google.com/mediapipe) → [<u><mark style="color: #f20c70; font-family: 'Trebuchet MS', sans-serif;">🔗 **here**</mark></u>](https://developers.google.com/mediapipe#:~:text=Watch%2C%20learn%2C%20and%20build%20with%20MediaPipe)
 
-🌟 Read more blogs on <u style="background-image: linear-gradient(135deg, #0097A7, #26b5a7); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-family: Lato, Arial;">MediaPipe</u> <u style="background-image: linear-gradient(135deg, #0097A7, #0097A7); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-family: Lato, Arial;">Solutions</u> [<u><mark style="color: #f20c70; font-family: 'Trebuchet MS', sans-serif;">🔗 **here**</mark></u>](https://developers.googleblog.com/search/label/MediaPipe).
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+🌟 Read more blogs on <u style="background-image: linear-gradient(135deg, #0097A7, #26b5a7); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-family: Lato, Arial;">**MediaPipe**</u> <u style="background-image: linear-gradient(135deg, #0097A7, #0097A7); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-family: Lato, Arial;">**Solutions**</u> [<u><mark style="color: #f20c70; font-family: 'Trebuchet MS', sans-serif;">🔗 **here**</mark></u>](https://developers.googleblog.com/search/label/MediaPipe).
 
 
 ![line-breaker](https://github.com/google/mediapipe/assets/48355572/c2a5d7fd-0fa7-470d-ab05-561bb8748394)
 
 
-## **<u style="background-image: linear-gradient(135deg, #30c712, #154cb3); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-family: Lato, Arial;">Progress Tracker</u>** 📝
+## Progress Tracker 📝
 
-###  🟩 [**<u style="background-image: linear-gradient(135deg, #821aeb, #4509de); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Community Bonding Period</u>**](https://blog.neilblaze.live/gsoc'23-community-bonding-period-@tensorflow) (<u style="color: #016b4d; font-family: Lato, Arial;">5th May — 28th May</u>):
+###  🟩 [**<u style="background-image: linear-gradient(135deg, #821aeb, #4509de); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Community Bonding Period</u>**](https://blog.neilblaze.live/gsoc'23-community-bonding-period-@tensorflow) (<u style="font-family: Lato, Arial;">5th May — 28th May</u>):
 
 - Interacted with [Paul](https://github.com/PaulTR) & discussed project details, and set goals 💬
 - Set up my development environment 🖥️
-- Explored [<u style="background-image: linear-gradient(135deg, #0097A7, #26b5a7); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-family: Lato, Arial;">MediaPipe</u> API docs](https://developers.google.com/mediapipe/api/solutions/js/tasks-vision) & <u style="background-image: linear-gradient(135deg, #0097A7, #26b5a7); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-family: Lato, Arial;">MediaPipe</u> (Vision) [Samples](https://developers.google.com/mediapipe/solutions/examples).
+- Explored [MediaPipe API docs](https://developers.google.com/mediapipe/api/solutions/js/tasks-vision) & MediaPipe (Vision) [Samples](https://developers.google.com/mediapipe/solutions/examples).
 - Revised proposal and set up development milestones ✍
-- Started creating an <em style="color: #096bba; font-family: Lato, Arial;">MVP</em> for the discussed solution 👨‍💻
+- Started creating an <em>**MVP**</em> for the discussed solution 👨‍💻
 - Finished essential tasks for GSoC onboarding ☑️
 - Introduced myself to the community & met other GSoC participants 👥
 - Continued Learning 📚
 
 <br/>
 
-###  🟩 [**<u style="background-image: linear-gradient(135deg, #821aeb, #4509de); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Week</u> <u style="background-image: linear-gradient(135deg, #821aeb, #4509de); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-family: Lato, Arial;">1 - 3</u>**]((https://blog.neilblaze.live/a-holistic-preview-of-mediapipe-for-gsoc'23-@tensorflow)) (<u style="color: #016b4d; font-family: Lato, Arial;">29th May — 21st June</u>):
+###  🟩 [**<u style="background-image: linear-gradient(135deg, #821aeb, #4509de); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Week</u> <u style="background-image: linear-gradient(135deg, #821aeb, #4509de); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-family: Lato, Arial;">1 - 3</u>**]((https://blog.neilblaze.live/a-holistic-preview-of-mediapipe-for-gsoc'23-@tensorflow)) (<u style="font-family: Lato, Arial;">29th May — 21st June</u>):
 
 - Studied the [MediaPipe HandLandmarker task](https://github.com/googlesamples/mediapipe/tree/main/examples/hand_landmarker/js) API for Web. Follow [CodePen](https://codepen.io/mediapipe-preview/pen/gOKBGPN) example for reference 📚
-- Tested the it locally by wrapping it inside a [<u style="background-image: linear-gradient(135deg, #25aee8, #11aced); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-family: Lato, Arial;">React</u> App](https://react.dev) ⚛️
-- Studied the [API docs](https://developers.google.com/mediapipe/solutions/vision/hand_landmarker/web_js) of <u style="background-image: linear-gradient(135deg, #0097A7, #26b5a7); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-family: Lato, Arial;">MediaPipe</u> & [Gesture Recognizer](https://developers.google.com/mediapipe/solutions/vision/gesture_recognizer/web_js) API for Web 📚
+- Tested the it locally by wrapping it inside a [React App](https://react.dev) ⚛️
+- Studied the [API docs](https://developers.google.com/mediapipe/solutions/vision/hand_landmarker/web_js) of MediaPipe & [Gesture Recognizer](https://developers.google.com/mediapipe/solutions/vision/gesture_recognizer/web_js) API for Web 📚
 - Started writing code for the web interface and integrate MediaPipe's [hand landmark](https://developers.google.com/mediapipe/solutions/vision/hand_landmarker) model API 👨‍💻
 - Wrote this blog on holistic view on MediaPipe ML Library. 📝
 - Cleared up the code and made notes to track progress ✍🏻
 
 
-![memes](https://github.com/google/mediapipe/assets/48355572/211a4615-ea1b-42ba-ad53-bc741ff31749)
+<!-- ![memes](https://github.com/google/mediapipe/assets/48355572/211a4615-ea1b-42ba-ad53-bc741ff31749) -->
 
 # Conclusion 🚀
 
