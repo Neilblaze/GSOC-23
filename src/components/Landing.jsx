@@ -6,18 +6,18 @@ const Landing = () => {
   const [cameraPermissionAllowed, setCameraPermissionAllowed] = useState(false);
 
   useEffect(() => {
-    // Check camera permission
-    navigator.mediaDevices
-      .getUserMedia({ video: true })
-      .then(() => {
+    const checkCameraPermission = async () => {
+      try {
+        await navigator.mediaDevices.getUserMedia({ video: true });
         setCameraPermissionAllowed(true);
-      })
-      .catch((error) => {
+      } catch (error) {
         console.error("Camera permission not allowed:", error);
         setCameraPermissionAllowed(false);
-      });
+      }
+    };
 
-    // Simulate loading delay
+    checkCameraPermission();
+
     const timer = setTimeout(() => {
       putInitialze(true);
     }, 5500);
@@ -50,7 +50,7 @@ const Landing = () => {
         <div className="absolute top-2 left-2 p-4 pointer-events-none">
           <img src="/MP_logo.png" alt="" style={{ width: 180, height: 50 }} />
         </div>
-        <div className="absolute bottom-0 w-screen text-center mb-4 text-gray-400 text-sm">We neither collect, store, or send any data. The video is processed on your browser itself & is GDPR compliant.</div>
+        <div className="absolute bottom-0 w-screen text-center mb-4 text-gray-400 text-sm">We neither collect, store, nor send any data. The video is processed in your browser itself and is GDPR compliant.</div>
       </div>
     );
   } else {

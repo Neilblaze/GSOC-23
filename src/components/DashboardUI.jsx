@@ -36,12 +36,18 @@ function DashboardUI(props) {
 
   const enterPin = () => {
     if (pin === "") return dispAlert("PIN cannot be empty!");
-    if (pin.length !== 4) return dispAlert("PIN must be 4 digits!");
-    if (pin !== "1234") return dispAlert("Wrong PIN");
-    defPageNo(3);
+    else if (pin.length !== 4) return dispAlert("PIN must be 4 digits!");
+    else if (pin !== "1234") return dispAlert("Wrong PIN");
+    else defPageNo(3);
   };
 
-  const addPin = (n) => setPin(pin + String(n));
+  const addPin = (n) => {
+    if (pin.length < 8) {
+      setPin(pin + String(n));
+    } else {
+      dispAlert("Max Input Reached");
+    }
+  };
 
   switch (pageNo) {
     case 1:
@@ -115,8 +121,11 @@ function DashboardUI(props) {
                 className="w-20 h-20 transform -rotate-90 pointer-events-none"
               />
             </div>
-            <div className="bg-gray-900 rounded px-8 py-2 mt-2 ml-4 text-4xl font-mono w-64 text-center tracking-widest h-14 border-2 border-purple-400">
+            <div className="bg-gray-900 rounded px-8 py-2 mt-2 ml-4 text-4xl font-mono w-64 text-center tracking-widest h-14 border-2 border-purple-400 relative">
               {pinGen(pin.length)}
+              {pin.length < 8 && (
+                <span className="inline-block w-4 h-1 bg-white animate-blink"></span>
+              )}
             </div>
           </div>
 
@@ -174,7 +183,7 @@ function DashboardUI(props) {
       const services = [
         {
           title: "Withdraw Money",
-          description: "Withdraw cash 💲 from your bank account.",
+          description: "Withdraw cash 💵 from your bank account.",
         },
         {
           title: "Mini Statement",

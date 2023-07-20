@@ -2,9 +2,9 @@ import { useState, useEffect } from "react";
 import { connect } from "react-redux";
 
 const messageFrom = (msg) => {
-  if (msg === "HOVER") return "Hovering ✋";
+  if (msg === "HOVER") return "Hovering 🤚";
   else if (msg === "GRAB") return "Grabbing ✊"; // horizontal scroll operation TODO
-  else if (msg === "BACKSPACE") return "Undo Input 🤚";
+  else if (msg === "BACKSPACE") return "Undo Input ✋";
   else return "Clicking 👌";
 };
 

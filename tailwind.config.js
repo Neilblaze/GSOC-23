@@ -12,6 +12,15 @@ module.exports = {
       boxShadow: {
         blue: "0 4px 14px 0 rgba(19, 51, 81, 0.39)",
       },
+      animation: {
+        blink: "blink 1s infinite",
+      },
+      keyframes: {
+        blink: {
+          "0%, 100%": { opacity: 1 },
+          "50%": { opacity: 0 },
+        },
+      },
     },
   },
   variants: {
