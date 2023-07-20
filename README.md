@@ -1,89 +1,191 @@
-<p align="center">
-  <img src="assets/Header.png">
-</p>
+### Getting Started with [Aeronexus](https://aeronexus.neilblaze.live) using [GitHub Codespaces](https://github.com/features/codespaces):
 
-## 💡 **DETAILS**:
 
-* **Year**: 2023
+Follow the exact instructions:
 
-* **Organisation**: [<u style="background-image: linear-gradient(135deg, #FFA800, #FF6F00); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-family: Lato, Arial;">**TensorFlow**</u>](https://www.tensorflow.org) <img src="https://github.com/google/mediapipe/assets/48355572/5205ea50-174c-4bb3-b2e9-b4564ad1a9c7" width="14.5px" height="15.5px">
+1. Visit the Aeronexus [GitHub Repository]()
 
-* **Project Title**: [Interactive Web Demos using the MediaPipe Machine Learning Library](https://summerofcode.withgoogle.com/programs/2023/projects/pd9KgnNP)
+2. You can fork the repository, but it's not necessary. Just click on the green button that says "Code" and select "Codespaces". Then simply click on "Create codespace on main" and wait for it to load.
 
-<br/> 
+![image](https://github.com/google/mediapipe/assets/57082943/9a88d568-6db6-4777-ac42-379fbdab4e30)
 
-## 🤔 **PROJECT DESCRIPTION**:
+3. It should look something like this once it's done loading:
 
-In this proposal, I suggest developing an *interactive web app* using the **Mediapipe Hands** *JS Solution API* and simple human gestures to provide perfect contactless interactions with interfaces.
+![image](https://github.com/google/mediapipe/assets/57082943/a03f4763-e163-42b8-9c1a-d6995c0c27d0)
 
-> **Background**: The *COVID-19 pandemic* <img src="https://github.com/google/mediapipe/assets/48355572/8c2b1254-5323-4742-b0ec-f4a7c2232dfd" width="14.5px" height="15.5px"> has increased awareness of hygiene risks associated with touchscreens, with reports indicating that **80%** of people find them *unhygienic*. **Touchless** *gesture-based* intuitive systems can reduce transmission in public settings and workplaces, and offer a seamless and convenient experience. Touchless technology is expected to remain popular in various industries, such as retail, healthcare, and hospitality. 
+It feels exactly the same as VS Code.
 
- The app will showcase an augmented *transaction panel* previewed on the screen, enabling users to perform essential CRUD operations of items through custom simple-to-use gestures, *without physical touch*. Both custom defined & pre-trained gestures from Mediapipe’s tasks-vision API will be utilized to classify gestures and trigger events on the interface. The project targets most platforms, primarily *big screens*, and may run on selective mobile devices with a camera module for input feed. *All data taken via input video feed is deleted after returning inference and is computed directly on the client side, making it GDPR compliant.* Once completed, the Web App will be uploaded to Codepen and/or deployed on Vercel.
+4. Now, to open the terminal and run the following command:
 
-* **Keywords / Topics**: <u style="background-image: linear-gradient(135deg, #4285F4, #4285F4); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-family: Lato, Arial;">G</u><u style="background-image: linear-gradient(135deg, #EA4335, #EA4335); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-family: Lato, Arial;">o</u><u style="background-image: linear-gradient(135deg, #FBBC05, #FBBC05); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-family: Lato, Arial;">o</u><u style="background-image: linear-gradient(135deg, #4285F4, #4285F4); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-family: Lato, Arial;">g</u><u style="background-image: linear-gradient(135deg, #34A853, #34A853); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-family: Lato, Arial;">l</u><u style="background-image: linear-gradient(135deg, #EA4335, #EA4335); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-family: Lato, Arial;">e</u>, Web, Computer Vision, Accessibility, MediaPipe, Gesture Detection, Interactability
+```sh
+cd Int*
+```
 
-* **Mentor**: [**Jen Person**](https://www.linkedin.com/in/jennifer-person) ([@jenperson](https://github.com/jenperson))
+This should take you to the root directory [`Interactive Demo (WIP)`] of the project.
 
-<br/>
+5. [Optional] Check the node version using the following command:
 
-> Special Thanks to [**Paul Ruiz**](https://www.linkedin.com/in/paultruiz) ([@PaulTR](https://github.com/PaulTR)) for providing immense support and guidance throughout the program, & [**Jason Mayes**](https://www.linkedin.com/in/creativetech) ([@jasonmayes](https://github.com/jasonmayes)) for his valuable feedback on the proposal.
+```sh
+node -v
+```
+
+It should display **v20.3.0**
+
+
+> ⚠️ **Disclaimer:** This project was built on create-react-app which is a tool to bootstrap React applications. The template which I've used has lost support in Node v20, so its recommended to use **v16.14.0** (which I use) or node v18, else it won't work on codespaces. This is the reason why I'll shifting the codebase to a new Next.js project in near future.
+
+6. Now since we need node v16.14.0 (which I use), we'll use nvm to install it. To install **NVM** (Node Version Manager) and Node.js version 16.14.0 on Bash, you can follow these steps:
+
+
+-  Download the NVM installation script using `cURL` by running the following command:
+
+   ```bash
+   curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.0/install.sh | bash
+   ```
+
+   ![image](https://github.com/google/mediapipe/assets/57082943/b08b588a-e50a-4fb1-9774-1edec765758e)
+
+   This command will download the NVM installation script and execute it.
+
+- Run the following command in terminal to load NVM into the current session:
+
+   ```bash
+   source ~/.bashrc
+   ```
+
+- Verify that NVM is installed correctly by running the following command:
+
+   ```bash
+   nvm --version
+   ```
+
+   You should see the version number of NVM printed on the terminal, which should be **0.39.0**.
+
+- Install Node.js version 16.14.0 using NVM:
+
+   ```bash
+   nvm install 16.14.0
+   ```
+
+- [Optional] Verify that Node.js is installed correctly by running the following commands:
+
+   ```bash
+   node --version
+   ```
+
+   ![image](https://github.com/google/mediapipe/assets/57082943/7a878a5e-97b6-4ac2-b4a3-f4264324f59d)
+
+   You should see the version number of Node.js (16.14.0) printed on the terminal.
+
+   ```bash
+   npm --version
+   ```
+
+   You should see the version number of npm printed on the terminal, which should be **8.3.1**.
+
+> 💡 Now you have NVM installed and Node.js version 16.14.0 set as the active version on your Bash terminal. You can switch between different Node.js versions using NVM if needed, and you can create and run your React app with the desired Node.js version.
+
+7. Now, run the following command to install the dependencies:
+
+```sh
+npm install --silent
+```
+
+> Ignore the warnings, they're just about the peer dependencies.
+
+8. Once the installation is done, run the following command to start the React App:
+
+```sh
+npm start
+```
+
+![image](https://github.com/google/mediapipe/assets/57082943/df712636-ffc4-4236-ae85-3107ea6170d4)
+
+You should get a popup saying open in browser → The app should be running on port 3000. Or you can go to "PORTS" in Terminal & click on "Open in Browser".
+
+![image](https://github.com/google/mediapipe/assets/57082943/77dda8b6-d373-4b54-b9db-b80e9a421cd3)
+
+Once done, you can delete the codespaces by visiting [this link](https://github.com/codespaces) & deleting active codespaces.
+
+
+
+
+
+
+
+
+
+<br/><br/><br/><br/><br/><br/>
 
 ---
 
-<br/>
+# Getting Started with Create React App
 
-## 🦄 **Project Name** → **<u style="background-image: linear-gradient(135deg, #28d3fa, #2f10c7); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-family: Lato, Arial;">_Aeronexus_</u>**
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-> Aero" is related to air (devoid of touch), and "nexus" refers to a connection or a central point. The name is inspired by the project's goal of providing a touchless interface for users to interact with the web.
+## Available Scripts
 
-### 🏃 Try the live demo (wip) [here](https://aeronexus.neilblaze.live/). 
+In the project directory, you can run:
 
-<br/>
+### `npm start`
 
-## **<u style="background-image: linear-gradient(135deg, #30c712, #154cb3); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-family: Lato, Arial;">Progress Tracker</u>** 📝
+Runs the app in the development mode.\
+Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-###  🟩 [**<u style="background-image: linear-gradient(135deg, #821aeb, #4509de); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Community Bonding Period</u>**](https://blog.neilblaze.live/gsoc'23-community-bonding-period-@tensorflow) (<u style="color: #016b4d; font-family: Lato, Arial;">5th May — 28th May</u>):
+The page will reload when you make changes.\
+You may also see any lint errors in the console.
 
-- Interacted with [Paul](https://github.com/PaulTR) & discussed project details, and set goals 💬
-- Set up my development environment 🖥️
-- Explored [<u style="background-image: linear-gradient(135deg, #0097A7, #26b5a7); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-family: Lato, Arial;">MediaPipe</u> API docs](https://developers.google.com/mediapipe/api/solutions/js/tasks-vision) & <u style="background-image: linear-gradient(135deg, #0097A7, #26b5a7); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-family: Lato, Arial;">MediaPipe</u> (Vision) [Samples](https://developers.google.com/mediapipe/solutions/examples).
-- Revised proposal and set up development milestones ✍
-- Started creating an <em style="color: #096bba; font-family: Lato, Arial;">MVP</em> for the discussed solution 👨‍💻
-- Finished essential tasks for GSoC onboarding ☑️
-- Introduced myself to the community & met other GSoC participants 👥
-- Continued Learning 📚
+### `npm test`
 
-<br/>
+Launches the test runner in the interactive watch mode.\
+See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-###  🟩 [**<u style="background-image: linear-gradient(135deg, #821aeb, #4509de); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Week</u> <u style="background-image: linear-gradient(135deg, #821aeb, #4509de); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-family: Lato, Arial;">1 - 3</u>**]((https://blog.neilblaze.live/a-holistic-preview-of-mediapipe-for-gsoc'23-@tensorflow)) (<u style="color: #016b4d; font-family: Lato, Arial;">29th May — 21st June</u>):
+### `npm run build`
 
-- Studied the [MediaPipe HandLandmarker task](https://github.com/googlesamples/mediapipe/tree/main/examples/hand_landmarker/js) API for Web. Follow [CodePen](https://codepen.io/mediapipe-preview/pen/gOKBGPN) example for reference 📚
-- Tested the it locally by wrapping it inside a [<u style="background-image: linear-gradient(135deg, #25aee8, #11aced); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-family: Lato, Arial;">React</u> App](https://react.dev) ⚛️
-- Studied the [API docs](https://developers.google.com/mediapipe/solutions/vision/hand_landmarker/web_js) of <u style="background-image: linear-gradient(135deg, #0097A7, #26b5a7); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-family: Lato, Arial;">MediaPipe</u> & [Gesture Recognizer](https://developers.google.com/mediapipe/solutions/vision/gesture_recognizer/web_js) API for Web 📚
-- Started writing code for the web interface and integrate MediaPipe's [hand landmark](https://developers.google.com/mediapipe/solutions/vision/hand_landmarker) model API 👨‍💻
-- Cleared up the code and made notes to track progress ✍🏻
+Builds the app for production to the `build` folder.\
+It correctly bundles React in production mode and optimizes the build for the best performance.
 
-<br/>
+The build is minified and the filenames include the hashes.\
+Your app is ready to be deployed!
 
-### 🟩 [**<u style="background-image: linear-gradient(135deg, #821aeb, #4509de); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Week</u> <u style="background-image: linear-gradient(135deg, #821aeb, #4509de); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-family: Lato, Arial;">4 - 5</u>**](https://blog.neilblaze.live/tracking-progress-for-interactive-web-demo-with-mediapipe-ml-library-under-gsoc'23-@tensorflow) (<u style="color: #016b4d; font-family: Lato, Arial;">22nd June — 6th July</u>):
+See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-- I am diligently keeping track of my work and progress ✅
+### `npm run eject`
 
-- I'm pushing continuous changes to my local git tree, which allows easy tracking of changes. I'm also ensuring that new commits are pushed at regular intervals to a public [<u style="background-image: linear-gradient(135deg, #670896, #4b3c52); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-family: Lato, Arial;">**GitHub**</u>](https://github.com/Neilblaze/GSOC-23) repository & is deployed to reflect continuous improvements ☑️
+**Note: this is a one-way operation. Once you `eject`, you can't go back!**
 
-- I'm running ahead of schedule, as I successfully crafted an *MVP* of the project using React.js & MediaPipe's HandLandmarker API. The working demo can be viewed → [<u><mark style="color: #f20c70; font-family: 'Trebuchet MS', sans-serif;">🔗 **here**</mark></u>](https://drive.google.com/file/d/153wPRz1Hn8N1B96VbeF7EK5ia3Vk-yw9/view) 😎
+If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-- Designed new Figma prototypes to refactor the current UI of the project for enhancement 🎨
+Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
 
+You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
 
-### <u style="background-image: linear-gradient(135deg, #0097A7, #11aced); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-family: Lato, Arial;">Prototype Slides</u>  🖼️
+## Learn More
 
-![aeronexus](https://github.com/google/mediapipe/assets/48355572/8172978d-3baa-4bed-8844-03d3aac0b05e)
+You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
-- I'm also planning to migrate the current project to [<u style="background-image: linear-gradient(135deg, #670896, #4b3c52); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-family: Lato, Arial;">**NEXT.js**</u>](https://nextjs.org) in the coming weeks. If time permits, I'll consider adding snapshot-testing to the project.
+To learn React, check out the [React documentation](https://reactjs.org/).
 
-- [Latest] Wrote [this](https://blog.neilblaze.live/tracking-progress-for-interactive-web-demo-with-mediapipe-ml-library-under-gsoc'23-@tensorflow) blog on how to use MediaPipe Model Maker to train custom models for hand tracking. 📝
+### Code Splitting
 
-- Cleared up the code and made notes to track progress ✍🏻
+This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
 
----
+### Analyzing the Bundle Size
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+
+### Making a Progressive Web App
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+
+### Advanced Configuration
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+
+### Deployment
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+
+### `npm run build` fails to minify
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
