@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { connect } from "react-redux";
 
+
 const messageFrom = (msg) => {
   if (msg === "HOVER") return "Hovering 🤚";
   else if (msg === "GRAB") return "Grabbing ✊"; // horizontal scroll operation TODO
@@ -12,8 +13,26 @@ function UIalert({ gesture, finger_locx, loaded }) {
   const [status, setStatus] = useState("no");
   const [lastTime, setLastTime] = useState(null);
 
+  const handleKeyDown = (event) => {
+    if (event.keyCode === 8) {
+      // Backspace key pressed, trigger "BACKSPACE" gesture
+      setStatus("BACKSPACE");
+
+      const timer = setTimeout(() => {
+        setStatus("no");
+      }, 500);
+      setLastTime(timer);
+    }
+  };
+
   useEffect(() => {
-    if (lastTime) clearTimeout(lastTime);
+    if (!loaded) {
+      return;
+    }
+
+    if (lastTime) {
+      clearTimeout(lastTime);
+    }
 
     setStatus(gesture);
 
@@ -21,8 +40,13 @@ function UIalert({ gesture, finger_locx, loaded }) {
       setStatus("no");
     }, 500);
     setLastTime(timer);
+
+    document.addEventListener("keydown", handleKeyDown);
+    return () => {
+      document.removeEventListener("keydown", handleKeyDown);
+    };
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [gesture, finger_locx, setStatus, setLastTime]);
+  }, [gesture, finger_locx, loaded, setStatus, setLastTime]);
 
   if (!loaded) {
     return null;
@@ -34,6 +58,16 @@ function UIalert({ gesture, finger_locx, loaded }) {
             ⚠️ Hands out of sight! <span className="ml-2"></span>
           </div>
         </div>
+      </div>
+    );
+  } else if (status === "GRAB") {
+    return (
+      <div className="fixed top-0 left-0 w-full h-full flex items-center justify-center z-50 bg-opacity-40 bg-black">
+        <img
+          src="/grabModal.png"
+          alt=""
+          className="w-3/5 h-2.5/5 transition-opacity duration-500 transform -translate-y-2/10 delay-200 ease-in-out"
+        />
       </div>
     );
   } else {
