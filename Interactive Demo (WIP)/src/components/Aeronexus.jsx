@@ -1,4 +1,4 @@
-import React, { useRef, useEffect } from 'react';
+import { useRef, useEffect } from 'react';
 import { FilesetResolver, HandLandmarker } from '@mediapipe/tasks-vision';
 import { connect } from 'react-redux';
 import { putGesture, putFingLock, putInitialze } from '../redux/gesture/gesture.ops';
@@ -39,6 +39,11 @@ function Aeronexus({ putGesture, putFingLock, putInitialze }) {
     };
 
     const loadModelAndStartDetection = async () => {
+      // GPU % = Max 7%
+      // const vision = await FilesetResolver.forVisionTasks("https://cdn.jsdelivr.net/npm/@mediapipe/tasks-vision/wasm");
+      // const handLandmarker = await HandLandmarker.createFromModelPath(vision, "https://storage.googleapis.com/mediapipe-models/hand_landmarker/hand_landmarker/float16/1/hand_landmarker.task");
+      
+      // GPU % = Max 50%
       const vision = await FilesetResolver.forVisionTasks('https://cdn.jsdelivr.net/npm/@mediapipe/tasks-vision/wasm');
       const handLandmarker = await HandLandmarker.createFromOptions(vision, {
         baseOptions: {

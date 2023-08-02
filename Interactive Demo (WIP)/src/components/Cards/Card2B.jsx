@@ -6,7 +6,7 @@ function actionPose(el) {
   return { x: lx, y: ly };
 }
 
-function Card2(props) {
+function Card2B(props) {
   const cardRef = useRef(null);
   const [lastClicked, setLastClicked] = useState(Date.now());
 
@@ -38,8 +38,8 @@ function Card2(props) {
   return (
     <div
       ref={cardRef}
-      className={`w-128 border-2 p-4 rounded-xl border-green-400${
-        isHovering() ? " border-green-400 bg-green-300 bg-opacity-30 hover-gradient-green" : ""
+      className={`w-128 border-2 p-4 rounded-xl border-red-400${
+        isHovering() ? " border-red-400 bg-red-300 bg-opacity-30 hover-gradient-red" : ""
       }${props.className ? ` ${props.className}` : ""}`}
     >
       {props.children}
@@ -52,4 +52,4 @@ const PropMapFromState = (state) => ({
   finger_locx: state.hand.finger_locx
 });
 
-export default connect(PropMapFromState)(Card2);
+export default connect(PropMapFromState)(Card2B);

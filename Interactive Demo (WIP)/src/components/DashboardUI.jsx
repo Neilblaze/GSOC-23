@@ -1,15 +1,19 @@
 import { useState, useEffect, useRef } from "react";
 import { connect } from "react-redux";
-
 import Confetti from "react-confetti";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 import Card from "./Cards/Card";
 import Card2 from "./Cards/Card2";
+import Card2B from "./Cards/Card2B";
 import Card3 from "./Cards/Card3";
 import Card4 from "./Cards/Card4";
 import ModalC1 from "./CustComponents/ModalC1";
+
+// logout audio files
+const logoutSound = "/logoutMelody.mp3";
+const beepboopSound = "/beepboopSound.mp3";
 
 const pinGen = (len) => "*".repeat(len);
 
@@ -68,7 +72,7 @@ const useModalInteractions = () => {
   return { showModal, showModal2, handleModalInteraction };
 };
 
-const useEscKeyRedirect = (redirectFunc, isCase3) => {
+const useEscKeyRedirect = (redirectFunc, isCase3, isCase4, playAudioOnRedirect, defPageNo) => {
   useEffect(() => {
     const handleKeyDown = (event) => {
       if (isCase3 && event.keyCode === 27) {
@@ -84,6 +88,15 @@ const useEscKeyRedirect = (redirectFunc, isCase3) => {
           progress: undefined,
           theme: "dark",
         });
+        // Play the audio if specified
+        if (playAudioOnRedirect) {
+          const audio = new Audio(logoutSound);
+          audio.play();
+        }
+      } else if (isCase4 && event.keyCode === 27) {
+        // 'ESC' key pressed and isCase4 is true
+        redirectFunc();
+        defPageNo(isCase3 ? 1 : 3); // Redirect to case1 if isCase3 is true, otherwise, redirect to case3
       }
     };
 
@@ -91,8 +104,10 @@ const useEscKeyRedirect = (redirectFunc, isCase3) => {
     return () => {
       document.removeEventListener("keydown", handleKeyDown);
     };
-  }, [redirectFunc, isCase3]);
+  }, [redirectFunc, isCase3, isCase4, playAudioOnRedirect, defPageNo]);
 };
+
+
 
 function DashboardUI({ finger_locx }) {
   const [pageNo, defPageNo] = useState(1);
@@ -102,8 +117,9 @@ function DashboardUI({ finger_locx }) {
   const { showModal, showModal2, handleModalInteraction } = useModalInteractions();
   const [isProcessing, setIsProcessing] = useState(false);
   const [showConfetti, setShowConfetti] = useState(false);
+  const [accountBalance, setAccountBalance] = useState(550); // Start with $550
   const [showMiniStatementModal, setShowMiniStatementModal] = useState(false);
-  const [showWithdrawMoneyModal, setShowWithdrawMoneyModal] = useState(false);
+  // const [showWithdrawMoneyModal, setShowWithdrawMoneyModal] = useState(false);
 
   const toastShownRef = useRef(false);
 
@@ -158,37 +174,67 @@ function DashboardUI({ finger_locx }) {
       clearTimeout(modalTimeout);
     };
   }, [showMiniStatementModal]);
-  
 
-  useEffect(() => {
-    const handleKeyDown = (event) => {
-      if (showWithdrawMoneyModal) {
-        setShowWithdrawMoneyModal(false);
+
+  const [selectedAmount, setSelectedAmount] = useState(null);
+
+  const selectAmount = (amount) => {
+    setSelectedAmount(amount);
+  };
+
+  const clearSelectedAmount = () => {
+    setSelectedAmount(null);
+  };
+
+  const withdrawCash = () => {
+    if (selectedAmount === null) {
+      showToastOnce("Select an amount first", "error");
+    } else {
+      const newBalance = accountBalance - selectedAmount;
+      if (newBalance >= 0) {
+        setAccountBalance(newBalance);
+        showToastOnce(`Withdraw of $${selectedAmount} successful!`, "success");
+      } else {
+        const extraAmount = Math.abs(newBalance);
+        showToastOnce(
+          `Transaction Failure! Your current balance is $${accountBalance}! You'll need to add $${extraAmount} to your wallet to continue!`,
+          "error"
+        );
       }
-    };
-
-    const handleMouseClick = (event) => {
-      if (showWithdrawMoneyModal) {
-        setShowWithdrawMoneyModal(false);
-      }
-    };
-  
-    document.addEventListener("keydown", handleKeyDown);
-    document.addEventListener("click", handleMouseClick); 
-
-    let timeoutz;
-    if (showWithdrawMoneyModal) {
-      timeoutz = setTimeout(() => {
-        setShowWithdrawMoneyModal(false);
-      }, 5000);
     }
+  };
+  
+    
+  // REMOVED HARDCODED MEME MODAL :P
+  // useEffect(() => {
+  //   const handleKeyDown = (event) => {
+  //     if (showWithdrawMoneyModal) {
+  //       setShowWithdrawMoneyModal(false);
+  //     }
+  //   };
 
-    return () => {
-      document.removeEventListener("keydown", handleKeyDown);
-      document.removeEventListener("click", handleMouseClick);
-      clearTimeout(timeoutz);
-    };
-  }, [showWithdrawMoneyModal]);
+  //   const handleMouseClick = (event) => {
+  //     if (showWithdrawMoneyModal) {
+  //       setShowWithdrawMoneyModal(false);
+  //     }
+  //   };
+  
+  //   document.addEventListener("keydown", handleKeyDown);
+  //   document.addEventListener("click", handleMouseClick); 
+
+  //   let timeoutz;
+  //   if (showWithdrawMoneyModal) {
+  //     timeoutz = setTimeout(() => {
+  //       setShowWithdrawMoneyModal(false);
+  //     }, 5000);
+  //   }
+
+  //   return () => {
+  //     document.removeEventListener("keydown", handleKeyDown);
+  //     document.removeEventListener("click", handleMouseClick);
+  //     clearTimeout(timeoutz);
+  //   };
+  // }, [showWithdrawMoneyModal]);
 
   useEffect(() => {
     const handleKeyDown = (event) => {
@@ -198,6 +244,9 @@ function DashboardUI({ finger_locx }) {
           setPin((prevPin) => prevPin.slice(0, -1));
         } else {
           showToastOnce("It's already empty!", "warning");
+          // Play the audio
+          const beepboop = new Audio(beepboopSound);
+          beepboop.play();
         }
       }
     };
@@ -219,13 +268,21 @@ function DashboardUI({ finger_locx }) {
 
   const login = () => {
     defPageNo(2);
+    // defPageNo(3);
+    // defPageNo(4);
   };
 
   const redirectToCase1 = () => {
     defPageNo(1);
   };
 
-  useEscKeyRedirect(redirectToCase1, pageNo === 3);
+  const redirectToCase3 = () => {
+    defPageNo(3);
+  };
+
+  useEscKeyRedirect(redirectToCase1, pageNo === 3, pageNo === 4, true, defPageNo);
+  useEscKeyRedirect(redirectToCase3, pageNo === 4, pageNo === 3, false, defPageNo);
+
 
   const enterPin = () => {
     if (pin === "") return showToastOnce("PIN cannot be empty!", "error");
@@ -235,6 +292,7 @@ function DashboardUI({ finger_locx }) {
       setTimeout(() => {
         setIsProcessing(false);
         defPageNo(3);
+        // defPageNo(4); // Testing Purposes
       }, 2000);
     }
   };
@@ -379,7 +437,7 @@ function DashboardUI({ finger_locx }) {
             </div>
           </div>
 
-          <div className="absolute bottom-32 w-screen text-center mb-4 text-gray-500 text-sm">
+          <div className="absolute bottom-28 w-screen text-center mb-4 text-gray-500 text-sm">
             🔑 Default PIN is <b>1 2 3 4</b>
           </div>
 
@@ -391,11 +449,6 @@ function DashboardUI({ finger_locx }) {
       );
 
     case 3:
-      const accountInfo = {
-        holder: "Pratyay Banerjee",
-        balance: "$550",
-      };
-
       const services = [
         {
           title: "Withdraw Money",
@@ -413,23 +466,6 @@ function DashboardUI({ finger_locx }) {
           className="absolute top-0 w-screen overflow-hidden h-screen flex flex-col items-center justify-center text-white p-10"
         >
           <ToastContainer />
-          {/* TODO */}
-          {/* <div className="flex flex-col items-center -mr-64 mb-6">
-            <div className="text-xl text-gray-400 font-mono self-end">
-              Account Holder
-            </div>
-            <div className="text-4xl font-mono self-end">
-              {accountInfo.holder}
-            </div>
-
-            <div className="text-xl text-gray-400 font-mono self-end mt-4">
-              Balance
-            </div>
-            <div className="text-4xl font-mono self-end">
-              {accountInfo.balance}
-            </div>
-          </div> */}
-
           {/* Hardcoded image :p */}
           <div className="flex">
             <div className="items-center">
@@ -445,7 +481,7 @@ function DashboardUI({ finger_locx }) {
                 Balance
               </div>
               <div className="text-4xl font-mono self-end mr-8 mb-12">
-                {accountInfo.balance}
+                ${accountBalance}
               </div>
             </div>
           </div>
@@ -466,10 +502,15 @@ function DashboardUI({ finger_locx }) {
                     setShowMiniStatementModal(true);
                     setShowConfetti(true);
                     showToastOnce("Success! 🎉", "success");
-                  } else if (service.title === "Withdraw Money") {
-                    setShowWithdrawMoneyModal(true);
-                    showToastOnce("Work-In-Progress", "warn");
+                  } 
+                  else if (service.title === "Withdraw Money") {
+                    defPageNo(4); 
+                    showToastOnce("Entering Fast Cash mode!", "warn");
                   }
+                  // else if (service.title === "Withdraw Money") {
+                  //   setShowWithdrawMoneyModal(true);
+                  //   showToastOnce("Work-In-Progress", "warn");
+                  // }
                 }}
               >
                 <div className="uppercase underline font-bold text-2xl text-yellow-500 text-center">
@@ -479,6 +520,21 @@ function DashboardUI({ finger_locx }) {
               </Card3>
             ))}
           </div>
+
+          <div className="absolute top-2 left-3 p-4 pointer-events-none">
+              <img
+                src="/main_logo.png"
+                alt=""
+                style={{ width: 180, height: 26 }}
+              />
+            </div>
+            <div className="absolute top-2 left-52 p-4 pointer-events-none">
+              <img
+                src="/verified_blue.png"
+                alt=""
+                style={{ width: 32, height: 32 }}
+              />
+            </div>
 
           <div className="absolute bottom-44 flex items-center justify-center w-screen text-gray-500 text-sm">
             <span className="mr-2">Press <b>ESC</b> to logout</span>
@@ -496,24 +552,122 @@ function DashboardUI({ finger_locx }) {
           {showConfetti && (
             <Confetti
               recycle={false}
-              style={{ pointerEvents: "none", zIndex: 1000 }}
-              numberOfPieces={300}
+              style={{ pointerEvents: "none", zIndex: 40 }}
+              numberOfPieces={100}
               colors={["#f44336", "#e91e63", "#9c27b0", "#673ab7", "#3f51b5", "#2196f3", "#03a9f4", "#00bcd4", "#009688", "#4CAF50", "#8BC34A",]}
               onConfettiComplete={() => setShowConfetti(false)}
             />
           )}
           {showMiniStatementModal && (
-            <div className="fixed top-0 left-0 w-full h-full flex items-center justify-center z-50 bg-opacity-90 bg-black">
-              <img src="./miniStatemnt.gif" alt="" className="w-3/5 h-3/5 transition-opacity duration-500 pointer-events-none" />
+            <div className="fixed top-0 left-0 w-full h-full flex items-center justify-center z-30 bg-opacity-90 bg-black">
+              <img src="./miniStatemnt.gif" alt="" className="w-3/5 h-3/5 transition-opacity duration-500 pointer-events-none z-50" />
             </div>
           )}
-          {showWithdrawMoneyModal && (
+          {/* {showWithdrawMoneyModal && (
             <div className="fixed top-0 left-0 w-full h-full flex items-center justify-center z-50 bg-opacity-90 bg-black">
               <img src="./withdrawMoney.gif" alt="" className="w-3.5/5 3.5/5 transition-opacity duration-500 pointer-events-none" />
             </div>
-          )}
+          )} */}
         </div>
       );
+
+      case 4:
+        return (
+          <div
+            id="panel-ui"
+            className="absolute top-0 w-screen overflow-hidden h-screen flex flex-col items-center justify-center text-white p-10"
+          >
+            <ToastContainer />
+            <div className="flex items-center -mt-24">
+            <div className="text-5xl -ml-52 mr-2 font-medium uppercase">
+                Select Amount
+              </div>
+              <div className="flex justify-center items-center mt-2 mr-4">
+                <img
+                  src="/bounce-arrow-right.gif"
+                  alt="Rotated GIF"
+                  className="w-20 h-20 -mt-2 transform pointer-events-none"
+                />
+              </div>
+              <div className="flex flex-col">
+                <div className="text-l text-gray-400 font-mono self-end mt-12 -mr-48">
+                  Balance
+                </div>
+                <div className="text-4xl font-mono self-end -mr-48 mb-12">
+                  ${accountBalance}
+                </div>
+              </div>
+            </div>
+
+            <div className="grid grid-cols-3 gap-4 -mt-2">
+              {[20, 40, 60, 80, 100, 200].map((value) => (
+                <Card3
+                  key={value}
+                  className={
+                    selectedAmount === value
+                      ? "h-32 flex items-center justify-center text-4xl bg-green-600"
+                      : "h-32 flex items-center justify-center text-4xl"
+                  }
+                  onClick={() => {
+                    if (selectedAmount === value) {
+                      clearSelectedAmount();
+                    } else {
+                      selectAmount(value);
+                    }
+                  }}
+                >
+                  ${value}
+                </Card3>
+              ))}
+            </div>
+      
+            {selectedAmount !== null && (
+              <div className="grid grid-cols-3 gap-4 mt-3">
+                <Card2B
+                  className="mt-4 h-24 col-span-1 border-red-500 border-4 flex items-center justify-center text-2xl font-medium uppercase"
+                  onClick={clearSelectedAmount}
+                >
+                  Clear Selection
+                </Card2B>
+                <Card2
+                  className="mt-4 h-24 col-span-2 border-green-500 flex items-center border-4 justify-center text-2xl font-medium uppercase"
+                  onClick={withdrawCash}
+                >
+                  Withdraw ${selectedAmount}
+                </Card2>
+              </div>
+            )}
+
+            <div className="absolute top-2 left-3 p-4 pointer-events-none">
+              <img
+                src="/main_logo.png"
+                alt=""
+                style={{ width: 180, height: 26 }}
+              />
+            </div>
+            <div className="absolute top-2 left-52 p-4 pointer-events-none">
+              <img
+                src="/verified_blue.png"
+                alt=""
+                style={{ width: 32, height: 32 }}
+              />
+            </div>
+      
+            <div className="absolute bottom-24 flex items-center justify-center w-screen text-gray-500 text-sm">
+              <span className="mr-2">Press <b>ESC</b> to go back to dashboard</span>
+              <img
+                src="/logout_icon2.png"
+                alt=""
+                style={{ width: 16, height: 16 }}
+              />
+            </div>
+      
+            <div className="absolute bottom-0 w-screen text-center mb-4 text-gray-400 text-sm">
+              We neither collect, store, or send any data. The video is processed
+              on your browser itself & is GDPR compliant.
+            </div>
+          </div>
+        );
 
     default:
       return <></>;

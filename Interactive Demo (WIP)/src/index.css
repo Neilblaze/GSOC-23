@@ -9,3 +9,31 @@
 html {
   scroll-behavior: smooth;
 }
+
+/* Special effects on Submit Button on DashboardUI xD */
+/* https://stackoverflow.com/a/17212432/12558963 */
+
+
+  .hover-gradient-green {
+      /* color: white; */
+      background: #065c2a21; /* default color */
+      background-image: linear-gradient(to left, #acff2f46 50%, #065c2a21 50%);
+      background-position: right;
+      background-size: 200%;
+      transition: background-position 0.5s ease-out;
+  }
+
+  /* IDK why not working :( */
+  /* .hover-gradient:hover {
+      background-position: left; 
+  } */
+
+
+  .hover-gradient-red {
+    /* color: white; */
+    background: #5c3e0621; /* default color */
+    background-image: linear-gradient(to left, #ff822f46 50%, #5c3e0621 50%);
+    background-position: right;
+    background-size: 200%;
+    transition: background-position 0.5s ease-out;
+}
