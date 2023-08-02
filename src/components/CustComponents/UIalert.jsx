@@ -26,6 +26,12 @@ function UIalert({ gesture, finger_locx, loaded }) {
   };
 
   useEffect(() => {
+
+    // TESTING PURPOSES ONLY!
+    console.log("Gesture:", gesture);
+    // console.log("Finger LocX:", finger_locx);
+    console.log("Loaded:", loaded);
+
     if (!loaded) {
       return;
     }
@@ -40,6 +46,7 @@ function UIalert({ gesture, finger_locx, loaded }) {
       setStatus("no");
     }, 500);
     setLastTime(timer);
+    
 
     document.addEventListener("keydown", handleKeyDown);
     return () => {

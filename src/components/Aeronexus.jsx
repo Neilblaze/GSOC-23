@@ -1,60 +1,103 @@
-import { useEffect, useRef } from "react";
-import { connect } from "react-redux";
-import { Hands, HAND_CONNECTIONS } from "@mediapipe/hands/hands";
-import { Camera } from "@mediapipe/camera_utils/camera_utils";
-import { drawConnectors, drawLandmarks } from "@mediapipe/drawing_utils/drawing_utils";
-import "@mediapipe/control_utils/control_utils";
-
-import { putGesture, putFingLock, putInitialze } from "../redux/gesture/gesture.ops";
-import allGesture from "../utils/allGesture";
+import React, { useRef, useEffect } from 'react';
+import { FilesetResolver, HandLandmarker } from '@mediapipe/tasks-vision';
+import { connect } from 'react-redux';
+import { putGesture, putFingLock, putInitialze } from '../redux/gesture/gesture.ops';
+import allGesture from '../utils/allGesture';
 
 function Aeronexus({ putGesture, putFingLock, putInitialze }) {
   const canvasRef = useRef(null);
 
   useEffect(() => {
-    const hands = new Hands({
-      locateFile: (file) => `https://cdn.jsdelivr.net/npm/@mediapipe/hands@0.1.1617147326/${file}`,
-    });
+    const drawLandmarksAndConnectors = (landmarks, ctx) => {
 
-    hands.setOptions({
-      maxNumHands: 1,
-      minDetectionConfidence: 0.6,
-      minTrackingConfidence: 0.6,
-    });
+      // Draw connectors
+      const connections = [
+        [0, 1], [1, 2], [2, 3], [3, 4], // Thumb
+        [0, 5], [5, 6], [6, 7], [7, 8], // Index finger
+        [5, 9], [9, 10], [10, 11], [11, 12], // Middle finger
+        [9, 13], [13, 14], [14, 15], [15, 16], // Ring finger
+        [13, 17], [17, 0], [17, 18], [18, 19], [19, 20], // Little finger
+      ];
 
-    const cnvs = canvasRef.current;
-    const ctx = cnvs.getContext("2d");
+      ctx.strokeStyle = 'white';
+      ctx.lineWidth = 4;
+      for (const connection of connections) {
+        const [index1, index2] = connection;
+        ctx.beginPath();
+        ctx.moveTo(landmarks[index1].x * canvasRef.current.width, landmarks[index1].y * canvasRef.current.height);
+        ctx.lineTo(landmarks[index2].x * canvasRef.current.width, landmarks[index2].y * canvasRef.current.height);
+        ctx.stroke();
+      }
 
-    const onResults = (res) => {
-      putInitialze();
-      ctx.clearRect(0, 0, cnvs.width, cnvs.height);
-      ctx.drawImage(res.image, 0, 0, cnvs.width, cnvs.height);
-
-      if (res.multiHandLandmarks) {
-        for (const landmarks of res.multiHandLandmarks) {
-          const gesture = allGesture(landmarks);
-          putGesture(gesture);
-          putFingLock(landmarks);
-
-          drawConnectors(ctx, landmarks, HAND_CONNECTIONS, { color: "#00FF00", lineWidth: 5 });
-          drawLandmarks(ctx, landmarks, { color: "#FF0000", lineWidth: 2 });
-        }
+      // Draw landmarks
+      ctx.fillStyle = 'red';
+      for (const landmark of landmarks) {
+        ctx.beginPath();
+        ctx.arc(landmark.x * canvasRef.current.width, landmark.y * canvasRef.current.height, 7, 0, 2 * Math.PI);
+        ctx.fill();
       }
     };
 
-    hands.onResults(onResults);
+    const loadModelAndStartDetection = async () => {
+      const vision = await FilesetResolver.forVisionTasks('https://cdn.jsdelivr.net/npm/@mediapipe/tasks-vision/wasm');
+      const handLandmarker = await HandLandmarker.createFromOptions(vision, {
+        baseOptions: {
+          modelAssetPath: 'https://storage.googleapis.com/mediapipe-models/hand_landmarker/hand_landmarker/float16/1/hand_landmarker.task',
+          delegate: 'GPU',
+        },
+        runningMode: 'IMAGE' || 'VIDEO',
+        numHands: 1,
+        minHandDetectionConfidence: 0.6,
+        minHandPresenceConfidence: 0.6,
+      });
 
-    const vidElm = document.createElement("video");
+      const cnvs = canvasRef.current;
+      const ctx = cnvs.getContext('2d');
+      const vidElm = document.createElement('video'); // Move vidElm to the outer scope
 
-    const camera = new Camera(vidElm, {
-      onFrame: async () => {
-        await hands.send({ image: vidElm });
-      },
-      width: 1280,
-      height: 720,
-    });
+      const startCamera = async () => {
+        try {
+          const stream = await navigator.mediaDevices.getUserMedia({ video: true, audio: false });
+          vidElm.srcObject = stream;
+          await vidElm.play();
 
-    camera.start();
+          const detectLandmarks = async () => {
+            try {
+              const results = await handLandmarker.detect(vidElm);
+              const landmarks = results?.landmarks;
+
+              // Clear canvas before drawing
+              ctx.clearRect(0, 0, cnvs.width, cnvs.height);
+
+              if (landmarks && landmarks.length > 0) {
+                // Draw video frame
+                ctx.drawImage(vidElm, 0, 0, cnvs.width, cnvs.height);
+                // Draw landmarks and connectors
+                drawLandmarksAndConnectors(landmarks[0], ctx);
+
+                putGesture(allGesture(landmarks[0]));
+                putFingLock(landmarks[0]);
+              } else {
+                // If hand landmarks are not detected, still draw the video frame
+                ctx.drawImage(vidElm, 0, 0, cnvs.width, cnvs.height);
+              }
+            } catch (error) {
+              console.error('Error detecting landmarks: ', error);
+            }
+
+            requestAnimationFrame(detectLandmarks);
+          };
+
+          detectLandmarks();
+        } catch (error) {
+          console.error('Error accessing the camera: ', error);
+        }
+      };
+
+      startCamera();
+    };
+
+    loadModelAndStartDetection();
   }, [putGesture, putFingLock, putInitialze]);
 
   useEffect(() => {
@@ -64,10 +107,10 @@ function Aeronexus({ putGesture, putFingLock, putInitialze }) {
     };
 
     setCanvasSize();
-    window.addEventListener("resize", setCanvasSize);
+    window.addEventListener('resize', setCanvasSize);
 
     return () => {
-      window.removeEventListener("resize", setCanvasSize);
+      window.removeEventListener('resize', setCanvasSize);
     };
   }, []);
 

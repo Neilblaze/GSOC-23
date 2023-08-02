@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from "react";
 import DashboardUI from "./DashboardUI";
+import { connect } from "react-redux";
+import { putInitialze } from '../redux/gesture/gesture.ops';
 
-const Landing = () => {
-  const [loaded, putInitialze] = useState(false);
+const Landing = (props) => {
+  const loaded=props.loaded;
   const [cameraPermissionAllowed, setCameraPermissionAllowed] = useState(false);
 
   useEffect(() => {
@@ -19,10 +21,11 @@ const Landing = () => {
     checkCameraPermission();
 
     const timer = setTimeout(() => {
-      putInitialze(true);
+      props.putInitialze();
     }, 5500);
 
     return () => clearTimeout(timer);
+    // eslint-disable-next-line
   }, []);
 
   if (!loaded) {
@@ -58,4 +61,13 @@ const Landing = () => {
   }
 };
 
-export default Landing;
+
+const PropMapFromState = (state) => ({
+  loaded: state.hand.loaded,
+});
+
+const mapDispatchToProps = {
+  putInitialze,
+};
+
+export default connect(PropMapFromState, mapDispatchToProps)(Landing);
