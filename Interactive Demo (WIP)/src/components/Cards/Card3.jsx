@@ -6,7 +6,7 @@ function actionPose(el) {
   return { x: lx, y: ly };
 }
 
-function Card(props) {
+function Card3(props) {
   const cardRef = useRef(null);
   const [lastClicked, setLastClicked] = useState(Date.now());
 
@@ -52,4 +52,4 @@ const PropMapFromState = (state) => ({
   finger_locx: state.hand.finger_locx
 });
 
-export default connect(PropMapFromState)(Card);
+export default connect(PropMapFromState)(Card3);
