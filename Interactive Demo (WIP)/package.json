@@ -5,19 +5,19 @@
   "dependencies": {
     "@craco/craco": "^6.2.0",
     "@mediapipe/tasks-vision": "^0.10.2",
-    "@reduxjs/toolkit": "^1.6.2",
-    "@testing-library/jest-dom": "^5.14.1",
-    "@testing-library/react": "^11.2.7",
-    "@testing-library/user-event": "^12.8.3",
+    "@reduxjs/toolkit": "^1.9.5",
+    "@testing-library/jest-dom": "^5.17.0",
+    "@testing-library/react": "^14.0.0",
+    "@testing-library/user-event": "^14.4.3",
     "react": "^18.0.0",
     "react-confetti": "^6.1.0",
     "react-dom": "^18.0.0",
     "react-redux": "^7.2.3",
     "react-scripts": "4.0.3",
     "react-toastify": "^8.1.0",
-    "redux": "^4.0.5",
+    "redux": "^4.2.1",
     "tailwindcss-filters": "^3.0.0",
-    "web-vitals": "^1.1.2"
+    "web-vitals": "^3.4.0"
   },
   "scripts": {
     "start": "craco start",
