@@ -4,11 +4,7 @@ import Confetti from "react-confetti";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
-import Card from "./Cards/Card";
-import Card2 from "./Cards/Card2";
-import Card2B from "./Cards/Card2B";
-import Card3 from "./Cards/Card3";
-import Card4 from "./Cards/Card4";
+import CombinedCard from "./CustComponents/CombinedCard";
 import ModalC1 from "./CustComponents/ModalC1";
 
 // logout audio files
@@ -72,12 +68,14 @@ const useModalInteractions = () => {
   return { showModal, showModal2, handleModalInteraction };
 };
 
-const useEscKeyRedirect = (redirectFunc, isCase3, isCase4, playAudioOnRedirect, defPageNo) => {
+const useEscKeyRedirect = (redirectFunc, isCase3, isCase4, playAudioOnRedirect, defPageNo, resetAccountBalance, resetPin) => {
   useEffect(() => {
     const handleKeyDown = (event) => {
       if (isCase3 && event.keyCode === 27) {
         // 'ESC' key pressed and isCase3 is true
         redirectFunc();
+        resetPin();
+        resetAccountBalance(550);
         toast("Logout successful!", {
           position: "top-right",
           autoClose: 2500,
@@ -104,7 +102,7 @@ const useEscKeyRedirect = (redirectFunc, isCase3, isCase4, playAudioOnRedirect, 
     return () => {
       document.removeEventListener("keydown", handleKeyDown);
     };
-  }, [redirectFunc, isCase3, isCase4, playAudioOnRedirect, defPageNo]);
+  }, [redirectFunc, isCase3, isCase4, playAudioOnRedirect, defPageNo, resetAccountBalance, resetPin]);
 };
 
 
@@ -113,14 +111,13 @@ function DashboardUI({ finger_locx }) {
   const [pageNo, defPageNo] = useState(1);
   const [pin, setPin] = useState("");
   const [lastUndo, setlastUndo] = useState(Date.now());
-
-  const { showModal, showModal2, handleModalInteraction } = useModalInteractions();
   const [isProcessing, setIsProcessing] = useState(false);
   const [showConfetti, setShowConfetti] = useState(false);
   const [accountBalance, setAccountBalance] = useState(550); // Start with $550
   const [showMiniStatementModal, setShowMiniStatementModal] = useState(false);
-  // const [showWithdrawMoneyModal, setShowWithdrawMoneyModal] = useState(false);
+  const [selectedAmount, setSelectedAmount] = useState(null);
 
+  const { showModal, showModal2, handleModalInteraction } = useModalInteractions();
   const toastShownRef = useRef(false);
 
   const showToastOnce = (msg, type) => {
@@ -176,7 +173,7 @@ function DashboardUI({ finger_locx }) {
   }, [showMiniStatementModal]);
 
 
-  const [selectedAmount, setSelectedAmount] = useState(null);
+
 
   const selectAmount = (amount) => {
     setSelectedAmount(amount);
@@ -280,7 +277,15 @@ function DashboardUI({ finger_locx }) {
     defPageNo(3);
   };
 
-  useEscKeyRedirect(redirectToCase1, pageNo === 3, pageNo === 4, true, defPageNo);
+  const resetAccountBalance = (defaultBalance) => {
+    setAccountBalance(defaultBalance);
+  };
+
+  const resetPin = () => {
+    setPin("");
+  };
+
+  useEscKeyRedirect(redirectToCase1, pageNo === 3, pageNo === 4, true, defPageNo, resetAccountBalance, resetPin);
   useEscKeyRedirect(redirectToCase3, pageNo === 4, pageNo === 3, false, defPageNo);
 
 
@@ -345,7 +350,8 @@ function DashboardUI({ finger_locx }) {
                   d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
                 ></path>
               </svg>
-              <Card4
+              <CombinedCard
+                type="card4"
                 onClick={login}
                 className="h-40 w-80 flex flex-col items-center justify-center relative"
               >
@@ -360,7 +366,7 @@ function DashboardUI({ finger_locx }) {
                 <div className="mt-2 text-xl text-center">
                   Click here to Login 🔓
                 </div>
-              </Card4>
+              </CombinedCard>
               <div className="absolute bottom-1 w-screen text-center mb-4 text-gray-500 text-sm">
                 Utilize the 👌 gesture using your <b>Right Hand</b> to redirect to the next screen by hovering over the <b>LOGIN</b> card.
               </div>
@@ -396,13 +402,14 @@ function DashboardUI({ finger_locx }) {
 
           <div className="grid grid-cols-4 gap-4 mt-6">
             {[1, 2, 3, 4, 5, 6, 7, 8, 9, 0].map((number) => (
-              <Card
+              <CombinedCard
+                type="card3"
                 key={number}
                 className="h-20 flex items-center justify-center text-4xl"
                 onClick={() => addPin(number)}
               >
                 {number}
-              </Card>
+              </CombinedCard>
             ))}
             {isProcessing ? (
               <div className="h-20 col-span-2 border-indigo-500 border-4 flex items-center justify-center text-2xl font-medium rounded-xl">
@@ -413,12 +420,13 @@ function DashboardUI({ finger_locx }) {
                 </svg>
               </div>
             ) : (
-              <Card2
+              <CombinedCard
+                type="card2"
                 className="h-20 col-span-2 border-green-500 border-4 flex items-center justify-center text-2xl font-medium"
                 onClick={enterPin}
               >
                 ✅ SUBMIT
-              </Card2>
+              </CombinedCard>
             )}
 
             <div className="absolute top-2 left-3 p-4 pointer-events-none">
@@ -490,7 +498,8 @@ function DashboardUI({ finger_locx }) {
 
           <div className="flex flex-row">
             {services.map((service, index) => (
-              <Card3
+              <CombinedCard
+                type="card3"
                 key={index}
                 className={
                   index === 0
@@ -517,7 +526,7 @@ function DashboardUI({ finger_locx }) {
                   {service.title}
                 </div>
                 <div className="mt-2 text-center">{service.description}</div>
-              </Card3>
+              </CombinedCard>
             ))}
           </div>
 
@@ -601,7 +610,8 @@ function DashboardUI({ finger_locx }) {
 
             <div className="grid grid-cols-3 gap-4 -mt-2">
               {[20, 40, 60, 80, 100, 200].map((value) => (
-                <Card3
+                <CombinedCard
+                  type="card3"
                   key={value}
                   className={
                     selectedAmount === value
@@ -617,24 +627,26 @@ function DashboardUI({ finger_locx }) {
                   }}
                 >
                   ${value}
-                </Card3>
+                </CombinedCard>
               ))}
             </div>
       
             {selectedAmount !== null && (
               <div className="grid grid-cols-3 gap-4 mt-3">
-                <Card2B
+                <CombinedCard
+                  type="card2b"
                   className="mt-4 h-24 col-span-1 border-red-500 border-4 flex items-center justify-center text-2xl font-medium uppercase"
                   onClick={clearSelectedAmount}
                 >
                   Clear Selection
-                </Card2B>
-                <Card2
+                </CombinedCard>
+                <CombinedCard
+                  type="card2"
                   className="mt-4 h-24 col-span-2 border-green-500 flex items-center border-4 justify-center text-2xl font-medium uppercase"
                   onClick={withdrawCash}
                 >
                   Withdraw ${selectedAmount}
-                </Card2>
+                </CombinedCard>
               </div>
             )}
 
