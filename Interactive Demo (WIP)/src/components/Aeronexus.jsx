@@ -10,7 +10,7 @@ function Aeronexus({ putGesture, putFingLock, putInitialze }) {
   useEffect(() => {
     const drawLandmarksAndConnectors = (landmarks, ctx) => {
 
-      // Draw connectors
+      // Draw connectors (Reference: https://developers.google.com/mediapipe/solutions/vision/hand_landmarker#models)
       const connections = [
         [0, 1], [1, 2], [2, 3], [3, 4], // Thumb
         [0, 5], [5, 6], [6, 7], [7, 8], // Index finger
@@ -40,11 +40,11 @@ function Aeronexus({ putGesture, putFingLock, putInitialze }) {
 
     const loadModelAndStartDetection = async () => {
       // GPU % = Max 7%
-      // const vision = await FilesetResolver.forVisionTasks("https://cdn.jsdelivr.net/npm/@mediapipe/tasks-vision/wasm");
+      // const vision = await FilesetResolver.forVisionTasks("https://cdn.jsdelivr.net/npm/@mediapipe/tasks-vision@0.10.2/wasm");
       // const handLandmarker = await HandLandmarker.createFromModelPath(vision, "https://storage.googleapis.com/mediapipe-models/hand_landmarker/hand_landmarker/float16/1/hand_landmarker.task");
       
       // GPU % = Max 50%
-      const vision = await FilesetResolver.forVisionTasks('https://cdn.jsdelivr.net/npm/@mediapipe/tasks-vision/wasm');
+      const vision = await FilesetResolver.forVisionTasks('https://cdn.jsdelivr.net/npm/@mediapipe/tasks-vision@0.10.2/wasm');
       const handLandmarker = await HandLandmarker.createFromOptions(vision, {
         baseOptions: {
           modelAssetPath: 'https://storage.googleapis.com/mediapipe-models/hand_landmarker/hand_landmarker/float16/1/hand_landmarker.task',
@@ -64,11 +64,13 @@ function Aeronexus({ putGesture, putFingLock, putInitialze }) {
         try {
           const stream = await navigator.mediaDevices.getUserMedia({ video: true, audio: false });
           vidElm.srcObject = stream;
+          vidElm.setAttribute('autoplay', '');     // iOS fix (maybe?)
+          vidElm.setAttribute('playsinline', '');  // iOS fix (maybe?)
           await vidElm.play();
 
           const detectLandmarks = async () => {
             try {
-              const results = await handLandmarker.detect(vidElm);
+              const results = handLandmarker.detect(vidElm);
               const landmarks = results?.landmarks;
 
               // Clear canvas before drawing
