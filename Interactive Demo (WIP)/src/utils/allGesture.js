@@ -4,7 +4,7 @@ function allGesture(landmarks) {
     landmarks[7].y < landmarks[6].y && landmarks[8].y < landmarks[6].y,
     landmarks[11].y < landmarks[10].y && landmarks[12].y < landmarks[10].y,
     landmarks[15].y < landmarks[14].y && landmarks[16].y < landmarks[14].y,
-    landmarks[19].y < landmarks[18].y && landmarks[19].y < landmarks[18].y
+    landmarks[19].y < landmarks[17].y && landmarks[18].y < landmarks[17].y
   ];
 
   // https://github.com/google/mediapipe/blob/master/docs/solutions/hands.md#hand-landmark-model
