@@ -1,12 +1,27 @@
+// This functional component renders the cursor element on the screen and 
+// displays a certain background color and border based on the provided 
+// gesture from the Redux store. The cursor's position is updated according 
+// to the finger_locx data, and it disappears after a short delay.
+
+// -----------------------------------------------------------------------------------------
+
+// import the necessery dependencies / modules 
 import { useRef, useEffect } from "react";
 import { connect } from "react-redux";
 
+// We define a `cursorRef` using `useRef` to reference the cursor element.
 function CursorTip(props) {
   const cursorRef = useRef(null);
 
+  // We use `useEffect` to update the cursor's position & visibility on the screen
+  // based on the `props.finger_locx` provided from the Redux store.
   useEffect(() => {
     if (!props.finger_locx) return;
   
+    // The cursor's position and visibility are controlled by the values in `props.finger_locx`. 
+    // We use index finger's x and y coordinates to calculate its position relative to the window size. 
+    // When `props.finger_locx` is available, the cursor is displayed and 
+    // disappears after 500 milliseconds using `setTimeout`.
     const cursorStyle = cursorRef.current.style;
     cursorStyle.display = "flex";
     cursorStyle.left = `${window.innerWidth - props.finger_locx[8].x * window.innerWidth}px`;
@@ -19,6 +34,8 @@ function CursorTip(props) {
     return () => clearTimeout(interval);
   }, [props.finger_locx]);
 
+
+  // We set the background (bg) and showBorder based on the props.gesture provided from the Redux store. 
   let bg = "bg-white";
   let showBorder = false;
 
@@ -36,6 +53,7 @@ function CursorTip(props) {
     }
   }
 
+  // We return the cursor element with the appropriate styling based on the `bg` and `showBorder` values.
   return (
     <div className={`absolute w-10 h-10 text-xl rounded-full z-50 hidden items-center justify-center font-bold ${bg}`} ref={cursorRef}>
       {props.gesture && props.gesture[0]}
@@ -44,6 +62,8 @@ function CursorTip(props) {
   );
 }
 
+// & finally we use `connect` to connect the component to the Redux store,
+// by mapping the `gesture` and `finger_locx` states to props.
 const PropMapFromState = (state) => ({
   gesture: state.hand.gesture,
   finger_locx: state.hand.finger_locx,

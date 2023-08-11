@@ -1,15 +1,31 @@
+// This is a React functional component that renders a customizable card 
+// element with different styles based on the provided props. It also checks for hover 
+// and click events to trigger specific actions.
+
+// -----------------------------------------------------------------------------------------
+
+// We import necessary dependencies, including `useRef` and `useState` from React, 
+// as well as `connect` from `react-redux` for connecting to the Redux store.
 import { useRef, useState } from "react";
 import { connect } from "react-redux";
 
+// `actionPose` is a utility function to calculate the position 
+// of an element relative to the document's top-left corner.
 function actionPose(el) {
   for (var lx = 0, ly = 0; el != null; lx += el.offsetLeft, ly += el.offsetTop, el = el.offsetParent);
   return { x: lx, y: ly };
 }
 
+// This main `CombinedCard` function component receives props as its argument.
 function CombinedCard(props) {
+  // We use `useRef` to create a reference to the card element.
   const cardRef = useRef(null);
+  // We use `useState` to create a state variable `lastClicked` and its setter `setLastClicked`.
   const [lastClicked, setLastClicked] = useState(Date.now());
 
+  // `isHovering` is a function that checks if the card is being hovered over by the user's hand.
+  // It's obtained from the `props.finger_locx` array, which contains the coordinates of the user's hand.
+  // It calculates the position of the card and compares it with the finger location to determine if it's hovering.
   const isHovering = () => {
     if (!props.finger_locx) return false;
     const pos = actionPose(cardRef.current);
@@ -30,11 +46,15 @@ function CombinedCard(props) {
     else return false;
   };
 
+  // When the user hovers over the card and clicks, the component checks if the Redux store 
+  // has the "CLICK" gesture and an onClick prop. If both are present, and the card was not clicked 
+  // in the last second, it triggers the onClick function and updates the lastClicked state.
   if (isHovering() && props.gesture === "CLICK" && props.onClick && Date.now() - 1000 > lastClicked) {
     props.onClick();
     setLastClicked(Date.now());
   }
 
+  // We set `classesName` and `bgClass` based on the type prop provided. 
   let classesName, bgClass;
 
   switch (props.type) {
@@ -64,6 +84,9 @@ function CombinedCard(props) {
       break;
   }
 
+  // Finally, we return the card element with the appropriate classes and styles.
+  // cardRef is used to reference the element, and adds various classes based 
+  // on the `type`, `isHovering`, and additional `className` props provided.
   return (
     <div
       ref={cardRef}
@@ -71,14 +94,18 @@ function CombinedCard(props) {
         props.className ? ` ${props.className}` : ""
       }`}
     >
+      {/* Here the `children` prop is used to render child elements inside the card. */}
       {props.children}
     </div>
   );  
 }
 
+// The `mapStateToProps` function connects the component to the Redux store, 
+// providing access to the `gesture` and `finger_locx` states as props.
 const mapStateToProps = (state) => ({
   gesture: state.hand.gesture,
   finger_locx: state.hand.finger_locx,
 });
 
+// & finally we export the component by connecting it to the Redux store.
 export default connect(mapStateToProps)(CombinedCard);

@@ -1,25 +1,30 @@
-import { useState, useEffect, useRef } from "react";
-import { connect } from "react-redux";
+// import dependencies
+import { useState, useEffect, useRef } from "react"; // React Hooks
+import { connect } from "react-redux";  // Redux
 import Confetti from "react-confetti";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
-import CombinedCard from "./CustComponents/CombinedCard";
-import ModalC1 from "./CustComponents/ModalC1";
+import CombinedCard from "./CustComponents/CombinedCard"; // Card Component
+import ModalC1 from "./CustComponents/ModalC1"; // Modal Component
+import TimeComponent from "./CustComponents/TimeComponent"; // Time Component
 
 // logout audio files
 const logoutSound = "/logoutMelody.mp3";
 const beepboopSound = "/beepboopSound.mp3";
 
-const pinGen = (len) => "*".repeat(len);
+// utility function to generate a string of '*' of length 'len'
+// generates a masked representation of the PIN based on the length of the PIN
+const pinGen = (len) => "*".repeat(len);  
 
-// Hook to handle modal interactions and keydown events
+
+// Custom Hook to handle modal interactions and keydown events
 const useModalInteractions = () => {
   const [showModal, setShowModal] = useState(true);
   const [showModal2, setShowModal2] = useState(false);
   const [userInteracted, setUserInteracted] = useState(false);
 
-  useEffect(() => {
+  useEffect(() => { // listen for keydown events & trigger interactions
     const handleKeyDown = () => {
       if (showModal || showModal2) {
         setShowModal(false);
@@ -65,10 +70,13 @@ const useModalInteractions = () => {
     setShowModal2(false);
   };
 
-  return { showModal, showModal2, handleModalInteraction };
+  return { showModal, showModal2, handleModalInteraction };   // return the state and the handler
 };
 
-const useEscKeyRedirect = (redirectFunc, isCase3, isCase4, playAudioOnRedirect, defPageNo, resetAccountBalance, resetPin) => {
+
+
+// Custom Hook to handle ESC keydown events
+const useEscKeyRedirect = (redirectFunc, isCase3, isCase4, playAudioOnRedirect, defPageNo, resetAccountBalance, resetPin) => {  // takes multiple parameters
   useEffect(() => {
     const handleKeyDown = (event) => {
       if (isCase3 && event.keyCode === 27) {
@@ -107,17 +115,16 @@ const useEscKeyRedirect = (redirectFunc, isCase3, isCase4, playAudioOnRedirect, 
 
 
 
-function DashboardUI({ finger_locx }) {
-  const [pageNo, defPageNo] = useState(1);
-  const [pin, setPin] = useState("");
-  const [lastUndo, setlastUndo] = useState(Date.now());
-  const [isProcessing, setIsProcessing] = useState(false);
-  const [showConfetti, setShowConfetti] = useState(false);
-  const [accountBalance, setAccountBalance] = useState(550); // Start with $550
-  const [showMiniStatementModal, setShowMiniStatementModal] = useState(false);
-  const [selectedAmount, setSelectedAmount] = useState(null);
+function DashboardUI({ finger_locx }) { // Destructure the props
+  const [pageNo, defPageNo] = useState(1); // Current page number
+  const [pin, setPin] = useState(""); // User PIN input
+  const [lastUndo, setlastUndo] = useState(Date.now()); // Time of the last undo (action)
+  const [isProcessing, setIsProcessing] = useState(false); // Case2 to Case3 transition processing state
+  const [showConfetti, setShowConfetti] = useState(false);  // Confetti state
+  const [accountBalance, setAccountBalance] = useState(550); // Start with $550 (account balance)
+  const [showMiniStatementModal, setShowMiniStatementModal] = useState(false);  // modal + miniStatement
+  const [selectedAmount, setSelectedAmount] = useState(null); // Selected amount for withdrawal
 
-  const { showModal, showModal2, handleModalInteraction } = useModalInteractions();
   const toastShownRef = useRef(false);
 
   const showToastOnce = (msg, type) => {
@@ -173,8 +180,6 @@ function DashboardUI({ finger_locx }) {
   }, [showMiniStatementModal]);
 
 
-
-
   const selectAmount = (amount) => {
     setSelectedAmount(amount);
   };
@@ -200,38 +205,6 @@ function DashboardUI({ finger_locx }) {
       }
     }
   };
-  
-    
-  // REMOVED HARDCODED MEME MODAL :P
-  // useEffect(() => {
-  //   const handleKeyDown = (event) => {
-  //     if (showWithdrawMoneyModal) {
-  //       setShowWithdrawMoneyModal(false);
-  //     }
-  //   };
-
-  //   const handleMouseClick = (event) => {
-  //     if (showWithdrawMoneyModal) {
-  //       setShowWithdrawMoneyModal(false);
-  //     }
-  //   };
-  
-  //   document.addEventListener("keydown", handleKeyDown);
-  //   document.addEventListener("click", handleMouseClick); 
-
-  //   let timeoutz;
-  //   if (showWithdrawMoneyModal) {
-  //     timeoutz = setTimeout(() => {
-  //       setShowWithdrawMoneyModal(false);
-  //     }, 5000);
-  //   }
-
-  //   return () => {
-  //     document.removeEventListener("keydown", handleKeyDown);
-  //     document.removeEventListener("click", handleMouseClick);
-  //     clearTimeout(timeoutz);
-  //   };
-  // }, [showWithdrawMoneyModal]);
 
   useEffect(() => {
     const handleKeyDown = (event) => {
@@ -265,8 +238,6 @@ function DashboardUI({ finger_locx }) {
 
   const login = () => {
     defPageNo(2);
-    // defPageNo(3);
-    // defPageNo(4);
   };
 
   const redirectToCase1 = () => {
@@ -285,19 +256,20 @@ function DashboardUI({ finger_locx }) {
     setPin("");
   };
 
+  // Custom hooks for handling modal interactions and 'ESC' key redirection
+  const { showModal, showModal2, handleModalInteraction } = useModalInteractions();
   useEscKeyRedirect(redirectToCase1, pageNo === 3, pageNo === 4, true, defPageNo, resetAccountBalance, resetPin);
   useEscKeyRedirect(redirectToCase3, pageNo === 4, pageNo === 3, false, defPageNo);
 
 
   const enterPin = () => {
     if (pin === "") return showToastOnce("PIN cannot be empty!", "error");
-    else if (pin.length !== 4 || pin !== "1234") return showToastOnce("Wrong PIN", "error");
+    else if (pin.length !== 4 || pin !== "1234") return showToastOnce("Wrong PIN", "error"); // Default PIN is 1234
     else {
       setIsProcessing(true);
       setTimeout(() => {
         setIsProcessing(false);
         defPageNo(3);
-        // defPageNo(4); // Testing Purposes
       }, 2000);
     }
   };
@@ -323,15 +295,11 @@ function DashboardUI({ finger_locx }) {
             showModal2={showModal2}
             handleModalInteraction={handleModalInteraction}
           />
-              <div className="absolute top-2 left-3 p-4 pointer-events-none">
-                <img
-                  src="/main_logo.png"
-                  alt=""
-                  style={{ width: 180, height: 26 }}
-                />
+              <div className="absolute top-2 left-3 p-4 text-lg text-gray-400 pointer-events-none">
+                <TimeComponent/>
               </div>
               <svg
-                className="absolute top-4 left-56 animate-spin h-4 mt-4 text-white"
+                className="absolute top-3 left-64 animate-spin h-5 mt-4 text-white"
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
                 viewBox="0 0 24 24"
@@ -379,7 +347,7 @@ function DashboardUI({ finger_locx }) {
           className="absolute top-0 w-screen overflow-hidden h-screen flex flex-col items-center justify-center text-white p-10"
         >
           <ToastContainer />
-          <div className="flex items-center">
+          <div className="flex items-center -mt-10">
             <div className="text-5xl mr-6 font-medium uppercase">
               Enter your PIN
             </div>
@@ -429,23 +397,19 @@ function DashboardUI({ finger_locx }) {
               </CombinedCard>
             )}
 
-            <div className="absolute top-2 left-3 p-4 pointer-events-none">
-              <img
-                src="/main_logo.png"
-                alt=""
-                style={{ width: 180, height: 26 }}
-              />
+            <div className="absolute top-2 left-3 p-4 text-lg text-gray-400 pointer-events-none">
+              <TimeComponent/>
             </div>
-            <div className="absolute top-2 left-52 p-4 pointer-events-none">
+            <div className="absolute top-2 left-60 p-4 pointer-events-none">
               <img
-                src="/verified_blue.png"
+                src="/shield_animated.gif"
                 alt=""
-                style={{ width: 32, height: 32 }}
+                style={{ width: 28, height: 28 }}
               />
             </div>
           </div>
 
-          <div className="absolute bottom-28 w-screen text-center mb-4 text-gray-500 text-sm">
+          <div className="absolute bottom-28 w-screen text-center mb-4 text-gray-500 text-lg">
             🔑 Default PIN is <b>1 2 3 4</b>
           </div>
 
@@ -474,7 +438,7 @@ function DashboardUI({ finger_locx }) {
           className="absolute top-0 w-screen overflow-hidden h-screen flex flex-col items-center justify-center text-white p-10"
         >
           <ToastContainer />
-          {/* Hardcoded image :p */}
+          {/* Hardcoded image, update as per need :) */}
           <div className="flex">
             <div className="items-center">
               <img
@@ -513,13 +477,10 @@ function DashboardUI({ finger_locx }) {
                     showToastOnce("Success! 🎉", "success");
                   } 
                   else if (service.title === "Withdraw Money") {
+                    clearSelectedAmount();
                     defPageNo(4); 
                     showToastOnce("Entering Fast Cash mode!", "warn");
                   }
-                  // else if (service.title === "Withdraw Money") {
-                  //   setShowWithdrawMoneyModal(true);
-                  //   showToastOnce("Work-In-Progress", "warn");
-                  // }
                 }}
               >
                 <div className="uppercase underline font-bold text-2xl text-yellow-500 text-center">
@@ -530,27 +491,23 @@ function DashboardUI({ finger_locx }) {
             ))}
           </div>
 
-          <div className="absolute top-2 left-3 p-4 pointer-events-none">
-              <img
-                src="/main_logo.png"
-                alt=""
-                style={{ width: 180, height: 26 }}
-              />
+          <div className="absolute top-2 left-3 p-4 text-lg text-gray-400 pointer-events-none">
+              <TimeComponent/>
             </div>
-            <div className="absolute top-2 left-52 p-4 pointer-events-none">
-              <img
-                src="/verified_blue.png"
-                alt=""
-                style={{ width: 32, height: 32 }}
-              />
-            </div>
+          <div className="absolute top-2 left-60 p-4 pointer-events-none">
+            <img
+              src="/shield_animated.gif"
+              alt=""
+              style={{ width: 28, height: 28 }}
+            />
+          </div>
 
-          <div className="absolute bottom-44 flex items-center justify-center w-screen text-gray-500 text-sm">
+          <div className="absolute bottom-40 flex items-center justify-center w-screen text-gray-500 text-lg">
             <span className="mr-2">Press <b>ESC</b> to logout</span>
             <img
               src="/logout_icon2.png"
               alt=""
-              style={{ width: 16, height: 16 }}
+              style={{ width: 19, height: 19 }}
             />
           </div>
 
@@ -572,11 +529,6 @@ function DashboardUI({ finger_locx }) {
               <img src="./miniStatemnt.gif" alt="" className="w-3/5 h-3/5 transition-opacity duration-500 pointer-events-none z-50" />
             </div>
           )}
-          {/* {showWithdrawMoneyModal && (
-            <div className="fixed top-0 left-0 w-full h-full flex items-center justify-center z-50 bg-opacity-90 bg-black">
-              <img src="./withdrawMoney.gif" alt="" className="w-3.5/5 3.5/5 transition-opacity duration-500 pointer-events-none" />
-            </div>
-          )} */}
         </div>
       );
 
@@ -650,25 +602,21 @@ function DashboardUI({ finger_locx }) {
               </div>
             )}
 
-            <div className="absolute top-2 left-3 p-4 pointer-events-none">
-              <img
-                src="/main_logo.png"
-                alt=""
-                style={{ width: 180, height: 26 }}
-              />
+            <div className="absolute top-2 left-3 p-4 text-lg text-gray-400 pointer-events-none">
+              <TimeComponent/>
             </div>
-            <div className="absolute top-2 left-52 p-4 pointer-events-none">
-              <img
-                src="/verified_blue.png"
-                alt=""
-                style={{ width: 32, height: 32 }}
-              />
-            </div>
+          <div className="absolute top-2 left-60 p-4 pointer-events-none">
+            <img
+              src="/shield_animated.gif"
+              alt=""
+              style={{ width: 28, height: 28 }}
+            />
+          </div>
       
-            <div className="absolute bottom-24 flex items-center justify-center w-screen text-gray-500 text-sm">
+            <div className="absolute bottom-24 flex items-center justify-center w-screen text-gray-500 text-lg">
               <span className="mr-2">Press <b>ESC</b> to go back to dashboard</span>
               <img
-                src="/logout_icon2.png"
+                src="/goBack_icon.png"
                 alt=""
                 style={{ width: 16, height: 16 }}
               />
@@ -686,8 +634,10 @@ function DashboardUI({ finger_locx }) {
   }
 }
 
+// Map the state to props
 const PropMapFromState = (state) => ({
   finger_locx: state.hand.finger_locx,
 });
 
+// Connect the component to the Redux store
 export default connect(PropMapFromState)(DashboardUI);

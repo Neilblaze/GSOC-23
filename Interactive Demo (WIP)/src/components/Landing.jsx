@@ -1,25 +1,34 @@
+// import necessary modules and components
 import React, { useState, useEffect } from "react";
 import DashboardUI from "./DashboardUI";
 import { connect } from "react-redux";
 import { putInitialze } from '../redux/gesture/gesture.ops';
 
-const Landing = (props) => {
+const Landing = (props) => { // Landing component takes in props
+
+  // Two states declared using `useState` hook: `loaded` is initialized with the value
+  // of `props.loaded` and `cameraPermissionAllowed` is initialized with `false`
   const loaded=props.loaded;
   const [cameraPermissionAllowed, setCameraPermissionAllowed] = useState(false);
+
+
+  // `useEffect` hook is used to check if the camera permission is granted or not
+  // and set the state of `cameraPermissionAllowed` accordingly
 
   useEffect(() => {
     const checkCameraPermission = async () => {
       try {
-        await navigator.mediaDevices.getUserMedia({ video: true });
-        setCameraPermissionAllowed(true);
+        await navigator.mediaDevices.getUserMedia({ video: true }); // Request for camera permission
+        setCameraPermissionAllowed(true);  // Set the state of `cameraPermissionAllowed` to `true`
       } catch (error) {
         console.error("Camera permission not allowed:", error);
         setCameraPermissionAllowed(false);
       }
     };
 
-    checkCameraPermission();
+    checkCameraPermission(); // Check camera permission when the component is mounted
 
+    // Set a timer of 5.5 seconds to call the `putInitialze`
     const timer = setTimeout(() => {
       props.putInitialze();
     }, 5500);
@@ -28,10 +37,12 @@ const Landing = (props) => {
     // eslint-disable-next-line
   }, []);
 
+
+  // cleanup function to be called when the component is unmounted 
   if (!loaded) {
     return (
       <div className="absolute top-0 flex flex-col items-center justify-center w-screen h-screen text-white bg-cover" style={{ backgroundImage: "url('/bg_wave.gif')" }}>
-        <img className="w-1/3 pointer-events-none" src="/main_logo.png" alt="Logo" />
+        <img className="w-1/3 pointer-events-none" src="/MainLogo_ATM.png" alt="Logo" />
         <div className="mt-4 text-sm w-1/3 text-center text-green-400">Revolutionizing Contactless Interactions</div>
         <div className="mt-4 text-sm w-2/5 text-center text-gray-400">A Proof of Concept Demo Showcasing Touchless Interactions Leveraging Mediapipe's Hand Project. Requires a newer computer. Best experienced in well-lit environments. Ideal on larger screens.</div>
         {cameraPermissionAllowed ? (
@@ -62,12 +73,15 @@ const Landing = (props) => {
 };
 
 
+// `PropMapFromState` function is used to map the `loaded` state from the redux store to the `loaded` props of the component.
 const PropMapFromState = (state) => ({
   loaded: state.hand.loaded,
 });
 
+// The `mapDispatchToProps` object is defined to map the `putInitialze` action to the `props` object.
 const mapDispatchToProps = {
   putInitialze,
 };
 
+// The `Landing` component is exported using the `connect` function from `react-redux` module.
 export default connect(PropMapFromState, mapDispatchToProps)(Landing);

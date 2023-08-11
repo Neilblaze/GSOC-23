@@ -1,6 +1,10 @@
+// Reusable functional React Component
+// Renders a modal with different content based on the showModal and showModal2 props.
+// Utilizes the `handleModalInteraction` prop to handle click events when the modal is displayed.
+
 import React from "react";
 
-const ModalC1 = ({ showModal, showModal2, handleModalInteraction }) => {
+const ModalC1 = ({ showModal, showModal2, handleModalInteraction }) => { // take three props as inputs
   if (showModal) {
     return (
       <div

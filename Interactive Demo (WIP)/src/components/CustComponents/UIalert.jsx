@@ -1,7 +1,18 @@
-import { useState, useEffect } from "react";
-import { connect } from "react-redux";
+// This is a React functional component that displays different alerts based 
+// on the `gesture`, `finger_locx`, and `loaded` props passed to it. It also 
+// listens for a Backspace key press event and triggers the "BACKSPACE" gesture accordingly.
 
 
+// -----------------------------------------------------------------------------------------
+
+
+// import the necessery dependencies / modules 
+import { useState, useEffect } from "react"; // React hooks
+import { connect } from "react-redux"; // `connect` from `react-redux` to connect the component to the Redux store 
+
+
+// This function takes a msg argument and returns a corresponding message based on the provided msg. 
+// It maps different gestures to appropriate messages like "Hovering 🤚," "Grabbing ✊," "Undo Input ✋," or "Clicking 👌."
 const messageFrom = (msg) => {
   if (msg === "HOVER") return "Hovering 🤚";
   else if (msg === "GRAB") return "Grabbing ✊"; // horizontal scroll operation TODO
@@ -9,10 +20,14 @@ const messageFrom = (msg) => {
   else return "Clicking 👌";
 };
 
+// The uses the `useState` hook to create two variables: `status` for the current alert status 
+// (e.g., "GRAB," "BACKSPACE," "no") 
+// and `lastTime` to track the (triggering of) last alert.
 function UIalert({ gesture, finger_locx, loaded }) {
   const [status, setStatus] = useState("no");
   const [lastTime, setLastTime] = useState(null);
 
+  // This function listens for a Backspace key press event and triggers the "BACKSPACE" gesture accordingly.
   const handleKeyDown = (event) => {
     if (event.keyCode === 8) {
       // Backspace key pressed, trigger "BACKSPACE" gesture
@@ -33,14 +48,14 @@ function UIalert({ gesture, finger_locx, loaded }) {
     console.log("Loaded:", loaded);
 
     if (!loaded) {
-      return;
+      return; // if the `loaded` prop is false, return null i.e. no alert
     }
 
     if (lastTime) {
-      clearTimeout(lastTime);
+      clearTimeout(lastTime); // clear the last alert's timer
     }
 
-    setStatus(gesture);
+    setStatus(gesture); // set the current alert status to the current gesture
 
     const timer = setTimeout(() => {
       setStatus("no");
@@ -50,14 +65,16 @@ function UIalert({ gesture, finger_locx, loaded }) {
 
     document.addEventListener("keydown", handleKeyDown);
     return () => {
-      document.removeEventListener("keydown", handleKeyDown);
+      document.removeEventListener("keydown", handleKeyDown); // remove event listener when component unmounts to prevent memory leaks
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [gesture, finger_locx, loaded, setStatus, setLastTime]);
 
+
+  // Component conditionally render different alerts based on the `status`. 
   if (!loaded) {
     return null;
-  } else if (status === "no") {
+  } else if (status === "no") {  // status is "no" and loaded is "true" 
     return (
       <div className="absolute top-0 mx-auto w-screen flex items-center justify-center mt-2" role="alert">
         <div>
@@ -67,7 +84,7 @@ function UIalert({ gesture, finger_locx, loaded }) {
         </div>
       </div>
     );
-  } else if (status === "GRAB") {
+  } else if (status === "GRAB") { // status is "GRAB" and loaded is "true"
     return (
       <div className="fixed top-0 left-0 w-full h-full flex items-center justify-center z-50 bg-opacity-40 bg-black">
         <img
@@ -77,7 +94,7 @@ function UIalert({ gesture, finger_locx, loaded }) {
         />
       </div>
     );
-  } else {
+  } else { // display all other status in blue background & corresponding messages
     return (
       <div className="absolute top-0 mx-auto w-screen flex items-center justify-center mt-2">
         <div className="flex items-center text-white text-sm font-bold bg-blue-600 px-4 py-3 rounded" role="alert">
@@ -91,6 +108,8 @@ function UIalert({ gesture, finger_locx, loaded }) {
   }
 }
 
+// The component is connected to the Redux store using `connect`, 
+// mapping `gesture`, `finger_locx`, and `loaded` states to props.
 const PropMapFromState = (state) => ({
   gesture: state.hand.gesture,
   finger_locx: state.hand.finger_locx,

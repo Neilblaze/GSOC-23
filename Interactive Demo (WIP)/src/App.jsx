@@ -1,4 +1,4 @@
-import Aeronexus from "./components/Aeronexus";
+import Kernel from "./components/Kernel";
 import CursorTip from "./components/CustComponents/CursorTip";
 import UIalert from "./components/CustComponents/UIalert";
 import Landing from "./components/Landing";
@@ -6,7 +6,7 @@ import Landing from "./components/Landing";
 function App() {
   return (
       <div className="bg-gray-900 h-screen w-screen">
-        <Aeronexus />
+        <Kernel />
         <CursorTip />
         <UIalert />
         <Landing />

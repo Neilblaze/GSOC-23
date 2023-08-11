@@ -1,12 +1,12 @@
 
-## NOTE: This README is outdated! The app now runs on React v18, so you can use the latest version of Node.js. I'll update this soon.
+## NOTE: This README is outdated! I'll update this soon.
 
-### Getting Started with [Aeronexus](https://aeronexus.neilblaze.live) using [GitHub Codespaces](https://github.com/features/codespaces):
+### Getting Started with Interactive Demo using [GitHub Codespaces](https://github.com/features/codespaces):
 
 
 Follow the exact instructions:
 
-1. Visit the Aeronexus [GitHub Repository]()
+1. Visit the [GitHub Repository]()
 
 2. You can fork the repository, but it's not necessary. Just click on the green button that says "Code" and select "Codespaces". Then simply click on "Create codespace on main" and wait for it to load.
 

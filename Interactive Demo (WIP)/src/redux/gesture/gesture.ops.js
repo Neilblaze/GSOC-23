@@ -1,3 +1,7 @@
+// Action creator functions to create actions with specific types and payload data to dispatch to the reducer.
+// Action creators are functions that return an action object with a type and payload property.
+
+// import action types
 import { GEST_ASSIGN, FINLOCK_ASSIGN, INIT_ASSIGN } from "./gesture.forms";
 
 export const putGesture = (gesture) => ({
