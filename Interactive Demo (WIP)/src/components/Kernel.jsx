@@ -10,7 +10,7 @@ import { useRef, useEffect } from 'react';
 import { FilesetResolver, HandLandmarker } from '@mediapipe/tasks-vision';
 import { connect } from 'react-redux';
 import { putGesture, putFingLock, putInitialze } from '../redux/gesture/gesture.ops';
-import allGesture from '../utils/allGesture';
+import { rightHandGestures, leftHandGestures } from '../utils/allGesture';
 
 // here three props are taken as input → putGesture, putFingLock, and putInitialze. 
 // We also create a canvasRef using the useRef hook to reference the canvas element.
@@ -74,7 +74,7 @@ function Kernel({ putGesture, putFingLock, putInitialze }) {
         numHands: 1,
         minHandDetectionConfidence: 0.6,
         minHandPresenceConfidence: 0.6,
-        // minHandTrackingConfidence: 0.5,      // this is default, hence ignored 
+        // minHandTrackingConfidence: 0.5,      // this is default, hence didn't add 
       });
 
       const cnvs = canvasRef.current;  // cnvs variable is used to reference the canvas element
@@ -94,17 +94,25 @@ function Kernel({ putGesture, putFingLock, putInitialze }) {
             try {
               const results = handLandmarker.detect(vidElm); // detect hand landmarks from video stream, & store in results
               const landmarks = results?.landmarks; // extract the landmarks from the results
-
+              const handType = (results?.handednesses[0]?.[0]?.categoryName) === "Left" ? "Right" : "Left"; // check if the detected hand is right/left
+              // console.log(results?.handednesses[0]);
+              // const handType = "Right";
               // Clear canvas before drawing (if landmarks are detected)
               ctx.clearRect(0, 0, cnvs.width, cnvs.height);
 
               if (landmarks && landmarks.length > 0) {
-                // Draw video frame
-                ctx.drawImage(vidElm, 0, 0, cnvs.width, cnvs.height);
-                // Draw landmarks and connectors
-                drawLandmarksAndConnectors(landmarks[0], ctx);
+                ctx.drawImage(vidElm, 0, 0, cnvs.width, cnvs.height); // Draw video frame
 
-                putGesture(allGesture(landmarks[0]));
+                console.log(handType);
+
+                if (handType === 'Right') {
+                  drawLandmarksAndConnectors(landmarks[0], ctx);
+                  putGesture(rightHandGestures(landmarks[0]));
+                } else if (handType === 'Left') {
+                  drawLandmarksAndConnectors(landmarks[0], ctx);
+                  putGesture(leftHandGestures(landmarks[0]));
+                }
+
                 putFingLock(landmarks[0]);
               } else {
                 // If hand landmarks are not detected, still draw the video frame (IMPORTANT!)

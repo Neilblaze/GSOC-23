@@ -115,9 +115,10 @@ const useEscKeyRedirect = (redirectFunc, isCase3, isCase4, playAudioOnRedirect, 
 
 
 
-function DashboardUI({ finger_locx }) { // Destructure the props
+function DashboardUI({ gesture }) { // Destructure the props
   const [pageNo, defPageNo] = useState(1); // Current page number
   const [pin, setPin] = useState(""); // User PIN input
+  // eslint-disable-next-line 
   const [lastUndo, setlastUndo] = useState(Date.now()); // Time of the last undo (action)
   const [isProcessing, setIsProcessing] = useState(false); // Case2 to Case3 transition processing state
   const [showConfetti, setShowConfetti] = useState(false);  // Confetti state
@@ -145,6 +146,29 @@ function DashboardUI({ finger_locx }) { // Destructure the props
       });
     }
   };
+
+  useEffect(() => {
+    let backspaceGestureActive = false;
+
+    const handleBackspaceGesture = () => {
+      if (gesture === "BACKSPACE") {
+        if (!backspaceGestureActive) {
+          backspaceGestureActive = true;
+        }
+        setPin((prevPin) => prevPin.slice(0, -1));
+        setlastUndo(Date.now()); // Tracking the timing of the last undo action
+      } else {
+        backspaceGestureActive = false;
+      }
+    };
+
+    const gestureCheckInterval = setInterval(handleBackspaceGesture, 800);
+
+    return () => {
+      clearInterval(gestureCheckInterval);
+    };
+  }, [gesture]);
+
 
   useEffect(() => {
     const handleKeyDown = (event) => {
@@ -226,15 +250,6 @@ function DashboardUI({ finger_locx }) { // Destructure the props
       document.removeEventListener("keydown", handleKeyDown);
     };
   }, [pin, pageNo]);
-
-  if (
-    finger_locx &&
-    finger_locx[20].x > finger_locx[8].x &&
-    Date.now() - 1000 > lastUndo
-  ) {
-    setPin(pin.slice(0, -1));
-    setlastUndo(Date.now());
-  }
 
   const login = () => {
     defPageNo(2);
@@ -636,7 +651,7 @@ function DashboardUI({ finger_locx }) { // Destructure the props
 
 // Map the state to props
 const PropMapFromState = (state) => ({
-  finger_locx: state.hand.finger_locx,
+  gesture: state.hand.gesture,
 });
 
 // Connect the component to the Redux store
