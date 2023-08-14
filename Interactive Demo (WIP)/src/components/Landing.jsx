@@ -42,11 +42,27 @@ const Landing = (props) => { // Landing component takes in props
   if (!loaded) {
     return (
       <div className="absolute top-0 flex flex-col items-center justify-center w-screen h-screen text-white bg-cover" style={{ backgroundImage: "url('/bg_wave.gif')" }}>
+      <div className="hidden lg:flex lg:flex-col lg:items-center lg:justify-center lg:w-screen lg:h-screen lg:text-white lg:bg-cover" style={{ backgroundImage: "url('/bg_wave.gif')" }}>
         <img className="w-1/3 pointer-events-none" src="/MainLogo_ATM.png" alt="Logo" />
         <div className="mt-4 text-sm w-1/3 text-center text-green-400">Revolutionizing Contactless Interactions</div>
         <div className="mt-4 text-sm w-2/5 text-center text-gray-400">A Proof of Concept Demo Showcasing Touchless Interactions Leveraging Mediapipe's Hand Project. Requires a newer computer. Best experienced in well-lit environments. Ideal on larger screens.</div>
+      </div>
+      {/* MOBILE PREVIEW */}
+      <div className="absolute top-[50%] left-1/2 transform -translate-y-1/2 -translate-x-1/2">
+        <div className="w-screen text-center mb-4 text-base lg:hidden">
+          <div className="absolute flex justify-center items-center w-3/5 h-3/5 mx-auto -top-80 animate-pulse">
+            <img className="pointer-events-none mb-4" src="/mobileDetect.png" alt="Logo" />
+          </div>
+          <div className="flex justify-center items-center w-3/5 h-3/5 mx-auto">
+            <img className="pointer-events-none mb-4" src="/MainLogo_ATM.png" alt="Logo" />
+          </div>
+          <div className="text-green-400">
+            Best experienced on a big screen or desktop! 😉
+          </div>
+        </div>
+      </div>
         {cameraPermissionAllowed ? (
-          <div className="flex items-center mt-2 text-sm w-1/4">
+          <div className="flex items-center mt-2 text-sm w-1/4 hidden lg:flex">
             <div className="absolute top-6 right-28 p-4">Loading Model</div>
             <svg className="absolute top-6 right-24 animate-spin h-5 mt-4 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
               <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
@@ -54,14 +70,14 @@ const Landing = (props) => { // Landing component takes in props
             </svg>
           </div>
         ) : (
-          <div className="flex items-center mt-2 text-sm w-1/4">
+          <div className="flex items-center mt-2 text-sm w-1/4 hidden lg:flex">
             <div className="absolute top-6 right-28 p-4 text-red-400">Grant Camera Access</div>
             <div className="absolute top-10 right-24 pointer-events-none">
               <img src="/sumercamppulse.gif" alt="" style={{ width: 23, height: 23 }} />
             </div>
           </div>
         )}
-        <div className="absolute top-2 left-2 p-4 pointer-events-none">
+        <div className="absolute top-2 left-2 p-4 pointer-events-none hidden lg:block">
           <img src="/MP_logo.png" alt="" style={{ width: 180, height: 50 }} />
         </div>
         <div className="absolute bottom-0 w-screen text-center mb-4 text-gray-400 text-sm">We neither collect, store, nor send any data. The video is processed in your browser itself and is GDPR compliant.</div>
