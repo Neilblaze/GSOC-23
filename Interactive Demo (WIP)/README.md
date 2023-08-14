@@ -1,6 +1,3 @@
-
-## NOTE: This README is outdated! I'll update this soon.
-
 ### Getting Started with Interactive Demo using [GitHub Codespaces](https://github.com/features/codespaces):
 
 
@@ -109,3 +106,5 @@ You should get a popup saying open in browser → The app should be running on p
 ![image](https://github.com/google/mediapipe/assets/57082943/77dda8b6-d373-4b54-b9db-b80e9a421cd3)
 
 Once done, you can delete the active codespaces by visiting [this link](https://github.com/codespaces).
+
+#### NOTE: The demo was built on Node v16.14.0, so it's recommended to use the same version to avoid any errors.

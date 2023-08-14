@@ -1,5 +1,6 @@
 {
   "name": "atm-playground",
+  "description": "Interactive Web Demo using MediaPipe Solutions",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -48,5 +49,7 @@
     "autoprefixer": "^9.8.6",
     "postcss": "^7.0.36",
     "tailwindcss": "npm:@tailwindcss/postcss7-compat"
-  }
+  },
+  "author": "MediaPipe Authors",
+  "license": "Apache-2.0"
 }
