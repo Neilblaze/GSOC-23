@@ -65,7 +65,7 @@ function Kernel({ putGesture, putFingLock, putInitialze }) {
       }
 
       // Draw landmarks
-      ctx.fillStyle = 'red';
+      ctx.fillStyle = 'teal';
       for (const landmark of landmarks) {
         ctx.beginPath();
         ctx.arc(landmark.x * canvasRef.current.width, landmark.y * canvasRef.current.height, 7, 0, 2 * Math.PI);
@@ -87,7 +87,7 @@ function Kernel({ putGesture, putFingLock, putInitialze }) {
         numHands: 1,
         minHandDetectionConfidence: 0.6,
         minHandPresenceConfidence: 0.6,
-        // minHandTrackingConfidence: 0.5,      // this is default, hence didn't add 
+        // minHandTrackingConfidence: 0.5,      // this is set by default
       });
 
       const cnvs = canvasRef.current;  // cnvs variable is used to reference the canvas element

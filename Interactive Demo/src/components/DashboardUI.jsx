@@ -93,7 +93,7 @@ const useModalInteractions = () => {
 
 
 // Custom Hook to handle ESC keydown events
-const useEscKeyRedirect = (redirectFunc, isCase3, isCase4, playAudioOnRedirect, defPageNo, resetAccountBalance, resetPin) => {  // takes multiple parameters
+const useEscKeyRedirect = (redirectFunc, isCase3, isCase4, playAudioOnRedirect, defPageNo, resetAccountBalance, resetPin) => { 
   useEffect(() => {
     const handleKeyDown = (event) => {
       if (isCase3 && event.keyCode === 27) {
@@ -222,11 +222,11 @@ function DashboardUI({ gesture }) { // Destructure the props
 
 
   const selectAmount = (amount) => {
-    setSelectedAmount(amount);
+    setSelectedAmount(amount);  // set the selected amount
   };
 
   const clearSelectedAmount = () => {
-    setSelectedAmount(null);
+    setSelectedAmount(null);  // clear the selected amount
   };
 
   const withdrawCash = () => {
@@ -293,7 +293,7 @@ function DashboardUI({ gesture }) { // Destructure the props
   useEscKeyRedirect(redirectToCase1, pageNo === 3, pageNo === 4, true, defPageNo, resetAccountBalance, resetPin);
   useEscKeyRedirect(redirectToCase3, pageNo === 4, pageNo === 3, false, defPageNo);
 
-
+  // Function to handle PIN submission
   const enterPin = () => {
     if (pin === "") return showToastOnce("PIN cannot be empty!", "error");
     else if (pin.length !== 4 || pin !== "1234") return showToastOnce("Wrong PIN", "error"); // Default PIN is 1234
@@ -306,6 +306,7 @@ function DashboardUI({ gesture }) { // Destructure the props
     }
   };
 
+  // Function to handle PIN input
   const addPin = (n) => {
     if (pin.length < 8) {
       setPin(pin + String(n));
@@ -360,7 +361,7 @@ function DashboardUI({ gesture }) { // Destructure the props
                   alt=""
                   className="absolute -top-6 -right-6 w-16 h-16"
                 />
-                <div className="text-3xl font-medium uppercase underline font-color text-yellow-300">
+                <div className="text-3xl font-medium uppercase underline font-color text-amber-300">
                   Login
                 </div>
                 <div className="mt-2 text-xl text-center">
@@ -390,7 +391,7 @@ function DashboardUI({ gesture }) { // Destructure the props
                 className="w-20 h-20 transform -rotate-90 pointer-events-none"
               />
             </div>
-            <div className="bg-gray-900 rounded px-8 py-2 mt-2 ml-4 text-4xl font-mono w-64 text-center tracking-widest h-14 border-2 border-purple-400 relative">
+            <div className="bg-gray-900 rounded px-8 py-2 mt-2 ml-4 text-4xl font-mono w-64 text-center tracking-widest h-14 border-2 border-violet-400 relative">
               {pinGen(pin.length)}
               {pin.length < 8 && (
                 <span className="inline-block w-4 h-1 bg-white animate-blink"></span>
@@ -422,7 +423,7 @@ function DashboardUI({ gesture }) { // Destructure the props
             ) : (
               <CombinedCard
                 type="card2"
-                className="h-20 col-span-2 border-green-500 border-4 flex items-center justify-center text-2xl font-medium"
+                className="h-20 col-span-2 border-emerald-500 border-4 flex items-center justify-center text-2xl font-medium"
                 onClick={enterPin}
               >
                 ✅ SUBMIT
@@ -495,7 +496,7 @@ function DashboardUI({ gesture }) { // Destructure the props
           <div className="flex flex-row">
             {services.map((service, index) => (
               <CombinedCard
-                type="card3"
+                type="card5"
                 key={index}
                 className={
                   index === 0
@@ -515,7 +516,7 @@ function DashboardUI({ gesture }) { // Destructure the props
                   }
                 }}
               >
-                <div className="uppercase underline font-bold text-2xl text-yellow-500 text-center">
+                <div className="uppercase underline font-bold text-2xl text-amber-500 text-center">
                   {service.title}
                 </div>
                 <div className="mt-2 text-center">{service.description}</div>
@@ -599,7 +600,7 @@ function DashboardUI({ gesture }) { // Destructure the props
                   key={value}
                   className={
                     selectedAmount === value
-                      ? "h-32 flex items-center justify-center text-4xl bg-green-600"
+                      ? "h-32 flex items-center justify-center text-4xl bg-emerald-600"
                       : "h-32 flex items-center justify-center text-4xl"
                   }
                   onClick={() => {
@@ -626,7 +627,7 @@ function DashboardUI({ gesture }) { // Destructure the props
                 </CombinedCard>
                 <CombinedCard
                   type="card2"
-                  className="mt-4 h-24 col-span-2 border-green-500 flex items-center border-4 justify-center text-2xl font-medium uppercase"
+                  className="mt-4 h-24 col-span-2 border-emerald-500 flex items-center border-4 justify-center text-2xl font-medium uppercase"
                   onClick={withdrawCash}
                 >
                   Withdraw ${selectedAmount}

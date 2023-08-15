@@ -74,7 +74,7 @@ function CursorTip(props) {
   return (
     <div className={`absolute w-10 h-10 text-xl rounded-full z-50 hidden items-center justify-center font-bold ${bg}`} ref={cursorRef}>
       {props.gesture && props.gesture[0]}
-      {showBorder && <div className="border-2 border-dashed border-orange-500 rounded-full absolute -inset-2 animate-spin" style={{ animationDuration: "4s" }}></div>}
+      {showBorder && <div className="border-2 border-dashed border-gray-200 rounded-full absolute -inset-2 animate-spin" style={{ animationDuration: "4s" }}></div>}
     </div>
   );
 }

@@ -89,11 +89,15 @@ function CombinedCard(props) {
       break;
     case 'card3':
       classesName = 'w-64 rounded border-yellow-400';
-      bgClass = 'bg-purple-400 bg-opacity-30 transform transition duration-500 scale-105';
+      bgClass = 'bg-violet-400 bg-opacity-30 transform transition duration-500 scale-105';
       break;
     case 'card4':
-      classesName = 'w-128 rounded-xl border-green-400';
+      classesName = 'w-128 rounded-xl border-emerald-400';
       bgClass = 'bg-green-200 bg-opacity-30 transform transition duration-500 scale-125';
+      break;
+    case 'card5':
+      classesName = 'w-64 rounded border-blue-500';
+      bgClass = 'bg-violet-400 bg-opacity-30 transform transition duration-500 scale-105';
       break;
     default:
       classesName = '';

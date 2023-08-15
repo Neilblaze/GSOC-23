@@ -15,14 +15,35 @@
 // ---------------------------------------------------------------------------------------- //
 
 
-// Configuration file exporting PostCSS plugins for styling with Tailwind CSS and Autoprefixer.
+// Tailwind CSS Configuration File
+
+/** @type {import('tailwindcss').Config} */
 module.exports = {
-  style: {
-    postcss: {
-      plugins: [
-        require("tailwindcss"),
-        require("autoprefixer"),
-      ],
+  content: ["./src/**/*.{js,jsx,ts,tsx}", "./public/index.html"],
+  theme: {
+    extend: {
+      scale: {
+        "minus-1": "-1",
+      },
+      filter: {
+        "grayscale-80": "grayscale(80%)",
+      },
+      boxShadow: {
+        blue: "0 4px 14px 0 rgba(19, 51, 81, 0.39)",
+      },
+      animation: {
+        blink: "blink 1s infinite",
+      },
+      keyframes: {
+        blink: {
+          "0%, 100%": { opacity: 1 },
+          "50%": { opacity: 0 },
+        },
+      },
     },
   },
+  variants: {
+    extend: {},
+  },
+  plugins: [],
 };

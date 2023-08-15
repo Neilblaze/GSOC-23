@@ -61,13 +61,13 @@ const Landing = (props) => { // Landing component takes in props
       <div className="absolute top-0 flex flex-col items-center justify-center w-screen h-screen text-white bg-cover" style={{ backgroundImage: "url('/bg_wave.gif')" }}>
       <div className="hidden lg:flex lg:flex-col lg:items-center lg:justify-center lg:w-screen lg:h-screen lg:text-white lg:bg-cover" style={{ backgroundImage: "url('/bg_wave.gif')" }}>
         <img className="w-1/3 pointer-events-none" src="/MainLogo_ATM.png" alt="Logo" />
-        <div className="mt-4 text-sm w-1/3 text-center text-green-400">Revolutionizing Contactless Interactions</div>
+        <div className="mt-4 text-sm w-1/3 text-center text-emerald-400">Revolutionizing Contactless Interactions</div>
         <div className="mt-4 text-sm w-2/5 text-center text-gray-400">A Proof of Concept Demo Showcasing Touchless Interactions Leveraging Mediapipe's Hand Project. Requires a newer computer. Best experienced in well-lit environments. Ideal on larger screens.</div>
       </div>
       {/* MOBILE PREVIEW */}
       <div className="absolute top-[50%] left-1/2 transform -translate-y-1/2 -translate-x-1/2">
         <div className="w-screen text-center mb-4 text-base lg:hidden">
-          <div className="absolute flex justify-center items-center w-3/5 h-3/5 mx-auto -top-80 animate-pulse">
+          <div className="absolute flex justify-center items-center w-3/5 h-3/5 mx-auto -top-64 right-20 animate-pulse">
             <img className="pointer-events-none mb-4" src="/mobileDetect.png" alt="Logo" />
           </div>
           <div className="flex justify-center items-center w-3/5 h-3/5 mx-auto">
