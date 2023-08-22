@@ -82,6 +82,9 @@ This project was created using:
 <br/>
 
 
+### Update (v0.1.1)
+Precaching is enabled! Hence, the app will work offline after the first load. 🎉
+
 ## Contact
 Pratyay Banerjee — [pratyaybanerjeex@gmail.com](mailto:pratyaybanerjeex@gmail.com)
 
