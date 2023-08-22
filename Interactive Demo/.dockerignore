@@ -1,0 +1,9 @@
+.git
+.vscode
+.editorconfig
+/node_modules
+# /.env
+/.gitignore
+*.zip
+*.md
+/build
