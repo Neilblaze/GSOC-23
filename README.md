@@ -4,10 +4,12 @@
 
 ## Description
 
-- **Year**: 2023 <br/>
+- **Year**: 2023
 - **Organisation**: [TensorFlow](https://www.tensorflow.org) <img src="https://github.com/google/mediapipe/assets/48355572/5205ea50-174c-4bb3-b2e9-b4564ad1a9c7" width="14.5px" height="15.5px">
 - **Project Title**: [Interactive Web Demos using the MediaPipe Machine Learning Library](https://summerofcode.withgoogle.com/programs/2023/projects/pd9KgnNP)
-- **Mentor**: [Jen Person](https://www.linkedin.com/in/jennifer-person) ([@jenperson](https://github.com/jenperson))
+- **Repository**: [googlesamples/mediapipe](https://github.com/googlesamples/mediapipe)
+- **Mentor**: [Jen Person](https://www.linkedin.com/in/jennifer-person) (<img src="https://user-images.githubusercontent.com/48355572/263745495-93ca876f-c21d-4af3-aa8e-e164cdc46b92.png" width="14.5px" height="14px">[@jenperson](https://github.com/jenperson))
+- **Project Size**: Medium
 
 
 <br/> 
@@ -21,9 +23,7 @@ The web app highlights a special **ATM** which showcases an <ins>augmented trans
 
 
 
-<details><summary><b>Shortened Version <img src="https://user-images.githubusercontent.com/48355572/234978665-08b7d16e-dace-479a-a061-478972c43f6b.gif" width="14px" height="14px"></b></summary><br/>In a rapidly evolving technological landscape, the aftermath of the COVID-19 pandemic has amplified concerns regarding hygiene and touch-based interactions. With **80%** of individuals deeming public touchscreens *unhygienic*, there is a compelling need for innovative solutions. Enter touchless gesture-based systems, poised to reshape industries and public spaces. Seamlessly aligning with the post-pandemic era, this technology offers intuitive and convenient interactions. From **ATMs** and airports to healthcare and retail, touchless interactions are on the brink of becoming ubiquitous. This project directly addresses these changing expectations by harnessing the power of the MediaPipe <a href="https://developers.google.com/mediapipe/api/solutions/js/tasks-vision.handlandmarker">Hand Landmarker</a>
- task from MediaPipe Solutions. By precisely detecting <a href="https://developers.google.com/mediapipe/solutions/vision/hand_landmarker#models">21</a>
- key hand landmarks, this technology powers an interactive web application enabling users to effortlessly engage with interfaces through contactless gestures. Designed for optimal performance in well-lit environments and on larger screens, this project embodies the future of safer, more advanced interactions.</details>
+<details><summary><b>Shortened Version <img src="https://user-images.githubusercontent.com/48355572/234978665-08b7d16e-dace-479a-a061-478972c43f6b.gif" width="14px" height="14px"></b></summary><br/>In a rapidly evolving technological landscape, the aftermath of the COVID-19 pandemic has amplified concerns regarding hygiene and touch-based interactions. With <b>80%</b> of individuals deeming public touchscreens <em>unhygienic</em>, there is a compelling need for innovative solutions. Enter touchless gesture-based systems, poised to reshape industries and public spaces. Seamlessly aligning with the post-pandemic era, this technology offers intuitive and convenient interactions. From **ATMs** and airports to healthcare and retail, touchless interactions are on the brink of becoming ubiquitous. This project directly addresses these changing expectations by harnessing the power of the MediaPipe <a href="https://developers.google.com/mediapipe/api/solutions/js/tasks-vision.handlandmarker">Hand Landmarker</a> task from MediaPipe Solutions. By precisely detecting <a href="https://developers.google.com/mediapipe/solutions/vision/hand_landmarker#models">21</a> key hand landmarks, this technology powers an interactive web application enabling users to effortlessly engage with interfaces through contactless gestures. Designed for optimal performance in well-lit environments and on larger screens, this project embodies the future of safer, more advanced interactions.</details>
 
 
 
@@ -59,14 +59,39 @@ The demo showcases the capabilities of the MediaPipe [Hand Landmarker](https://d
 ## Contributions <img src="https://user-images.githubusercontent.com/48355572/263670717-89cefc3e-346f-4b89-9f3a-36d7f14bb25c.png" width="18.5px" height="20px">
 Throughout the summer, I have made multiple contributions to [MediaPipe](https://github.com/googlesamples/mediapipe). It's to be noted that chunks of git commits have been `rebased` into each of them, including:
 
-- [x] [`app`]: MediaPipe Interactive Web Demo — Contactless ATM Playground, ([#209](https://github.com/googlesamples/mediapipe/pull/209))
-- [x] [`feat`]: Adding Offline Support for Interactive Web Demo, ([#215](https://github.com/googlesamples/mediapipe/pull/215))
+- [x] [`app`]: MediaPipe Interactive Web Demo — Contactless ATM Playground, ([**PR #209**](https://github.com/googlesamples/mediapipe/pull/209))
+ 
+    - Developed the interactive [web demo](https://atm-playground.netlify.app) utilizing MediaPipe's [Tasks Vision](https://www.npmjs.com/package/@mediapipe/tasks-vision) API. 
+    - Created components, logic, and styles following React's modular architecture.
+    - Implemented [gesture recognition](https://github.com/googlesamples/mediapipe/blob/2948bbc6fd78e3b3a15ef9d9b758279197dc5154/tutorials/atm_playground/src/components/Kernel.jsx#L128-L180) using hand landmarks for user interaction.
+    - Engineered a [custom logic](https://github.com/googlesamples/mediapipe/blob/2948bbc6fd78e3b3a15ef9d9b758279197dc5154/tutorials/atm_playground/src/utils/allGesture.js#L34-L42) for detecting the logic without using [`GestureRecognizer`](https://developers.google.com/mediapipe/api/solutions/js/tasks-vision.gesturerecognizer) Task.
+    - Added support for both hands while Landmark detection via [`HandLandmarker`](https://developers.google.com/mediapipe/solutions/vision/hand_landmarker) Task
+    - Wrote custom components and created different pages for the app. 
+    - Integrated React [Redux](https://github.com/googlesamples/mediapipe/tree/main/tutorials/atm_playground/src/redux) for state management and UI updates.
+    - Utilized React [Toastify](https://github.com/googlesamples/mediapipe/blob/2948bbc6fd78e3b3a15ef9d9b758279197dc5154/tutorials/atm_playground/src/components/DashboardUI.jsx#L22-L23) for displaying user notifications.
+    - Handcrafted UI assets for the app using Figma, Adobe Photoshop, Illustrator & After Effects.
+    - Fixed bugs & removed redundant code and optimized imports for better performance.
+    - Documented the app tutorial on my blog.
+    - Deployed the web demo on Netlify and exported the same as a CodeSandbox [template](https://codesandbox.io/p/sandbox/quizzical-neco-svhglk).  
+
+<br/>
+
+- [x] [`feat`]: Adding Offline Support for Interactive Web Demo, ([**PR #215**](https://github.com/googlesamples/mediapipe/pull/215))
+
+    - Worked with [Workbox](https://developer.chrome.com/docs/workbox/) & enhanced the web demo by adding offline support with a service worker.
+    - Implemented [`stale-while-revalidate`](https://developer.chrome.com/docs/workbox/caching-strategies-overview/#stale-while-revalidate) logic to dynamically update cached content upon service worker activation.
+    - Provided an option to unregister the service worker for troubleshooting or maintenance.
+    - Fixed minor UI bugs and refactored code.
+    - Updated the project's [`README`](https://github.com/Neilblaze/GSOC-23/blob/main/README.md) file with comprehensive instructions and usage guide.
+
+<br/>
+
 - [ ] [`style`]: Formatting & Asset Optimization, (WIP)
 
 <br/>
 
 
-## Blogs
+## Tutorial & Blogs
 Over the course of my GSoC journey, I've penned down blogs to share my insights, and here they are, presented in reverse chronological order:
 
 | No. | Blog Title                                                  | Description                                                           | Link                                                                                     |
