@@ -44,6 +44,8 @@ The demo showcases the capabilities of the MediaPipe [Hand Landmarker](https://d
 
 <br/>
 
+<img align="right" style="padding-top: 7px;" src="https://user-images.githubusercontent.com/48355572/264188852-ee3026fa-d8eb-4b2a-a4f8-f36d91f90ec4.png" alt="QR-Code" width="380" />  
+
 #### 🔸 Play with the Live Demo → [**Here**](https://atm-playground.netlify.app) ✨
 #### 🔸 Alternate CodeSandbox <img src="https://user-images.githubusercontent.com/48355572/263678308-90ed1881-a6f6-4453-842e-67200c44f970.png" width="14.5px" height="14.5px"> Template → [**Here**](https://codesandbox.io/p/sandbox/quizzical-neco-svhglk) ✨
 #### 🔸 View the Installation Notes → [**Here**](https://github.com/googlesamples/mediapipe/blob/main/tutorials/atm_playground/README.md#installation) ✨
